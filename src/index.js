@@ -11,6 +11,7 @@ import FavouritesDetails from './pages/FavouritesDetails';
 import Search from './pages/Search';
 import SearchList from './pages/SearchList';
 import Default from './pages/Default'
+import 'semantic-ui-css/semantic.min.css'
 
 ReactDOM.render(
     <BrowserRouter>
