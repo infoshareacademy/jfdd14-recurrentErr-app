@@ -1,22 +1,23 @@
 import React from 'react';
 import App from '../App';
-import { Card } from 'semantic-ui-react';
+import { Header, Card, Grid } from 'semantic-ui-react';
 import { PieChart, Pie, Sector, Cell } from 'recharts';
 
-const items = [
-    {
-      header: 'Rodzaje wędrówek',
-      description:
-        'Leverage agile frameworks to provide a robust synopsis for high level overviews.',
-      meta: 'Procentowy udział wędrówek w zależności od spędzonego czasu',
-    },
-    {
-      header: 'Czas wędrówek',
-      description:
-        'Bring to the table win-win survival strategies to ensure proactive domination.',
-      meta: 'Ile czasu poświęciłeś w tygodniu na wędrówki',
-    },
-];
+// const items = [
+//     {
+//       header: 'Rodzaje wędrówek',
+//       meta: 'Procentowy udział wędrówek w zależności od spędzonego czasu',
+//     },
+//     {
+//       header: 'Czas wędrówek',
+//       meta: 'Ile czasu poświęciłeś w tygodniu na wędrówki',
+//     },
+// ];
+
+const items = {
+    header: 'Rodzaje wędrówek',
+    meta: 'Procentowy udział wędrówek w zależności od spędzonego czasu',
+  };
 
 const data = [
   { name: 'Group A', value: 400 },
@@ -44,14 +45,14 @@ const renderCustomizedLabel = ({
 
 const CustomPieChart = () => {
   return (
-      <PieChart width={400} height={400}>
+      <PieChart width={420} height={400}>
         <Pie
           data={data}
-          cx={200}
-          cy={200}
+          cx={172}
+          cy={190}
           labelLine={false}
           label={renderCustomizedLabel}
-          outerRadius={80}
+          outerRadius={180}
           fill="#8884d8"
           dataKey="value"
         >
@@ -65,11 +66,43 @@ const CustomPieChart = () => {
 
 function Home(){
     return( 
+    // <div>
+    //     <App />
+    //     {/* <Card.Group centered fluid items={items} /> */}
+    //     <Card centered item={items}>
+    //       <Card.Content>
+    //         <Card.Header>{items.header}</Card.Header>
+    //         <Grid centered>{CustomPieChart()}</Grid>
+    //         <Card.Meta>{items.meta}</Card.Meta>
+    //       </Card.Content>
+    //     </Card>
+    // </div>
     <div>
-        <App />
-        <Card.Group centered fluid items={items} />
-        {CustomPieChart()}
-    </div>)
+      <App />
+      <Header as='h2' textAlign='center'>Dzień dobry wędrowcze!</Header>
+      <Header as='h3' textAlign='center' disabled>Masz tutaj parę statystyk dla odświeżenia pamięci</Header>
+      <Grid centered stackable columns={2}>
+        <Grid.Column width={7}>
+          <Card centered fluid item={items}>
+            <Card.Content>
+              <Card.Header textAlign='center'>{items.header}</Card.Header>
+              <Grid centered>{CustomPieChart()}</Grid>
+              <Card.Meta textAlign='center'>{items.meta}</Card.Meta>
+            </Card.Content>
+          </Card>
+        </Grid.Column>
+        <Grid.Column width={7}>
+          <Card centered fluid item={items}>
+            <Card.Content>
+              <Card.Header textAlign='center'>{items.header}</Card.Header>
+              <Grid centered>{CustomPieChart()}</Grid>
+              <Card.Meta textAlign='center'>{items.meta}</Card.Meta>
+            </Card.Content>
+          </Card>
+        </Grid.Column>
+      </Grid>
+    </div>
+    )
 }
 
 export default Home;
