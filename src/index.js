@@ -10,12 +10,15 @@ import Favourites from './pages/Favourites';
 import FavouritesDetails from './pages/FavouritesDetails';
 import Search from './pages/Search';
 import SearchList from './pages/SearchList';
-import Default from './pages/Default'
+import Default from './pages/Default';
+import 'semantic-ui-css/semantic.min.css';
+import Home from './pages/Home';
 
 ReactDOM.render(
-    <BrowserRouter>
+    <BrowserRouter>        
         <Switch>
             <Route exact path="/" component={App} />
+            <Route exact path='/home' component={Home} />
             <Route exact path='/addroute' component={AddRoute} />
             <Route exact path='/details' component={Details} />
             <Route exact path='/favourites' component={Favourites} />

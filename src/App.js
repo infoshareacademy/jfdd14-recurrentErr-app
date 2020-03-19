@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import './App.css';
 import Appbar from './Components/Appbar';
-import Sidebar from './Components/Sidebar';
+import SidebarReact from './Components/SidebarReact';
 import Footer from './Components/Footer';
 
 class App extends Component {
@@ -9,7 +9,7 @@ class App extends Component {
   return (
     <div>
       <Appbar />
-      <Sidebar />
+      <SidebarReact />
       <Footer />
     </div>   
   )}
