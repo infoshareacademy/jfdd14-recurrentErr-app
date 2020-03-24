@@ -5,3 +5,9 @@
 .ui.inverted.menu{
     background:#607D8B !important ;
 }
+
+
+div.item:hover{
+    background-color: #1e70bf !important;
+}
+

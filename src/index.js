@@ -1,6 +1,7 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 import './index.css';
+import 'semantic-ui-css/semantic.min.css';
 import App from './App';
 import * as serviceWorker from './serviceWorker';
 import { BrowserRouter, Switch, Route } from 'react-router-dom';
@@ -11,7 +12,6 @@ import FavouritesDetails from './pages/FavouritesDetails';
 import Search from './pages/Search';
 import SearchList from './pages/SearchList';
 import Default from './pages/Default';
-import 'semantic-ui-css/semantic.min.css';
 import Home from './pages/Home';
 
 ReactDOM.render(
