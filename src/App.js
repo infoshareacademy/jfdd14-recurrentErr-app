@@ -14,13 +14,12 @@ import Home from './pages/Home';
 
 class App extends Component {
   render(){
-  return (
-    <React.Fragment>
+  return (    
     <BrowserRouter> 
         <AppbarReact />
         <SidebarReact />        
         <Switch>
-            <Route exact path="/" component={App} />
+            {/* <Route exact path="/" component={App} /> */}
             <Route exact path='/home' component={Home} />
             <Route exact path='/addroute' component={AddRoute} />
             <Route exact path='/details' component={Details} />
@@ -30,8 +29,7 @@ class App extends Component {
             <Route exact path='/searchlist' component={SearchList} />
             <Route component={Default} />
         </Switch>   
-    </BrowserRouter> 
-    </React.Fragment>        
+    </BrowserRouter>          
       
   )}
 }

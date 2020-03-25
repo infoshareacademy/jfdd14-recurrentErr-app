@@ -1,10 +1,9 @@
 import React from 'react';
-import App from '../App';
 
 function SearchList(){
     return( 
     <div>
-        <App />
+       
     </div>)
 }
 
