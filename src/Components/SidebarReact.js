@@ -1,5 +1,5 @@
 import React from 'react';
-import { Icon, Menu, Segment, Sidebar } from 'semantic-ui-react';
+import { Icon, Menu, Segment, Sidebar, Responsive } from 'semantic-ui-react';
 import './sidebar.css';
 import { Link } from 'react-router-dom'
 
@@ -13,7 +13,7 @@ const SidebarReact = () => (
       inverted
       vertical
       visible
-      width='thin'                
+      width='thin'                     
     >
       <Link to='/home'><Menu.Item>
         <Icon name='home' />

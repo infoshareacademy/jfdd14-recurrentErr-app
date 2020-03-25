@@ -11,3 +11,13 @@ div.item:hover{
     background-color: #1e70bf !important;
 }
 
+
+
+@media screen and (max-width: 400px){
+    .ui.thin.left.sidebar{
+        width: 100px;
+    }
+}
+
+
+
