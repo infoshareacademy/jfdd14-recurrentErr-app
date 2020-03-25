@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import './App.css';
 // import Appbar from './Components/Appbar';
-import Sidebar from './Components/Sidebar';
+import SidebarReact from './Components/SidebarReact';
 import Footer from './Components/Footer';
 import ExButton from './Components/button';
 import Appbar from './Components/Appbar';
