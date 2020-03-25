@@ -4,6 +4,7 @@ import './index.css';
 import App from './App';
 import * as serviceWorker from './serviceWorker';
 import { BrowserRouter, Switch, Route } from 'react-router-dom';
+import Home from './pages/Home';
 import AddRoute from './pages/AddRoute';
 import Details from './pages/Details';
 import Favourites from './pages/Favourites';
@@ -17,6 +18,7 @@ ReactDOM.render(
     <BrowserRouter>
         <Switch>
             <Route exact path="/" component={App} />
+            <Route exact path='/dashboard' component={Home} />
             <Route exact path='/addroute' component={AddRoute} />
             <Route exact path='/details' component={Details} />
             <Route exact path='/favourites' component={Favourites} />
