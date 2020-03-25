@@ -1,44 +1,44 @@
-import React, { Component } from 'react';
-import { Menu } from 'semantic-ui-react';
-import logo from './logo/logoBW.png';
+import React, { Component } from "react";
+import { Menu } from "semantic-ui-react";
+import logo from "./logo/logoBW.png";
+import "./sidebar.css";
 
 class AppbarReact extends Component {
-  state = {}
+  state = {};
 
-  handleItemClick = (e, { name }) => this.setState({ activeItem: name })
+  handleItemClick = (e, { name }) => this.setState({ activeItem: name });
 
   render() {
-    const { activeItem } = this.state
+    const { activeItem } = this.state;
 
     return (
       <Menu stackable>
-        
-        <Menu.Item          
-          name='crossRoads'
-          active={activeItem === 'crossRoads'}
-          onClick={this.handleItemClick}        >
-          <img src={logo} alt='logo' /> crossRoads
+        <Menu.Item
+          name="crossRoads"
+          active={activeItem === "crossRoads"}
+          onClick={this.handleItemClick}
+        >
+          <img src={logo} alt="logo" /> crossRoads
         </Menu.Item>
 
         <Menu.Item
-          name='Zaloguj'
-          active={activeItem === 'Zaloguj'}
+          name="Zaloguj"
+          active={activeItem === "Zaloguj"}
           onClick={this.handleItemClick}
-          position='right'
+          position="right"
         >
           Zaloguj
         </Menu.Item>
 
         <Menu.Item
-          name='Zarejestruj'
-          active={activeItem === 'Zarejestruj'}
+          name="Zarejestruj"
+          active={activeItem === "Zarejestruj"}
           onClick={this.handleItemClick}
-          
         >
           Zarejestruj
         </Menu.Item>
       </Menu>
-    )
+    );
   }
 }
 

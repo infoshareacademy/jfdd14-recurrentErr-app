@@ -1,21 +1,65 @@
-.ui.segment{
-    height: 80vh;
+.ui.segment {
+  height: 92vh;
+  border-radius: 0% !important;
+  border: 0px !important;
 }
 
-.ui.inverted.menu{
-    background:#607D8B !important ;
+.ui.inverted.menu {
+  background: #607d8b !important ;
 }
 
-
-div.item:hover{
-    background-color: #1e70bf !important;
+div.item:hover {
+  background-color: #1e70bf !important;
 }
 
-@media screen and (max-width: 400px){
-    .ui.thin.left.sidebar{
-        width: 100px;
-    }
+@media screen and (max-width: 600px) {
+  .ui.thin.left.sidebar {
+    width: 60px;
+  }
+  .sidebarText {
+    visibility: hidden;
+  }
+  .ui.menu {
+    font-size: 1rem;
+  }
+  .ui.labeled.icon.menu .item {
+    min-width: 100% !important;
+    flex-direction: column;
+  }
+  .ui.menu .item {
+    padding-top: 1rem !important;
+  }
 }
 
+@media only screen and (max-width: 770px) {
+  .ui.stackable.menu {
+    flex-direction: row;
+    font-size: 1rem;
+    justify-content: left;
+    min-width: 100% !important;
+  }
+}
 
+.ui.menu {
+  font-size: 1.2rem;
+  color: #fff !important;
+  background: black;
+  border-radius: 0%;
+}
 
+.item {
+  color: white !important;
+}
+
+.ui.menu:first-child {
+  margin-top: 0;
+  margin-bottom: 0 !important;
+}
+
+.ui.segment.pushable {
+  margin: 0 !important;
+}
+
+.ui.stackable.menu {
+  height: 8vh;
+}
