@@ -28,9 +28,13 @@ function Home(){
           <Card centered fluid item={items}>
             <Card.Content>
               <Card.Header textAlign='center'>{items.header}</Card.Header>
-              <PieChart centered width={400} height={400}>
-                <Pie dataKey="value" data={data} fill="#8884d8" label />
-              </PieChart>
+              <div style={{ width: '100%', height: 450 }}>
+                <ResponsiveContainer>
+                  <PieChart>
+                    <Pie dataKey="value" data={data} fill="#8884d8" label />
+                  </PieChart>
+                </ResponsiveContainer>
+              </div>
               <Card.Meta textAlign='center'>{items.meta}</Card.Meta>
             </Card.Content>
           </Card>
@@ -39,9 +43,13 @@ function Home(){
           <Card centered fluid item={items}>
             <Card.Content>
               <Card.Header textAlign='center'>{items.header}</Card.Header>
-              <PieChart centered width={400} height={400}>
-                <Pie dataKey="value" data={data} fill="#8884d8" label />
-              </PieChart>
+              <div style={{ width: '100%', height: 450 }}>
+                <ResponsiveContainer>
+                  <PieChart>
+                    <Pie dataKey="value" data={data} fill="#8884d8" label />
+                  </PieChart>
+                </ResponsiveContainer>
+              </div>
               <Card.Meta textAlign='center'>{items.meta}</Card.Meta>
             </Card.Content>
           </Card>
