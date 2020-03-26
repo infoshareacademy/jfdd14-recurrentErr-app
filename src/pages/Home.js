@@ -1,7 +1,7 @@
 import React from 'react';
 import App from '../App';
 import { Header, Grid } from 'semantic-ui-react';
-import { PieChart, Pie, BarChart, Bar, XAxis, YAxis, CartesianGrid, Tooltip, Legend } from 'recharts';
+import { PieChart, Pie, BarChart, Bar, XAxis, YAxis, Tooltip, ReferenceLine } from 'recharts';
 import ChartContainer from '../Components/ChartCard.jsx';
 
 const items = {
@@ -16,25 +16,25 @@ const data = [
 
 const barData = [
   {
-    name: 'Page A', uv: 4000, pv: 2400, amt: 2400,
+    name: 'pon.', pv: 2400,
   },
   {
-    name: 'Page B', uv: 3000, pv: 1398, amt: 2210,
+    name: 'wt.', pv: 1398,
   },
   {
-    name: 'Page C', uv: 2000, pv: 9800, amt: 2290,
+    name: 'śr.', pv: 9800,
   },
   {
-    name: 'Page D', uv: 2780, pv: 3908, amt: 2000,
+    name: 'czw.', pv: 3908,
   },
   {
-    name: 'Page E', uv: 1890, pv: 4800, amt: 2181,
+    name: 'pt.', pv: 4800,
   },
   {
-    name: 'Page F', uv: 2390, pv: 3800, amt: 2500,
+    name: 'sob.', pv: 3800,
   },
   {
-    name: 'Page G', uv: 3490, pv: 4300, amt: 2100,
+    name: 'nd.', pv: 4300,
   },
 ];
 
@@ -62,25 +62,26 @@ function Home(){
                 data={barData}
                 margin={{
                   top: 5,
-                  right: 30,
-                  left: 20,
+                  right: 5,
+                  left: 5,
                   bottom: 5
                 }}
-                barSize={20}
+                barSize={15}
               >
                 <XAxis
                   dataKey="name"
                   scale="point"
                   padding={{ left: 10, right: 10 }}
                 />
-                <YAxis />
+                <YAxis axisLine={false}/>
                 <Tooltip />
-                <Legend />
-                <CartesianGrid strokeDasharray="3 3" />
+                <ReferenceLine y={10000} stroke='#eee' />
+                <ReferenceLine y={7500} stroke='#eee' />
+                <ReferenceLine y={5000} stroke='#eee' />
+                <ReferenceLine y={2500} stroke='#eee' />
                 <Bar
                   dataKey="pv"
                   fill="#8884d8"
-                  background={{ fill: "#eee" }}
                 />
               </BarChart>
             </ChartContainer>
