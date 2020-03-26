@@ -37,4 +37,17 @@
   }
 }
 
+@media only screen and (min-width: 771px) {
+  .container {
+    padding-top: 9vh !important;
+    padding-left: 150px !important;
+    min-height: 100vh !important;
+  }
+}
 
+@media only screen and (max-width: 770px) {
+  .container {
+    padding-top: 9vh !important;
+    min-height: 100vh !important;
+  }
+}

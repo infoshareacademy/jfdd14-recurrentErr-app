@@ -1,6 +1,5 @@
 import React, { Component } from "react";
 import "./App.css";
-import SidebarReact from "./Components/SidebarReact";
 import AppbarReact from "./Components/AppbarReact";
 import { BrowserRouter, Switch, Route } from "react-router-dom";
 import AddRoute from "./pages/AddRoute";
@@ -17,21 +16,22 @@ class App extends Component {
     return (
       <BrowserRouter>
         <AppbarReact />
-        <SidebarReact />
-        <Switch>
-          <Route exact path="/" component={Home} />
-          <Route exact path="/addroute" component={AddRoute} />
-          <Route exact path="/details" component={Details} />
-          <Route exact path="/favourites" component={Favourites} />
-          <Route
-            exact
-            path="/favouritesdetails"
-            component={FavouritesDetails}
-          />
-          <Route exact path="/search" component={Search} />
-          <Route exact path="/searchlist" component={SearchList} />
-          <Route component={Default} />
-        </Switch>
+        <div className="container">
+          <Switch>
+            <Route exact path="/" component={Home} />
+            <Route exact path="/addroute" component={AddRoute} />
+            <Route exact path="/details" component={Details} />
+            <Route exact path="/favourites" component={Favourites} />
+            <Route
+              exact
+              path="/favouritesdetails"
+              component={FavouritesDetails}
+            />
+            <Route exact path="/search" component={Search} />
+            <Route exact path="/searchlist" component={SearchList} />
+            <Route component={Default} />
+          </Switch>
+        </div>
       </BrowserRouter>
     );
   }

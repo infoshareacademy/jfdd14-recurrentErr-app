@@ -1,43 +1,37 @@
 import React, { Component } from "react";
 import { Menu } from "semantic-ui-react";
+import SidebarReact from "./SidebarReact";
 import logo from "./logo/logoBW.png";
 import "./sidebar.css";
 
 class AppbarReact extends Component {
-  state = {};
+  state = {
+    sidebarVisible: true,
+  };
 
-  handleItemClick = (e, { name }) => this.setState({ activeItem: name });
-
+  changeMenuVisibility = () => {
+    this.setState({
+      sidebarVisible: !this.state.sidebarVisible,
+    });
+  };
   render() {
-    const { activeItem } = this.state;
+    const { sidebarVisible } = this.state;
 
     return (
-      <Menu stackable>
-        <Menu.Item
-          name="crossRoads"
-          active={activeItem === "crossRoads"}
-          onClick={this.handleItemClick}
-        >
-          <img src={logo} alt="logo" /> crossRoads
-        </Menu.Item>
+      <React.Fragment>
+        <Menu stackable>
+          <Menu.Item icon="bars" active onClick={this.changeMenuVisibility} />
+          <Menu.Item name="crossRoads" active>
+            <img src={logo} alt="logo" /> crossRoads
+          </Menu.Item>
 
-        <Menu.Item
-          name="Zaloguj"
-          active={activeItem === "Zaloguj"}
-          onClick={this.handleItemClick}
-          position="right"
-        >
-          Zaloguj
-        </Menu.Item>
+          <Menu.Item name="Zaloguj" active position="right">
+            Logowanie
+          </Menu.Item>
+        </Menu>
 
-        <Menu.Item
-          name="Zarejestruj"
-          active={activeItem === "Zarejestruj"}
-          onClick={this.handleItemClick}
-        >
-          Zarejestruj
-        </Menu.Item>
-      </Menu>
+        <SidebarReact visibility={sidebarVisible} />
+      </React.Fragment>
     );
   }
 }

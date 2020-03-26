@@ -1,5 +1,4 @@
 import React from "react";
-import App from "../App";
 import { Header, Card, Grid } from "semantic-ui-react";
 import { PieChart, Pie, Sector, Cell, ResponsiveContainer } from "recharts";
 
@@ -18,7 +17,6 @@ const data = [
 function Home() {
   return (
     <div>
-      <App />
       <Header as="h2" textAlign="center">
         Dzień dobry wędrowcze!
       </Header>

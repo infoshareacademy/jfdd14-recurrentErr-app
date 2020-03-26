@@ -6,18 +6,23 @@
 
 .ui.inverted.menu {
   background: #607d8b !important ;
+  z-index: 100 !important;
+  margin-top: 7.5vh !important;
 }
 
 div.item:hover {
   background-color: #1e70bf !important;
 }
 
+.ui.stackable.menu {
+  z-index: 300;
+  position: fixed !important;
+  width: 100%;
+}
+
 @media screen and (max-width: 600px) {
   .ui.thin.left.sidebar {
-    width: 60px;
-  }
-  .sidebarText {
-    visibility: hidden;
+    width: 100px;
   }
   .ui.menu {
     font-size: 1rem;
@@ -29,14 +34,18 @@ div.item:hover {
   .ui.menu .item {
     padding-top: 1rem !important;
   }
+  div.ui.stackable.menu {
+    font-size: 1rem;
+  }
 }
 
 @media only screen and (max-width: 770px) {
-  .ui.stackable.menu {
+  div.ui.stackable.menu {
     flex-direction: row;
-    font-size: 1rem;
-    justify-content: left;
     min-width: 100% !important;
+  }
+  .active {
+    max-width: 33% !important;
   }
 }
 
