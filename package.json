@@ -4,8 +4,8 @@
   "private": true,
   "husky": {
     "hooks": {
-    "pre-commit": "lint-staged"
-  }
+      "pre-commit": "lint-staged"
+    }
   },
   "dependencies": {
     "@testing-library/jest-dom": "^4.2.4",
@@ -22,9 +22,9 @@
     "semantic-ui-css": "^2.4.1",
     "semantic-ui-react": "^0.88.2"
   },
-    "lint-staged": {
+  "lint-staged": {
     "src/**/*.{js,jsx,ts,tsx,json,css,scss,md}": [
-    "prettier --write"
+      "prettier --write"
     ]
   },
   "scripts": {
