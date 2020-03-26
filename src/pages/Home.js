@@ -1,42 +1,40 @@
 import React from 'react';
 import App from '../App';
 import { Header, Grid } from 'semantic-ui-react';
-import { PieChart, Pie, BarChart, Bar, XAxis, YAxis, Tooltip, ReferenceLine } from 'recharts';
+import { PieChart, Pie, BarChart, Bar, XAxis, YAxis, Tooltip, ReferenceLine, CartesianGrid } from 'recharts';
 import ChartContainer from '../Components/ChartCard.jsx';
 
+
 const items = {
-    header: 'Rodzaje wędrówek',
-    meta: 'Procentowy udział wędrówek w zależności od spędzonego czasu',
-  };
+  pie: {
+    header: "Rodzaje wędrówek",
+    meta: "Procentowy udział wędrówek w zależności od spędzonego czasu"
+  },
+  bar: {
+    header: "Rodzaje wędrówek",
+    meta: "Procentowy udział wędrówek w zależności od spędzonego czasu"
+  }
+};
 
-const data = [
-  { name: 'Group A', value: 400 }, { name: 'Group B', value: 300 },
-  { name: 'Group C', value: 300 }, { name: 'Group D', value: 200 },
-];
 
-const barData = [
-  {
-    name: 'pon.', pv: 2400,
-  },
-  {
-    name: 'wt.', pv: 1398,
-  },
-  {
-    name: 'śr.', pv: 9800,
-  },
-  {
-    name: 'czw.', pv: 3908,
-  },
-  {
-    name: 'pt.', pv: 4800,
-  },
-  {
-    name: 'sob.', pv: 3800,
-  },
-  {
-    name: 'nd.', pv: 4300,
-  },
-];
+const data = {
+  pie: [
+    { name: "Group A", value: 400 },
+    { name: "Group B", value: 300 },
+    { name: "Group C", value: 300 },
+    { name: "Group D", value: 200 }
+  ],
+  bar: [
+    { name: "pon.", pv: 120 },
+    { name: "wt.", pv: 30 },
+    { name: "śr.", pv: 160 },
+    { name: "czw.", pv: 100 },
+    { name: "pt.", pv: 40 },
+    { name: "sob.", pv: 10 },
+    { name: "nd.", pv: 20 }
+  ]
+};
+
 
 function Home(){
     return (
@@ -49,17 +47,17 @@ function Home(){
           Masz tutaj parę statystyk dla odświeżenia pamięci
         </Header>
         <Grid centered stackable columns={2}>
-          <Grid.Column width={6}>
-            <ChartContainer header={items.header} meta={items.meta}>
+          <Grid.Column width={7}>
+            <ChartContainer header={items.pie.header} meta={items.pie.meta}>
               <PieChart>
-                <Pie dataKey="value" data={data} fill="#8884d8" label />
+                <Pie dataKey="value" data={data.pie} fill="#8884d8" label />
               </PieChart>
             </ChartContainer>
           </Grid.Column>
-          <Grid.Column width={6}>
-            <ChartContainer header={items.header} meta={items.meta}>
+          <Grid.Column width={7}>
+            <ChartContainer header={items.bar.header} meta={items.bar.meta}>
               <BarChart
-                data={barData}
+                data={data.bar}
                 margin={{
                   top: 5,
                   right: 5,
@@ -71,14 +69,11 @@ function Home(){
                 <XAxis
                   dataKey="name"
                   scale="point"
-                  padding={{ left: 10, right: 10 }}
+                  padding={{ left: 15, right: 15 }}
                 />
-                <YAxis axisLine={false}/>
+                <YAxis axisLine={false} orientation='right' tickLine={false} />
+                <CartesianGrid vertical={false} />
                 <Tooltip />
-                <ReferenceLine y={10000} stroke='#eee' />
-                <ReferenceLine y={7500} stroke='#eee' />
-                <ReferenceLine y={5000} stroke='#eee' />
-                <ReferenceLine y={2500} stroke='#eee' />
                 <Bar
                   dataKey="pv"
                   fill="#8884d8"
