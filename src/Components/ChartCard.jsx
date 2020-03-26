@@ -2,12 +2,12 @@ import React from 'react';
 import { Card } from 'semantic-ui-react';
 import { ResponsiveContainer } from 'recharts';
 
-function ChartContainer(props){
+function ChartCard(props){
     return (
       <Card centered fluid>
         <Card.Content>
           <Card.Header textAlign="center">{props.header}</Card.Header>
-          <div style={{ width: "100%", height: "40vh", position: "relative" }}>
+          <div style={{ width: "100%", height: "40vh" }}>
             <ResponsiveContainer>
               {props.children}
             </ResponsiveContainer>
@@ -18,4 +18,4 @@ function ChartContainer(props){
     );
 }
 
-export default ChartContainer;
+export default ChartCard;
