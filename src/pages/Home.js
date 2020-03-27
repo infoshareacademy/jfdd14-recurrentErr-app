@@ -1,36 +1,35 @@
 import React from "react";
 import App from "../App";
 import { Header, Grid } from "semantic-ui-react";
-import { PieChart, Pie } from "recharts";
-import ChartContainer from "../Components/ChartCard.jsx";
 import CustomBarChart from "../Components/CustomBarChart.jsx";
 import CustomPieChart from "../Components/CustomPieChart.jsx";
 
 const items = {
   pie: {
-    header: "Rodzaje wędrówek",
-    meta: "Ilość poszczeóglnych wędrówek w odniesieniu do całości"
+    header: "Rodzaje wędrówek w poprzednich czterech tygoniach",
+    meta: "Jak często wybierałeś wędrówki o określonej długości"
   },
   bar: {
     header: "Tyle przespacerowałeś w poprzednich czterech tygoniach",
-    meta: "Czas w minutach"
+    meta: "Czas w minutach jaki poświęciłeś na wędrówki"
   }
 };
 
 const data = {
   pie: [
-    { name: "Group A", value: 400 },
-    { name: "Group B", value: 300 },
-    { name: "Group C", value: 300 },
-    { name: "Group D", value: 200 }
+    { name: ">10 km", value: 1 },
+    { name: "5- 9 km", value: 5 },
+    { name: "3 - 4 km", value: 2 },
+    { name: "0 - 2 km", value: 8 }
   ],
   bar: [
-    { name: "09.03-15.03", value: 120 },
-    { name: "16.03-22.03", value: 30 },
-    { name: "23.03-29.03", value: 160 },
-    { name: "30.03-05.04", value: 100 }
+    { name: "09.03-15.03", czas: 120 },
+    { name: "16.03-22.03", czas: 30 },
+    { name: "23.03-29.03", czas: 160 },
+    { name: "30.03-05.04", czas: 100 }
   ]
 };
+
 
 function Home() {
   return (
