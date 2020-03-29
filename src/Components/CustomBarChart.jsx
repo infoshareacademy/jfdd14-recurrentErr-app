@@ -24,7 +24,7 @@ function CustomBarChart(props) {
           tickLine={false}
         />
         <Tooltip />
-        <Bar dataKey="czas" barSize={20} fill="#607d8b" />
+        <Bar dataKey="czas" barSize={20} fill="#5551d5" />
       </BarChart>
     </ChartContainer>
   );

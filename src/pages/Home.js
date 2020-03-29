@@ -5,11 +5,11 @@ import CustomPieChart from "../Components/CustomPieChart.jsx";
 
 const items = {
   pie: {
-    header: "Rodzaje wędrówek w poprzednich czterech tygoniach",
+    header: "Rodzaje wędrówek w poprzednich czterech tygodniach",
     meta: "Jak często wybierałeś wędrówki o określonej długości",
   },
   bar: {
-    header: "Tyle przespacerowałeś w poprzednich czterech tygoniach",
+    header: "Tyle przespacerowałeś w poprzednich czterech tygodniach",
     meta: "Czas w minutach jaki poświęciłeś na wędrówki",
   },
 };
@@ -31,32 +31,32 @@ const data = {
 
 function Home() {
   return (
-    <Grid centered stackable columns={2} padded>
-      <Grid.Row>
-        <Header as="h2" textAlign="center">
-          Dzień dobry wędrowcze!
-          <Header.Subheader textAlign="center">
-            Masz tutaj parę statystyk dla odświeżenia pamięci
-          </Header.Subheader>
-        </Header>
-      </Grid.Row>
-      <Grid.Row>
-        <Grid.Column width={7}>
+    <React.Fragment>
+      <Grid centered stackable columns={2} padded>
+        <Grid.Column width={16} verticalAlign="middle">
+          <Header as="h2">
+            Dzień dobry wędrowcze!
+            <Header.Subheader>
+              Masz tutaj parę statystyk dla odświeżenia pamięci
+            </Header.Subheader>
+          </Header>
+        </Grid.Column>
+        <Grid.Column tablet={12} computer={7} largeScreen={6} stretched>
           <CustomPieChart
             pieHeader={items.pie.header}
             pieMeta={items.pie.meta}
             pieData={data.pie}
           />
         </Grid.Column>
-        <Grid.Column width={7}>
+        <Grid.Column tablet={12} computer={7} largeScreen={6} stretched>
           <CustomBarChart
             barHeader={items.bar.header}
             barMeta={items.bar.meta}
             barData={data.bar}
           />
         </Grid.Column>
-      </Grid.Row>
-    </Grid>
+      </Grid>
+    </React.Fragment>
   );
 }
 
