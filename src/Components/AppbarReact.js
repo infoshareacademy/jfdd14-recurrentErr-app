@@ -1,12 +1,14 @@
 import React, { Component } from "react";
-import { Menu } from "semantic-ui-react";
+import { Menu, Responsive } from "semantic-ui-react";
+import { Link } from "react-router-dom";
 import SidebarReact from "./SidebarReact";
+import SidebarReactHamburger from "./SidebarReactHamburger";
 import logo from "./logo/logoBW.png";
 import "./sidebar.css";
 
 class AppbarReact extends Component {
   state = {
-    sidebarVisible: true,
+    sidebarVisible: false,
   };
 
   changeMenuVisibility = () => {
@@ -20,17 +22,32 @@ class AppbarReact extends Component {
     return (
       <React.Fragment>
         <Menu stackable>
-          <Menu.Item icon="bars" active onClick={this.changeMenuVisibility} />
-          <Menu.Item name="crossRoads" active>
+          <Responsive
+            as={Menu.Item}
+            maxWidth={767}
+            icon="bars"
+            active
+            onClick={this.changeMenuVisibility}
+          ></Responsive>
+          <Menu.Item as={Link} to="/" name="crossRoads" active>
             <img src={logo} alt="logo" /> crossRoads
           </Menu.Item>
 
-          <Menu.Item name="Zaloguj" active position="right">
+          <Menu.Item as={Link} to="/" name="Zaloguj" active position="right">
             Logowanie
           </Menu.Item>
         </Menu>
 
-        <SidebarReact visibility={sidebarVisible} />
+        <Responsive
+          as={SidebarReact}
+          visibility={sidebarVisible}
+          minWidth={768}
+        />
+        <Responsive
+          as={SidebarReactHamburger}
+          visibility={sidebarVisible}
+          maxWidth={767}
+        />
       </React.Fragment>
     );
   }

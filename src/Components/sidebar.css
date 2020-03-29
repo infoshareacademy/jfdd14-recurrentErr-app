@@ -39,12 +39,14 @@ div.item:hover {
   }
 }
 
-@media only screen and (max-width: 770px) {
+@media only screen and (max-width: 767px) {
   div.ui.stackable.menu {
     flex-direction: row;
     min-width: 100% !important;
+    margin-left: auto !important;
+    width: auto !important;
   }
-  .active {
+  div.ui.stackable.menu.item {
     max-width: 33% !important;
   }
 }

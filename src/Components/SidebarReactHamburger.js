@@ -3,7 +3,7 @@ import { Icon, Menu, Sidebar } from "semantic-ui-react";
 import { Link } from "react-router-dom";
 import "./sidebar.css";
 
-class SidebarReact extends Component {
+class SidebarReactHamburger extends Component {
   render() {
     const visibility = this.props.visibility;
     return (
@@ -13,7 +13,7 @@ class SidebarReact extends Component {
         icon="labeled"
         inverted
         vertical
-        visible={visibility ? false : true}
+        visible={visibility ? true : false}
         width="thin"
       >
         <Menu.Item as={Link} to="/">
@@ -40,4 +40,4 @@ class SidebarReact extends Component {
   }
 }
 
-export default SidebarReact;
+export default SidebarReactHamburger;
