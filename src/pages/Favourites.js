@@ -1,11 +1,7 @@
-import React from 'react';
-import App from '../App';
+import React from "react";
 
-function Favourites(){
-    return( 
-    <div>
-        <App />
-    </div>)
+function Favourites() {
+  return <div></div>;
 }
 
 export default Favourites;

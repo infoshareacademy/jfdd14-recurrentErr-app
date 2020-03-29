@@ -1,11 +1,7 @@
-import React from 'react';
-import App from '../App';
+import React from "react";
 
-function Details(){
-    return( 
-    <div>
-        <App />
-    </div>)
+function Details() {
+  return <div></div>;
 }
 
 export default Details;

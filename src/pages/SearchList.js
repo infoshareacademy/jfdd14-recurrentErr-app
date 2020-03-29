@@ -1,11 +1,7 @@
-import React from 'react';
-import App from '../App';
+import React from "react";
 
-function SearchList(){
-    return( 
-    <div>
-        <App />
-    </div>)
+function SearchList() {
+  return <div></div>;
 }
 
 export default SearchList;

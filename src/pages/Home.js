@@ -1,5 +1,4 @@
 import React from "react";
-import App from "../App";
 import { Header, Grid } from "semantic-ui-react";
 import CustomBarChart from "../Components/CustomBarChart.jsx";
 import CustomPieChart from "../Components/CustomPieChart.jsx";
@@ -7,12 +6,12 @@ import CustomPieChart from "../Components/CustomPieChart.jsx";
 const items = {
   pie: {
     header: "Rodzaje wędrówek w poprzednich czterech tygoniach",
-    meta: "Jak często wybierałeś wędrówki o określonej długości"
+    meta: "Jak często wybierałeś wędrówki o określonej długości",
   },
   bar: {
     header: "Tyle przespacerowałeś w poprzednich czterech tygoniach",
-    meta: "Czas w minutach jaki poświęciłeś na wędrówki"
-  }
+    meta: "Czas w minutach jaki poświęciłeś na wędrówki",
+  },
 };
 
 const data = {
@@ -20,21 +19,19 @@ const data = {
     { name: ">10 km", value: 1 },
     { name: "5- 9 km", value: 5 },
     { name: "3 - 4 km", value: 2 },
-    { name: "0 - 2 km", value: 8 }
+    { name: "0 - 2 km", value: 8 },
   ],
   bar: [
     { name: "09.03-15.03", czas: 120 },
     { name: "16.03-22.03", czas: 30 },
     { name: "23.03-29.03", czas: 160 },
-    { name: "30.03-05.04", czas: 100 }
-  ]
+    { name: "30.03-05.04", czas: 100 },
+  ],
 };
-
 
 function Home() {
   return (
     <div>
-      <App />
       <Header as="h2" textAlign="center">
         Dzień dobry wędrowcze!
         <Header.Subheader textAlign="center">
@@ -42,7 +39,7 @@ function Home() {
         </Header.Subheader>
       </Header>
 
-      <Grid centered stackable columns={2}>
+      <Grid centered stackable columns={2} padded="vertically">
         <Grid.Column width={7}>
           <CustomPieChart
             pieHeader={items.pie.header}
