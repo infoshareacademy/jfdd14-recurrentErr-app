@@ -31,15 +31,16 @@ const data = {
 
 function Home() {
   return (
-    <div>
-      <Header as="h2" textAlign="center">
-        Dzień dobry wędrowcze!
-        <Header.Subheader textAlign="center">
-          Masz tutaj parę statystyk dla odświeżenia pamięci
-        </Header.Subheader>
-      </Header>
-
-      <Grid centered stackable columns={2} padded="vertically">
+    <Grid centered stackable columns={2} padded>
+      <Grid.Row>
+        <Header as="h2" textAlign="center">
+          Dzień dobry wędrowcze!
+          <Header.Subheader textAlign="center">
+            Masz tutaj parę statystyk dla odświeżenia pamięci
+          </Header.Subheader>
+        </Header>
+      </Grid.Row>
+      <Grid.Row>
         <Grid.Column width={7}>
           <CustomPieChart
             pieHeader={items.pie.header}
@@ -54,8 +55,8 @@ function Home() {
             barData={data.bar}
           />
         </Grid.Column>
-      </Grid>
-    </div>
+      </Grid.Row>
+    </Grid>
   );
 }
 
