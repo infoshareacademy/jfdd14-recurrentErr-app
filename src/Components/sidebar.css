@@ -34,9 +34,6 @@ div.item:hover {
   .ui.menu .item {
     padding-top: 1rem !important;
   }
-  div.ui.stackable.menu {
-    font-size: 1rem;
-  }
 }
 
 @media only screen and (max-width: 767px) {

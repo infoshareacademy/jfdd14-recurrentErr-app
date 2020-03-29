@@ -60,12 +60,19 @@
     justify-content: space-between;
   }
   .active.icon.item {
-    max-width: 15% !important;
+    max-width: 33% !important;
   }
   .active.item {
-    max-width: 70% !important;
+    max-width: 33% !important;
   }
   .right.active.item {
-    max-width: 15%;
+    max-width: 33% !important;
+  }
+
+  i.bars.icon {
+    margin-left: 20% !important;
+  }
+  i.user.circle.icon {
+    margin-right: 20% !important;
   }
 }

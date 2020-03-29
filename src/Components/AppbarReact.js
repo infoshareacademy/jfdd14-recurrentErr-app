@@ -33,9 +33,22 @@ class AppbarReact extends Component {
             <img src={logo} alt="logo" /> crossRoads
           </Menu.Item>
 
-          <Menu.Item as={Link} to="/" name="Zaloguj" active position="right">
+          <Responsive
+            as={Menu.Item}
+            minWidth={768}
+            to="/"
+            name="Zaloguj"
+            active
+            position="right"
+          >
             Logowanie
-          </Menu.Item>
+          </Responsive>
+          <Responsive
+            as={Menu.Item}
+            maxWidth={767}
+            icon="user circle"
+            active
+          ></Responsive>
         </Menu>
 
         <Responsive
