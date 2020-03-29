@@ -76,3 +76,9 @@
     margin-right: 20% !important;
   }
 }
+
+@media only screen and (max-width: 500px) {
+  div.ui.stackable.menu {
+    font-size: 0.8rem;
+  }
+}
