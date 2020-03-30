@@ -1,10 +1,7 @@
-import React from 'react';
+import React from "react";
 
-function Details(){
-    return( 
-    <div>
-        
-    </div>)
+function Details() {
+  return <div></div>;
 }
 
 export default Details;

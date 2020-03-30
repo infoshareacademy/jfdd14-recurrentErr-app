@@ -1,53 +1,62 @@
 import React from "react";
-import { Header, Card, Grid } from "semantic-ui-react";
-import { PieChart, Pie, Sector, Cell, ResponsiveContainer } from "recharts";
+import { Header, Grid } from "semantic-ui-react";
+import CustomBarChart from "../Components/CustomBarChart.jsx";
+import CustomPieChart from "../Components/CustomPieChart.jsx";
 
 const items = {
-  header: "Rodzaje wędrówek",
-  meta: "Procentowy udział wędrówek w zależności od spędzonego czasu",
+  pie: {
+    header: "Rodzaje wędrówek w poprzednich czterech tygodniach",
+    meta: "Jak często wybierałeś wędrówki o określonej długości",
+  },
+  bar: {
+    header: "Tyle przespacerowałeś w poprzednich czterech tygodniach",
+    meta: "Czas w minutach jaki poświęciłeś na wędrówki",
+  },
 };
 
-const data = [
-  { name: "Group A", value: 400 },
-  { name: "Group B", value: 300 },
-  { name: "Group C", value: 300 },
-  { name: "Group D", value: 200 },
-];
+const data = {
+  pie: [
+    { name: ">10 km", value: 1 },
+    { name: "5- 9 km", value: 5 },
+    { name: "3 - 4 km", value: 2 },
+    { name: "0 - 2 km", value: 8 },
+  ],
+  bar: [
+    { name: "09.03-15.03", czas: 120 },
+    { name: "16.03-22.03", czas: 30 },
+    { name: "23.03-29.03", czas: 160 },
+    { name: "30.03-05.04", czas: 100 },
+  ],
+};
 
 function Home() {
   return (
-    <div>
-      <Header as="h2" textAlign="center">
-        Dzień dobry wędrowcze!
-      </Header>
-      <Header as="h3" textAlign="center" disabled>
-        Masz tutaj parę statystyk dla odświeżenia pamięci
-      </Header>
-      <Grid centered stackable columns={2}>
-        <Grid.Column width={7}>
-          <Card centered fluid item={items}>
-            <Card.Content>
-              <Card.Header textAlign="center">{items.header}</Card.Header>
-              <PieChart centered width={400} height={400}>
-                <Pie dataKey="value" data={data} fill="#8884d8" label />
-              </PieChart>
-              <Card.Meta textAlign="center">{items.meta}</Card.Meta>
-            </Card.Content>
-          </Card>
+    <React.Fragment>
+      <Grid centered stackable columns={2} padded>
+        <Grid.Column width={16} verticalAlign="middle">
+          <Header as="h2">
+            Dzień dobry wędrowcze!
+            <Header.Subheader>
+              Masz tutaj parę statystyk dla odświeżenia pamięci
+            </Header.Subheader>
+          </Header>
         </Grid.Column>
-        <Grid.Column width={7}>
-          <Card centered fluid item={items}>
-            <Card.Content>
-              <Card.Header textAlign="center">{items.header}</Card.Header>
-              <PieChart centered width={400} height={400}>
-                <Pie dataKey="value" data={data} fill="#8884d8" label />
-              </PieChart>
-              <Card.Meta textAlign="center">{items.meta}</Card.Meta>
-            </Card.Content>
-          </Card>
+        <Grid.Column tablet={12} computer={7} largeScreen={6} stretched>
+          <CustomPieChart
+            pieHeader={items.pie.header}
+            pieMeta={items.pie.meta}
+            pieData={data.pie}
+          />
+        </Grid.Column>
+        <Grid.Column tablet={12} computer={7} largeScreen={6} stretched>
+          <CustomBarChart
+            barHeader={items.bar.header}
+            barMeta={items.bar.meta}
+            barData={data.bar}
+          />
         </Grid.Column>
       </Grid>
-    </div>
+    </React.Fragment>
   );
 }
 

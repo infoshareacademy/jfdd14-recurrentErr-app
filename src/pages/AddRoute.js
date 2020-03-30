@@ -1,10 +1,7 @@
-import React from 'react';
+import React from "react";
 
-function AddRoute(){
-    return( 
-    <div>
-        
-    </div>)
+function AddRoute() {
+  return <div></div>;
 }
 
 export default AddRoute;

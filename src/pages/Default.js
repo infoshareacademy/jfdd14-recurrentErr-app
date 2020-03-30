@@ -1,10 +1,7 @@
-import React from 'react';
+import React from "react";
 
-function Default(){
-    return( 
-    <div>
-        Błędnie podany adres strony!!
-    </div>)
+function Default() {
+  return <div>Błędnie podany adres strony!!</div>;
 }
 
 export default Default;
