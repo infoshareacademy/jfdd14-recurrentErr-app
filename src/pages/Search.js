@@ -1,27 +1,25 @@
 import React from "react";
-import { Header, Grid, Form } from "semantic-ui-react";
-import SearchSlider from "../Components/SearchForm/SearchSlider";
-
-const diffOpt = [
-  { key: "ez", value: "easy", text: "Łatwa" },
-  { key: "it", value: "intermediate", text: "Średnia" },
-  { key: "hr", value: "hard", text: "Trudna" },
-];
+import { Breadcrumb } from "semantic-ui-react";
+import SearchForm from "../Components/Search/SearchForm";
+import SearchList from "../pages/SearchList";
+import {
+  BrowserRouter as Route,
+  Switch,
+  Link,
+  NavLink,
+} from "react-router-dom";
 
 function Search() {
   return (
     <React.Fragment>
-      <Grid centered padded>
-        <Grid.Column as={Form} width={8} verticalAlign="middle">
-          <Header as="h2">Wyszukaj trasę:</Header>
-          <Form.Input action="Search" placeholder="Search..." />
-          <Form.Select
-            placeholder="Wybierz poziom trudności trasy"
-            options={diffOpt}
-          />
-          <SearchSlider />
-        </Grid.Column>
-      </Grid>
+      <Breadcrumb>
+        <Breadcrumb.Section>Wyszukaj</Breadcrumb.Section>
+      </Breadcrumb>
+
+      <Switch>
+        <Route exact path="/search" component={SearchForm} />
+        <Route exact path="/search/searchlist" component={SearchList} />
+      </Switch>
     </React.Fragment>
   );
 }
