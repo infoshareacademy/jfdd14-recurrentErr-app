@@ -1,5 +1,5 @@
 import React from "react";
-import { Header, Grid, Card, Form, Label } from "semantic-ui-react";
+import { Button, Header, Grid, Card, Form, Label } from "semantic-ui-react";
 import SearchSlider from "../Search/SearchSlider";
 
 const diffOpt = [
@@ -8,7 +8,7 @@ const diffOpt = [
   { key: "hr", value: "hard", text: "Trudna" },
 ];
 
-function SearchForm() {
+function SearchForm(props) {
   return (
     <React.Fragment>
       <Grid centered padded>
@@ -18,7 +18,12 @@ function SearchForm() {
         <Grid.Row>
           <Grid.Column as={Form} width={10} verticalAlign="middle">
             <Card fluid>
-              <Form.Input action="Search" placeholder="Search..." />
+              <Form.Field>
+                <input placeholder="Search..." />
+              </Form.Field>
+              <Button type="submit" onClick={props.onClickSubmit}>
+                Submit
+              </Button>
               <Form.Select
                 placeholder="Wybierz poziom trudności trasy"
                 options={diffOpt}
