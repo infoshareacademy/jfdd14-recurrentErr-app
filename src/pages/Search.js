@@ -1,11 +1,11 @@
 import React, { useState } from "react";
-import { Breadcrumb } from "semantic-ui-react";
 
+import SearchBreadcrumbs from "../Components/Search/SearchBreadcrumbs";
 import SearchForm from "../Components/Search/SearchForm";
 import SearchList from "../pages/SearchList";
 import Details from "../pages/Details";
 
-import { BrowserRouter as Route, Switch, Link } from "react-router-dom";
+import { BrowserRouter as Route, Switch } from "react-router-dom";
 
 function Search(props) {
   const [searchParam, setSearchParam] = useState([]);
@@ -32,42 +32,16 @@ function Search(props) {
 
   return (
     <React.Fragment>
-      <Breadcrumb>
-        <Breadcrumb.Section
-          as={Link}
-          to="/search/"
-          active={activeBreadcrumb[0]}
-          onClick={() => setActiveBreadcrumb([true, false, false])}
-        >
-          Wyszukaj
-        </Breadcrumb.Section>
-        {searchlistReqest ? (
-          <React.Fragment>
-            <Breadcrumb.Divider icon="right angle" />
-            <Breadcrumb.Section
-              as={Link}
-              to="/search/searchlist"
-              active={activeBreadcrumb[1]}
-              onClick={() => setActiveBreadcrumb([false, true, false])}
-            >
-              Wyniki wyszukiwania dla:
-            </Breadcrumb.Section>
-            {detailReqest ? (
-              <React.Fragment>
-                <Breadcrumb.Divider />
-                <Breadcrumb.Section
-                  as={Link}
-                  to="/search/searchlist/details"
-                  active={activeBreadcrumb[2]}
-                  onClick={() => setActiveBreadcrumb([false, false, true])}
-                >
-                  Szczegóły
-                </Breadcrumb.Section>
-              </React.Fragment>
-            ) : null}
-          </React.Fragment>
-        ) : null}
-      </Breadcrumb>
+      <SearchBreadcrumbs
+        clickSearchBreadcrumb={() => setActiveBreadcrumb([true, false, false])}
+        clickListBreadcrumb={() => setActiveBreadcrumb([false, true, false])}
+        clickDetailsBreadcrumb={() => setActiveBreadcrumb([false, false, true])}
+        activateSearch={activeBreadcrumb[0]}
+        activateList={activeBreadcrumb[1]}
+        activateDetails={activeBreadcrumb[2]}
+        searchlistReqest={searchlistReqest}
+        detailReqest={detailReqest}
+      />
 
       <Switch>
         <Route exact path="/search">
