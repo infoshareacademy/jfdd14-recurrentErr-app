@@ -5,3 +5,13 @@
 .ui.dropdown:not(.button) > .default.text {
   color: rgb(121, 118, 118);
 }
+
+.cardElements {
+  display: flex;
+  flex-direction: column;
+  align-items: stretch;
+}
+
+.cardElements > * {
+  padding: 0.5rem;
+}

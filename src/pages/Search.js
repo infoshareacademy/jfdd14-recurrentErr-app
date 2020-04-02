@@ -9,6 +9,7 @@ import { BrowserRouter as Route, Switch } from "react-router-dom";
 
 function Search(props) {
   // const [searchParam, setSearchParam] = useState([]);
+  const [sliderValue, setSliderValue] = useState(null);
   const [searchlistReqest, setSearchListRequest] = useState(false);
   const [detailReqest, setDetailRequest] = useState(false);
   const [activeBreadcrumb, setActiveBreadcrumb] = useState([
@@ -43,9 +44,15 @@ function Search(props) {
         detailReqest={detailReqest}
       />
 
+      <p>{sliderValue}</p>
+
       <Switch>
         <Route exact path="/search">
-          <SearchForm onClickSubmit={searchRoute} />
+          <SearchForm
+            onSearchSubmit={searchRoute}
+            sliderValue={sliderValue}
+            onChangeSlider={() => setSliderValue(sliderValue)}
+          />
         </Route>
         <Route exact path="/search/searchlist">
           <SearchList />

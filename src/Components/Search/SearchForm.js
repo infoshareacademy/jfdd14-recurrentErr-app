@@ -1,5 +1,5 @@
 import React from "react";
-import { Header, Grid, Card, Form, Label } from "semantic-ui-react";
+import { Header, Grid, Card, Form, Label, GridColumn } from "semantic-ui-react";
 import SearchSlider from "../Search/SearchSlider";
 import "../Search/SearchForm.css";
 
@@ -9,39 +9,48 @@ const diffOpt = [
   { key: "hr", value: "hard", text: "Trudna" },
 ];
 
-function SearchForm(props) {
+function SearchForm({
+  textValue,
+  onChangeText,
+  sliderValue,
+  onChangeSlider,
+  selectValue,
+  onSearchSubmit,
+}) {
   return (
     <React.Fragment>
-      <Grid centered>
-        <Grid.Row centered textAlign="center">
-          <Header as="h2">Wyszukaj trasę:</Header>
-        </Grid.Row>
-        <Grid.Row>
-          <Form.Field>
-            <Form.Input
-              icon="search"
-              placeholder="Search..."
-              value={props.searchValue}
-              onChange={props.onChangeSearch}
-            />
-          </Form.Field>
-        </Grid.Row>
-        <Grid.Row>
+      <Grid centered padded>
+        <Grid.Column textAlign="center" width={16}>
+          <Header as="h2">Wyszukaj trasę</Header>
+        </Grid.Column>
+        <Grid.Column
+          as={Card}
+          className="cardElements"
+          textAlign="center"
+          tablet={14}
+          computer={8}
+          largeScreen={6}
+        >
+          <Form.Input
+            icon="search"
+            placeholder="Search..."
+            value={textValue}
+            onChange={onChangeText}
+            style={{ width: "100%" }}
+          />
           <Form.Select
             className="formSelect"
             placeholder="Wybierz poziom trudności trasy"
             options={diffOpt}
-            value={props.selectValue}
+            value={selectValue}
           />
-        </Grid.Row>
-        <Grid.Row>
-          <SearchSlider value={props.sliderValue} />
-        </Grid.Row>
-        <Grid.Row>
-          <Form.Button type="submit" onClick={props.onClickSubmit}>
-            Submit
+          <SearchSlider value={sliderValue} onChange={onChangeSlider}>
+            <p>{`Dystans: 0 - 12.5 km`}</p>
+          </SearchSlider>
+          <Form.Button type="submit" onClick={onSearchSubmit} secondary>
+            Szukaj
           </Form.Button>
-        </Grid.Row>
+        </Grid.Column>
       </Grid>
     </React.Fragment>
   );

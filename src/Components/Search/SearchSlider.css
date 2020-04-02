@@ -1,0 +1,13 @@
+.rc-slider-handle {
+  border: solid 2px blue;
+}
+
+.rc-slider-handle:hover {
+  border-color: blue;
+}
+
+.rc-slider-handle:active {
+  border-color: blue;
+  box-shadow: 0 0 5px blue;
+  cursor: grabbing;
+}
