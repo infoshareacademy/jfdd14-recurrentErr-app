@@ -1,19 +1,15 @@
 import React, { useState, useEffect } from "react";
-import {
-  Image,
-  Item,
-  ItemContent,
-  Button,
-  Icon,
-  Grid,
-} from "semantic-ui-react";
+import Pagination from "../Components/Pagination";
 import mapObjectToArray from "../Components/mapObjectToArray";
 import { Link } from "react-router-dom";
+import "./searchList.css";
 
 const API_URL = "https://isa-crossroads.firebaseio.com/places/.json";
 
 function SearchList() {
   const [places, setPlaces] = useState([]);
+  const [currentPage, setCurrentPage] = useState(1);
+  const [cardsPerPage, setCardsPerPage] = useState(3);
 
   const getPlaces = () => {
     return fetch(API_URL)
@@ -29,64 +25,43 @@ function SearchList() {
     getPlaces();
   }, []);
 
+  const items = places.map((place) => {
+    return (
+      <li class="cards_item">
+        <div class="card">
+          <div class="card_image">
+            <img class="searchImg resposive" src={place.photoBig}></img>
+          </div>
+          <div class="card_content">
+            <p class="card_title">"{place.name}"</p>
+            <p class="card_text">
+              {place.city} || dystans: {place.distance}km
+            </p>
+            <p class="card_text">Stopień trudności: {place.level}</p>
+            <button class="btn card_btn">Dowiedz się więcej...</button>
+          </div>
+        </div>
+      </li>
+    );
+  });
+
+  const indexOfLastCard = currentPage * cardsPerPage;
+  const indexofFirstCard = indexOfLastCard - cardsPerPage;
+  const currentPosts = items.slice(indexofFirstCard, indexOfLastCard);
+
+  const paginate = (pageNumber) => setCurrentPage(pageNumber);
+
   return (
-    <div>
-      {places.map((place) => {
-        return (
-          <Grid columns={2} divided>
-            <Grid.Row>
-              <Grid.Column>
-                <Item.Group>
-                  <Item>
-                    <Item.Image size="medium" src={place.photo} />
-                    <Item.Content>
-                      <Item.Header>{place.name}</Item.Header>
-                      <Item.Meta>{place.city}</Item.Meta>
-                      <Button animated color="blue">
-                        <Button.Content visible>
-                          Dowiedz się więcej...
-                        </Button.Content>
-                        <Button.Content hidden>
-                          <Icon name="arrow right" />
-                        </Button.Content>
-                      </Button>
-                      <Button animated="vertical">
-                        <Button.Content hidden>Shop</Button.Content>
-                        <Button.Content visible>
-                          <Icon name="shop" />
-                        </Button.Content>
-                      </Button>
-                      <Button animated="fade">
-                        <Button.Content visible>
-                          Sign-up for a Pro account
-                        </Button.Content>
-                        <Button.Content hidden>$12.99 a month</Button.Content>
-                      </Button>
-                    </Item.Content>
-                  </Item>
-                </Item.Group>
-              </Grid.Column>
-            </Grid.Row>
-          </Grid>
-        );
-      })}
+    <div className="searchListContainer">
+      <h1 className="searchH1">Lista wyników wyszukiwania:</h1>
+      <ul className="cards">{currentPosts}</ul>
+      <Pagination
+        cardsPerPage={cardsPerPage}
+        totalCards={items.length}
+        paginate={paginate}
+      />
     </div>
   );
-}
-
-{
-  /* <Item>
-<Item.Image size='tiny' src='/images/wireframe/image.png' />
-
-<Item.Content>
-  <Item.Header as='a'>Header</Item.Header>
-  <Item.Meta>Description</Item.Meta>
-  <Item.Description>
-    <Image src='/images/wireframe/short-paragraph.png' />
-  </Item.Description>
-  <Item.Extra>Additional Details</Item.Extra>
-</Item.Content>
-</Item> */
 }
 
 export default SearchList;
