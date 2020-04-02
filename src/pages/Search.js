@@ -8,7 +8,7 @@ import Details from "../pages/Details";
 import { BrowserRouter as Route, Switch } from "react-router-dom";
 
 function Search(props) {
-  const [searchParam, setSearchParam] = useState([]);
+  // const [searchParam, setSearchParam] = useState([]);
   const [searchlistReqest, setSearchListRequest] = useState(false);
   const [detailReqest, setDetailRequest] = useState(false);
   const [activeBreadcrumb, setActiveBreadcrumb] = useState([

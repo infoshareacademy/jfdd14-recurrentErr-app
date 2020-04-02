@@ -1,0 +1,7 @@
+.formSelect .item {
+  color: black !important;
+}
+
+.ui.dropdown:not(.button) > .default.text {
+  color: rgb(121, 118, 118);
+}
