@@ -1,10 +1,12 @@
 import React, { Component } from "react";
+import routeData from "./routeData";
 import {
   Button,
   Checkbox,
   Form,
   Input,
   Select,
+  Message,
   TextArea,
   Header,
 } from "semantic-ui-react";
@@ -89,6 +91,8 @@ class AddRoute extends Component {
       chBox: false,
     });
     e.preventDefault();
+
+    alert("Twój formularz został dodany!");
   };
 
   renderRoutes = () =>
@@ -106,14 +110,19 @@ class AddRoute extends Component {
 
   render() {
     // const { value } = this.state;
-    const submittNow = this.state.chBox ? (
-      <Form.Field control={Button}>Dodaj</Form.Field>
-    ) : null;
+    const submitNow =
+      this.state.distanceV &&
+      this.state.nameV &&
+      this.state.cityV &&
+      this.state.descriptionV &&
+      this.state.chBox ? (
+        <Form.Field control={Button}>Dodaj</Form.Field>
+      ) : null;
 
     return (
       <div>
         <Form style={{ margin: 20 }} onSubmit={this.handleSubmit}>
-          <Header as="h2" verticalAlign="middle">
+          <Header as="h2">
             Dodaj nową trasę!
             <Header.Subheader>
               Wypełnij poniższy formularz, a następnie dodaj swoją trasę!
@@ -195,8 +204,13 @@ class AddRoute extends Component {
             onChange={this.handleCheckboxChange}
             // onClick={(props) => props.checked ? this.handleCheckboxChange : alert('Proszę potwierdzić zapoznanie się z warunkami')}
           />
+          <Message
+            success
+            header="Nowa trasa dodana"
+            content="Możesz ją obejrzeć w zakładce: dodane trasy"
+          />
 
-          {submittNow}
+          {submitNow}
         </Form>
         {this.renderRoutes()}
       </div>
