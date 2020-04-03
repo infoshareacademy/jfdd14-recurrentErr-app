@@ -1,0 +1,29 @@
+.pagination {
+  width: 100%;
+  text-align: center;
+  transform: translateY(+150%);
+}
+
+.num {
+  margin: 6px 1px;
+  display: inline-block;
+  width: 50px;
+  background: linear-gradient(
+    to bottom left,
+    rgb(59, 63, 92) 40%,
+    rgb(55, 44, 119) 100%
+  );
+  height: 50px;
+  line-height: 50px;
+  color: #fff;
+  font-weight: 600;
+  cursor: pointer;
+}
+
+.num:hover {
+  color: #e74c3c;
+}
+
+a.num:active {
+  color: #e74c3c !important;
+}

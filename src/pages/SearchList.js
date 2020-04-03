@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from "react";
-import Pagination from "../Components/Pagination";
+import Pagination from "../Components/Pagination/Pagination";
 import mapObjectToArray from "../Components/mapObjectToArray";
 import { Link } from "react-router-dom";
 import "./searchList.css";
@@ -9,7 +9,7 @@ const API_URL = "https://isa-crossroads.firebaseio.com/places/.json";
 function SearchList() {
   const [places, setPlaces] = useState([]);
   const [currentPage, setCurrentPage] = useState(1);
-  const [cardsPerPage, setCardsPerPage] = useState(3);
+  const [cardsPerPage, setCardsPerPage] = useState(6);
 
   const getPlaces = () => {
     return fetch(API_URL)
