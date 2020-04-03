@@ -62,6 +62,7 @@ function SearchList() {
         cardsPerPage={cardsPerPage}
         totalCards={items.length}
         paginate={paginate}
+        currentPage={currentPage}
       />
     </div>
   );
