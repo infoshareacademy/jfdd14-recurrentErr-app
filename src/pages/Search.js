@@ -9,7 +9,6 @@ import { BrowserRouter as Route, Switch } from "react-router-dom";
 
 function Search(props) {
   // const [searchParam, setSearchParam] = useState([]);
-  //const [sliderValue, setSliderValue] = useState(null);
   const [searchlistReqest, setSearchListRequest] = useState(false);
   const [detailReqest, setDetailRequest] = useState(false);
   const [activeBreadcrumb, setActiveBreadcrumb] = useState([
@@ -18,16 +17,32 @@ function Search(props) {
     false,
   ]);
   const [sliderValue, setSlider] = useState([0, 12.5]);
+  const [selectValue, setSelect] = useState(null);
+  const [textValue, setText] = useState("");
 
   const changeSlider = (value) => {
-    console.log(value);
     setSlider(value);
   };
 
+  const changeText = (e) => {
+    setText(e.target.value);
+  };
+
+  const changeSelect = (e) => {
+    setSelect(e.target.value);
+    console.log(selectValue);
+  };
+
   const searchRoute = () => {
-    setSearchListRequest(true);
-    setActiveBreadcrumb([false, true, false]);
-    props.history.push("/search/searchlist");
+    if (textValue !== "") {
+      setSearchListRequest(true);
+      setActiveBreadcrumb([false, true, false]);
+      console.log(sliderValue, sliderValue, textValue);
+      props.history.push("/search/searchlist");
+      return null;
+    } else {
+      console.log("dupa, nie poszukasz sobie");
+    }
   };
 
   const clickDetails = () => {
@@ -53,6 +68,11 @@ function Search(props) {
       <Switch>
         <Route exact path="/search">
           <SearchForm
+            textValue={textValue}
+            textValidation={searchRoute}
+            onChangeText={changeText}
+            selectValue={selectValue}
+            onChangeSelect={changeSelect}
             onChangeSlider={changeSlider}
             onSearchSubmit={searchRoute}
           />

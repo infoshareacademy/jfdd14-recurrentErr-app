@@ -1,18 +1,20 @@
-import React, { useState } from "react";
+import React from "react";
 import { Header, Grid, Card, Form } from "semantic-ui-react";
 import SearchSlider from "../Search/SearchSlider";
 import "../Search/SearchForm.css";
 
-const diffOpt = [
-  { key: "ez", value: "easy", text: "Łatwa" },
-  { key: "it", value: "intermediate", text: "Średnia" },
-  { key: "hr", value: "hard", text: "Trudna" },
+const difficulty = [
+  { value: 1, text: "Łatwa" },
+  { value: 2, text: "Średnia" },
+  { value: 3, text: "Trudna" },
 ];
 
 function SearchForm({
   textValue,
+  textValidation,
   onChangeText,
   selectValue,
+  onChangeSelect,
   onChangeSlider,
   onSearchSubmit,
 }) {
@@ -36,12 +38,14 @@ function SearchForm({
             value={textValue}
             onChange={onChangeText}
             style={{ width: "100%" }}
+            error={textValidation}
           />
           <Form.Select
-            className="formSelect"
             placeholder="Wybierz poziom trudności trasy"
-            options={diffOpt}
+            className="formSelect"
+            options={difficulty}
             value={selectValue}
+            onChange={onChangeSelect}
           />
           <SearchSlider onChangeSlider={onChangeSlider} />
           <Form.Button type="submit" onClick={onSearchSubmit} secondary>
