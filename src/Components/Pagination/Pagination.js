@@ -10,7 +10,13 @@ const Pagination = ({ cardsPerPage, totalCards, paginate }) => {
   return (
     <div className="pagination">
       {pageNumbers.map((number) => (
-        <a key={number} className="num" onClick={() => paginate(number)}>
+        <a
+          href="#"
+          key={number}
+          className="num"
+          alt=""
+          onClick={() => paginate(number)}
+        >
           {number}
         </a>
       ))}
