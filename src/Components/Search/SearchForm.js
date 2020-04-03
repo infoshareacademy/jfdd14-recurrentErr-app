@@ -1,5 +1,5 @@
-import React from "react";
-import { Header, Grid, Card, Form, Label, GridColumn } from "semantic-ui-react";
+import React, { useState } from "react";
+import { Header, Grid, Card, Form } from "semantic-ui-react";
 import SearchSlider from "../Search/SearchSlider";
 import "../Search/SearchForm.css";
 
@@ -12,9 +12,8 @@ const diffOpt = [
 function SearchForm({
   textValue,
   onChangeText,
-  sliderValue,
-  onChangeSlider,
   selectValue,
+  onChangeSlider,
   onSearchSubmit,
 }) {
   return (
@@ -44,9 +43,7 @@ function SearchForm({
             options={diffOpt}
             value={selectValue}
           />
-          <SearchSlider value={sliderValue} onChange={onChangeSlider}>
-            <p>{`Dystans: 0 - 12.5 km`}</p>
-          </SearchSlider>
+          <SearchSlider onChangeSlider={onChangeSlider} />
           <Form.Button type="submit" onClick={onSearchSubmit} secondary>
             Szukaj
           </Form.Button>
