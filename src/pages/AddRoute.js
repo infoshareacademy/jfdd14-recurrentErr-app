@@ -17,6 +17,7 @@ const options = [
 
 class AddRoute extends Component {
   state = {
+    name: "",
     averageSpeedV: "",
     cityV: "",
     distanceV: "",
@@ -26,6 +27,7 @@ class AddRoute extends Component {
     descriptionV: "",
     routes: [],
     levelV: "",
+    chBox: false,
   };
 
   handleChangeDistance = (e) => {
@@ -58,6 +60,9 @@ class AddRoute extends Component {
 
   handleChange = (e, { value }) => this.setState({ levelV: value });
 
+  handleCheckboxChange = (e, { checked, name }) =>
+    this.setState({ [name]: checked });
+
   handleSubmit = (e) => {
     this.setState({
       routes: [
@@ -81,6 +86,7 @@ class AddRoute extends Component {
       cityV: "",
       levelV: "",
       descriptionV: "",
+      chBox: false,
     });
     e.preventDefault();
   };
@@ -94,12 +100,16 @@ class AddRoute extends Component {
         <p>Poziom trudności: {route.level}</p>
         <p>Zdjęcie: {route.photo}</p>
         <p>Czas trwania: {route.time} min</p>
-        <p>Krótki opis: {route.description}</p>
+        <p>Opis trasy: {route.description}</p>
       </div>
     ));
 
   render() {
     // const { value } = this.state;
+    const submittNow = this.state.chBox ? (
+      <Form.Field control={Button}>Dodaj</Form.Field>
+    ) : null;
+
     return (
       <div>
         <Form style={{ margin: 20 }} onSubmit={this.handleSubmit}>
@@ -113,29 +123,36 @@ class AddRoute extends Component {
           <Form.Group widths="equal">
             <Form.Field
               control={Input}
+              name="routeName"
               label="Nazwa trasy"
               placeholder="Wpisz nazwę trasy"
               value={this.state.nameV}
               onChange={this.handleChangeName}
+              required
             />
             <Form.Field
+              name="city"
               control={Input}
               label="Miasto"
               placeholder="Wpisz nazwę miejsca"
               value={this.state.cityV}
               onChange={this.handleChangeCity}
+              required
             />
             <Form.Field
+              name="distance"
               control={Input}
               label="Dystans (km)"
               placeholder="Podaj długość trasy"
               value={this.state.distanceV}
               onChange={this.handleChangeDistance}
+              required
             />
           </Form.Group>
 
           <Form.Group widths="3">
             <Form.Field
+              name="level"
               control={Select}
               label="Poziom trudności"
               options={options}
@@ -144,6 +161,7 @@ class AddRoute extends Component {
               onChange={this.handleChange}
             />
             <Form.Field
+              name="photo"
               control={Input}
               label="Zdjęcie"
               placeholder="Podaj link URL"
@@ -151,6 +169,7 @@ class AddRoute extends Component {
               onChange={this.handleChangePhoto}
             />
             <Form.Field
+              name="time"
               control={Input}
               label="Czas trwania"
               placeholder="Wpisz czas trwania"
@@ -159,17 +178,25 @@ class AddRoute extends Component {
             />
           </Form.Group>
           <Form.Field
+            name="description"
             control={TextArea}
             label="Opis trasy"
             placeholder="Opisz krótko trasę..."
             value={this.state.descriptionV}
             onChange={this.handleChangeDescription}
+            required
           />
           <Form.Field
+            name="chBox"
+            required
             control={Checkbox}
             label="Zapoznałam/em się z warunkami korzystania ze strony"
+            checked={this.state.chBox}
+            onChange={this.handleCheckboxChange}
+            // onClick={(props) => props.checked ? this.handleCheckboxChange : alert('Proszę potwierdzić zapoznanie się z warunkami')}
           />
-          <Form.Field control={Button}>Dodaj</Form.Field>
+
+          {submittNow}
         </Form>
         {this.renderRoutes()}
       </div>
