@@ -26,18 +26,22 @@ function SearchList() {
 
   const items = places.map((place) => {
     return (
-      <li class="cards_item">
-        <div class="card">
-          <div class="card_image">
-            <img class="searchImg resposive" src={place.photoBig} alt=""></img>
+      <li className="cards_item" key={place.name}>
+        <div className="card">
+          <div className="card_image">
+            <img
+              className="searchImg resposive"
+              src={place.photoBig}
+              alt=""
+            ></img>
           </div>
-          <div class="card_content">
-            <p class="card_title">"{place.name}"</p>
-            <p class="card_text">
+          <div className="card_content">
+            <p className="card_title">"{place.name}"</p>
+            <p className="card_text">
               {place.city} || dystans: {place.distance}km
             </p>
-            <p class="card_text">Stopień trudności: {place.level}</p>
-            <button class="btn card_btn">Dowiedz się więcej...</button>
+            <p className="card_text">Stopień trudności: {place.level}</p>
+            <button className="btn card_btn">Dowiedz się więcej...</button>
           </div>
         </div>
       </li>
