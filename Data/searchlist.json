@@ -1,0 +1,163 @@
+{    
+    "-aabb":{
+        "name": "Szlak Borsuka",
+        "city": "Sopot",
+        "level": "łatwy",
+        "distance": 3.4,
+        "time": 46,
+        "average speed": 4.31,
+        "photo": "./Components/logo/szlakborsuka.jpg",
+        "description": "Szlak Borsuka oznaczony jest w terenie kwadratem w kolorze żółtym przekreślonym zielonym pasem. Powstał dla upamiętnienia osób zaangażowanych w akcję pomocy prześladowanym robotnikom. Członkom Komitetu Obrony Robotników. Przebiega następująco: ul. 23 Marca, Mała Gwiazda, Gliniana Góra, Rezerwat Przyrody „Zajęcze Wzgórze”, ul. Kasprowicza."
+    },
+    "-aabbcc":{
+        "name": "Szlak Dzików",
+        "city": "Sopot",
+        "level": "łatwy",
+        "distance": 5.8,
+        "time": 45,
+        "average speed": 7.57,
+        "photo": "./Components/logo/szlakdzikow.jpg",
+        "description": "Szlak Dzików - w terenie oznaczony kolorem czarnym na żółtym tle łączy dwa sopockie osiedla: Przylesie i Brodwino. Przebieg szlaku: Osiedle Przylesie ul. 23 Marca (pętla autobusowa) – Wielka Gwiazda – Dolina Świemirowska – Długa Dolina (Długi Grunt) – Dolina Kamiennego Potoku – Osiedle Brodwino."
+    },
+    "-aabbccdd":{
+        "name": "Łowcy fok i bursztynu",
+        "city": "Mikoszewo",
+        "level": "łatwy",
+        "distance": 11.1,
+        "time": 211,
+        "average speed": 3.15,
+        "photo": "./Components/logo/lowcyfokibursztynu.jpg",
+        "description": "Wycieczka piesza w poszukiwaniu fok i bursztynu. Trasa jest dość łatwa do pokonania, ale cały odcinek ujścia Wisły jest pokryty grubą warstwą lodu i trzeba uważać, żeby się nie przewrócić. Foki mimo sporej odległości same podpływają, jak tylko coś je zainteresuje (obserwacja przez lornetkę). Trochę bursztynu udało się pozbierać, ale na większe kawałki nie ma co liczyć."
+    },
+    "-aabbccddee":{
+        "name": "Gdańskie bastiony nad Motławą",
+        "city": "Gdańsk",
+        "level": "łatwy",
+        "distance": 8.4,
+        "time": 216,
+        "average speed": 2.33,
+        "photo": "./Components/logo/gdanskiebastiony.jpg",
+        "description": "Spacer zaczynamy pod Urzędem Wojewódzkim, kierujemy się na plac Wałowy, a następnie prosto na Bastion św. Gertrudy. Podziwiamy piękne widoki, schodzimy w dół, mijamy Bramę Nizinną by wspiąć się na szczyt Bastionu Żubr. Widać stąd m, in. panoramę Głównego Miasta. Nieopodal znajduje się Śluza Kamienna Grodza (z 4 wieżyczkami zwanymi dziewicami) oraz ruiny starego XVII wiecznego młyna. Dalej podążamy wzdłuż Opływu Motławy odwiedzając kolejno Bastiony Wilk, Wyskok, Miś, Królik. Za ostatnim z nich po kładce na wysokości ulicy Modrej przechodzimy na Olszynkę, by mostem na wysokości Zawodzia wrócić do Śródmieścia. Okrążamy siedzibę Straży Miejskiej (razem z ich strzelnicą) oraz Zespół Szkół Samochodowych. Za Stadionem GKS Wybrzeże kontynuujemy spacer drugą stroną opływu Motławy i skrótem przez Chłodną docieramy na Łąkową. Ulica ta przeszła w ostatnim czasie rewitalizację, odnowiono niektóre kamienice, wyremontowano nawierzchnię, środkiem ulicy poprowadzono deptak z nowymi drzewkami i małą architekturą. Mijamy dawną zajezdnię tramwajową i zmierzamy w drogę powrotną przez Redutę Wilk, Śluzę Kamienną, by przy Bramie Nizinnej skręcić w ul. Dolna Brama, odwiedzić przystań przy Żabim Kruku i po okrążeniu Baszty Białej zakończyć spacer."
+    },
+    "-aabbccddeeff":{
+        "name": "Dookoła rezerwatu Cisowa",
+        "city": "Gdynia",
+        "level": "łatwy",
+        "distance": 20.1,
+        "time": 286,
+        "average speed": 4.19,
+        "photo": "./Components/logo/cisowa.jpg",
+        "description": "Wycieczka piesza do TPK. Trasa zaczyna się w okolicach Cisowej i prowadzi po zakamarkach parku. Niewątpliwą atrakcją jest zdobycie Długiej Góry oraz panorama z licznych punktów widokowych. Odwiedziliśmy również pomnik ofiar min z 1945r, Rezerwat Cisowa, Leśny Ogród Botaniczny Marszewo i Świętą Górę. Polecam tą wycieczkę."
+    },
+    "-aabbccddeeffgg":{
+        "name": "Mgliste klify",
+        "city": "Gdynia",
+        "level": "łatwy",
+        "distance": 7.2,
+        "time": 80,
+        "average speed": 5.32,
+        "photo": "./Components/logo/mglisteklify.jpg",
+        "description": "Wycieczka piesza do Gdyni Orłowa. Trasa prowadzi brzegiem morza i jest łatwa do pokonania. W okolicach klifów trzeba uważać bo pojawiły się nowe osuwiska i przy tej pogodzie będzie ich więcej. Polecam wycieczkę z rana."
+    },
+    "-aabbccddeeffgghh":{
+        "name": "Matemblewo i okolice",
+        "city": "Gdańsk",
+        "level": "średni",
+        "distance": 10.4,
+        "time": 136,
+        "average speed": 4.6,
+        "photo": "./Components/logo/matemblewo.jpg",
+        "description": "Gdańsk Matemblewo, to bardzo malowniczy i urokliwy obszar warty odwiedzenia zarówno pieszo jak i na rowerze. Mnóstwo tu ciekawych ścieżek, którymi udać się można na spacer o każdej porze roku jak i dnia. Przez Matemblewo dość ciekawym wąwozem wije się lokalny potok - Strzyża, który wpada do Motławy. Wędrując przez Dolinę Strzyży z pewnością napotkamy na wiele okazów pomników przyrody ożywionej. Występują tu sosny pospolite praz buki. Po obu stronach Doliny Strzyży rozciągają się dość mocno pofałdowane wzgórza morenowe z Górą Matemblewską na czele. Liczy ona 160 m n.p.m. i znajduje się na pograniczu z osiedlem. Trasa naszej wędrówki wiedzie przez liczne wzniesienia. Często wędrujemy niemalże niewidocznymi ścieżkami które snują się przez mocno zniszczony las. Niestety połamane konary zawdzięczamy ostatnim pracom lokalnego nadleśnictwa, która prowadzi na tym obszarze nieumiejętną gospodarkę leśną."
+    },
+    "-aabbccddeeffgghhii":{
+        "name": "Dolina radości",
+        "city": "Gdańsk",
+        "level": "średni",
+        "distance": 24.4,
+        "time": 393,
+        "average speed": 3.72,
+        "photo": "./Components/logo/dolinaradosci.jpg",
+        "description": "Niejednym wydaje się że na nad morzem jest płasko. Nic jednak bardziej mylnego. W samym Trójmiejskim Parku Krajobrazowym wysokości przekraczają 150 m n.p.m., a wciągu kilku godzin spokojnie pokonać można sumę przewyższeń zbliżoną do niejednych polskich gór. Na trasie naszej wędrówki przeważały przecudne widoki, które podziwialiśmy ze szczytów wzniesień, krawędzi wzgórz, a także dolin i wąwozów. Trasa niejednokrotnie wiodła wąskimi ścieżkami z dala od szlaków turystycznych."
+    },
+    "-aabbccddeeffgghhiijj":{
+        "name": "Czarcia Góra",
+        "city": "Gdańsk",
+        "level": "średni",
+        "distance": 16.8,
+        "time": 260,
+        "average speed": 3.86,
+        "photo": "./Components/logo/czarciagora.jpg",
+        "description": "Wycieczka piesza na Czarcią Górę. Po drodze sporo ciekawych miejsc i pięknych widoków. Trasa jest łatwa do pokonania. Po drodze jest kilka podejść zwłaszcza pod wzgórze ze skocznią narciarską. Polecam tą trasę."
+    },
+    "-aabbccddeeffgghhiijjkk":{
+        "name": "Dawne skocznie narciarskie",
+        "city": "Gdańsk",
+        "level": "średni",
+        "distance": 16.4,
+        "time": 272,
+        "average speed": 3.61,
+        "photo": "./Components/logo/skocznie.jpg",
+        "description": "Trasa naszej wędrówki przemierzała liczne wzgórza w celu odszukania pozostałości po tego typu obiektach znajdujących się w Dolinie Radości oraz Dolinie Samborowo. Oprócz tego zobaczylismy także pomnik niemieckiego skoczka - Ernesta Becker-Lee, który nie przeżył upadku na oliwskiej skoczni."
+    },
+    "-aabbccddeeffgghhiijjkkll":{
+        "name": "Kamienna Góra",
+        "city": "Gdynia",
+        "level": "średni",
+        "distance": 4.4,
+        "time": 59,
+        "average speed": 4.37,
+        "photo": "./Components/logo/kamiennagora.jpg",
+        "description": "Wycieczka piesza na Kamienną Górę. Trasa jest łatwa do pokonania. Widok na śpiącą Gdynię z Kamiennej Góry bezcenny, Polecam spacer o świcie."
+    },
+    "-aabbccddeeffgghhiijjkkllmm":{
+        "name": "Po lesie witomińskim",
+        "city": "Gdynia",
+        "level": "średni",
+        "distance": 9.3,
+        "time": 95,
+        "average speed": 5.84,
+        "photo": "./Components/logo/witomino.jpg",
+        "description": "Wycieczka piesza po lesie witomińskim, bardzo ciekawa trasa."
+    },
+    "-aabbccddeeffgghhiijjkkllmmnn":{
+        "name": "Mewia Łacha",
+        "city": "Gdańsk",
+        "level": "łatwy",
+        "distance": 6.3,
+        "time": 156,
+        "average speed": 2.42,
+        "photo": "./Components/logo/mewialacha.jpg",
+        "description": "Rezerwat Przyrody Mewia Łacha to przede wszystkim ostoja dla ptactwa i ssaków wodnych. Rezerwat składa się z dwóch części – lewobrzeżnej gdańskiej na obszarze Wyspy Sobieszewskiej - o powierzchni 18,91 ha i większej o powierzchni 131,55 ha po wschodniej stronie Przekopu Wisły na obszarze gminy Stegna. Naszą wędrówkę podjęliśmy z Świbna, miejscowości znajdującej się na Wyspie Sobieszewskiej. W zachodniej części rezerwatu poruszaliśmy się szlakiem pieszym oraz jego częścią dydaktyczną oznakowaną kolorem zielonym. Pierwsza część wędrówki wiodła kamienną groblą wzdłuż ujścia Wisły. Z powrotem natomiast, poruszaliśmy się ścieżką dydaktyczną przez pas wydm oraz plażą, od pierwszego do drugiego wejścia, na terenach Gdańska. Na ścieżce znajdują się dwie platformy widokowe, z których można zaobserwować różne gatunki ptactwa wodnego oraz wylegujące się na piaszczystych łachach foki."
+    },
+    "-aabbccddeeffgghhiijjkkllmmnnoo":{
+        "name": "Wędrówka przez jar rzeki Raduni",
+        "city": "Żukowo",
+        "level": "trudny",
+        "distance": 10.0,
+        "time": 258,
+        "average speed": 2.31,
+        "photo": "./Components/logo/radunia.jpg",
+        "description": "Rezerwat Jaru Raduni, to przepiękne miejsce, leżące niespełna pół godziny drogi Trójmiasta (jadąc koleją regionalną lub samochodem). Entuzjaści pieszych wędrówek z pewnością zaznają tu spokoju, a przy okazji nacieszą oczy cudownymi widokami. Aż nieprawdopodobne, że rzeźba terenu jest tu tak mocno pofałdowana, a ścieżki przyjmują niemalże górski charakter. Krocząc wąskim i stromym gardłem jaru warto zaopatrzyć się w wygodne buty trekkingowe, najlepiej za kostkę."
+    },
+    "-aabbccddeeffgghhiijjkkllmmnnoopp":{
+        "name": "Wędrówka do źródeł potoku oliwskiego",
+        "city": "Gdańsk",
+        "level": "trudny",
+        "distance": 14.0,
+        "time": 176,
+        "average speed": 4.76,
+        "photo": "./Components/logo/potokoliwski.jpg",
+        "description": "Potok Oliwski jest jednym z głównych cieków odwadniających obszar Lasów Oliwskich. Spływa ze strefy krawędziowej wysoczyzny kaszubskiej znajdującej się na terenie Trójmiejskiego Parku Krajobrazowego i uchodzi do Zatoki Gdańskiej. Podczas ostatniej wędrówki mieliśmy okazję zobaczyć część jego górnego koryta wraz z ciekawym przepustem pod obwodnicą. Przepust jest na tyle szeroki i wysoki, że można go przejść."
+    },
+    "-aabbccddeeffgghhiijjkkllmmnnoopprr":{
+        "name": "Biskupia Górka",
+        "city": "Gdańsk",
+        "level": "łatwy",
+        "distance": 2.5,
+        "time": 57,
+        "average speed": 2.58,
+        "photo": "./Components/logo/biskupiagorka.jpg",
+        "description": "Wycieczka piesza po zakamarkach Biskupiej Górki. Na szczególną uwagę zasługuje jeden z najmłodszych budynków na Biskupiej Górze, czyli obiekt dawnego schroniska młodzieżowego. Wokół tarasu umieszczono trzynaście rzygaczy – głowy potworów, znane z gdańskich ulic Głównego i Starego Miasta. W narożniku umieszczono rzeźbę Neptuna, autorstwa Wilhelma Hausmana. Nieprzypadkowo wybudowano także liczącą 25 metrów wysokości wieżę. Miała być ona najwyższym punktem w mieście, przewyższającym Bazylikę Mariacką (82 m)."
+    }       
+}
+
