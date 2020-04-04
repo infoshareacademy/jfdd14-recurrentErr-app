@@ -1,5 +1,6 @@
 import React, { Component } from "react";
 import routeData from "./routeData";
+
 import {
   Button,
   Checkbox,
@@ -11,6 +12,8 @@ import {
   Header,
 } from "semantic-ui-react";
 
+import RouteList from "./routeAdded";
+
 const options = [
   { key: "1", text: "Łatwy", value: "Łatwy" },
   { key: "2", text: "Średni", value: "Średni" },
@@ -19,106 +22,53 @@ const options = [
 
 class AddRoute extends Component {
   state = {
-    name: "",
-    averageSpeedV: "",
-    cityV: "",
-    distanceV: "",
-    nameV: "",
-    photoV: "",
-    timeV: "",
-    descriptionV: "",
-    routes: [],
-    levelV: "",
+    routeName: "",
+    averageSpeed: "",
+    city: "",
+    distance: "",
+    photo: "",
+    time: "",
+    description: "",
+    level: "",
     chBox: false,
+    timestamp: Date.now(),
   };
-
-  handleChangeDistance = (e) => {
-    this.setState({ distanceV: e.target.value });
-  };
-
-  handleChangeName = (e) => {
-    this.setState({ nameV: e.target.value });
-  };
-
-  handleChangeAvSpeed = (e) => {
-    this.setState({ averageSpeedV: e.target.value });
-  };
-  handleChangePhoto = (e) => {
-    this.setState({ photoV: e.target.value });
-  };
-
-  handleChangeTime = (e) => {
-    this.setState({ timeV: e.target.value });
-  };
-  handleChangeCity = (e) => {
-    this.setState({ cityV: e.target.value });
-  };
-  handleChangeLevel = (e) => {
-    this.setState({ levelV: e.target.value });
-  };
-  handleChangeDescription = (e) => {
-    this.setState({ descriptionV: e.target.value });
-  };
-
   handleChange = (e, { value }) => this.setState({ levelV: value });
 
+  handleNameChange = (e, { value, name }) => this.setState({ [name]: value });
   handleCheckboxChange = (e, { checked, name }) =>
     this.setState({ [name]: checked });
 
-  handleSubmit = (e) => {
+  addToData = () => routeData.push(this.state);
+  jsonToLocalStorage = () =>
+    localStorage.setItem("routeData", JSON.stringify(routeData));
+
+  resetState = () =>
     this.setState({
-      routes: [
-        ...this.state.routes,
-        {
-          distance: this.state.distanceV,
-          name: this.state.nameV,
-          time: this.state.timeV,
-          speed: this.state.averageSpeedV,
-          photo: this.state.photoV,
-          city: this.state.cityV,
-          level: this.state.levelV,
-          description: this.state.descriptionV,
-        },
-      ],
-      averageSpeedV: "",
-      distanceV: "",
-      nameV: "",
-      photoV: "",
-      timeV: "",
-      cityV: "",
-      levelV: "",
-      descriptionV: "",
+      averageSpeed: "",
+      distance: "",
+      name: "",
+      routeName: "",
+      photo: "",
+      time: "",
+      city: "",
+      level: "",
+      description: "",
+      timestamp: "",
       chBox: false,
     });
-    e.preventDefault();
 
-    alert("Twój formularz został dodany!");
+  handleSubmit = () => {
+    this.addToData();
+    this.jsonToLocalStorage();
+    this.resetState();
+    alert("Dodano nową trasę!");
   };
 
-  renderRoutes = () =>
-    this.state.routes.map((route) => (
-      <div key={route.name}>
-        <h2>Nazwa trasy: {route.name}</h2>
-        <p>Miasto: {route.city}</p>
-        <p>Dystans: {route.distance} km</p>
-        <p>Poziom trudności: {route.level}</p>
-        <p>Zdjęcie: {route.photo}</p>
-        <p>Czas trwania: {route.time} min</p>
-        <p>Opis trasy: {route.description}</p>
-      </div>
-    ));
-
   render() {
-    // const { value } = this.state;
-    const submitNow =
-      this.state.distanceV &&
-      this.state.nameV &&
-      this.state.cityV &&
-      this.state.descriptionV &&
-      this.state.chBox ? (
-        <Form.Field control={Button}>Dodaj</Form.Field>
-      ) : null;
-
+    const submitNow = this.state.chBox ? (
+      <Form.Field control={Button}>Dodaj</Form.Field>
+    ) : null;
     return (
       <div>
         <Form style={{ margin: 20 }} onSubmit={this.handleSubmit}>
@@ -135,8 +85,8 @@ class AddRoute extends Component {
               name="routeName"
               label="Nazwa trasy"
               placeholder="Wpisz nazwę trasy"
-              value={this.state.nameV}
-              onChange={this.handleChangeName}
+              value={this.state.routeName}
+              onChange={this.handleNameChange}
               required
             />
             <Form.Field
@@ -144,8 +94,8 @@ class AddRoute extends Component {
               control={Input}
               label="Miasto"
               placeholder="Wpisz nazwę miejsca"
-              value={this.state.cityV}
-              onChange={this.handleChangeCity}
+              value={this.state.city}
+              onChange={this.handleNameChange}
               required
             />
             <Form.Field
@@ -153,8 +103,8 @@ class AddRoute extends Component {
               control={Input}
               label="Dystans (km)"
               placeholder="Podaj długość trasy"
-              value={this.state.distanceV}
-              onChange={this.handleChangeDistance}
+              value={this.state.distance}
+              onChange={this.handleNameChange}
               required
             />
           </Form.Group>
@@ -166,24 +116,24 @@ class AddRoute extends Component {
               label="Poziom trudności"
               options={options}
               placeholder="Poziom trudności"
-              value={this.state.levelV}
-              onChange={this.handleChange}
+              value={this.state.level}
+              onChange={this.handleNameChange}
             />
             <Form.Field
               name="photo"
               control={Input}
               label="Zdjęcie"
               placeholder="Podaj link URL"
-              value={this.state.photoV}
-              onChange={this.handleChangePhoto}
+              value={this.state.photo}
+              onChange={this.handleNameChange}
             />
             <Form.Field
               name="time"
               control={Input}
               label="Czas trwania"
               placeholder="Wpisz czas trwania"
-              value={this.state.timeV}
-              onChange={this.handleChangeTime}
+              value={this.state.time}
+              onChange={this.handleNameChange}
             />
           </Form.Group>
           <Form.Field
@@ -191,8 +141,8 @@ class AddRoute extends Component {
             control={TextArea}
             label="Opis trasy"
             placeholder="Opisz krótko trasę..."
-            value={this.state.descriptionV}
-            onChange={this.handleChangeDescription}
+            value={this.state.description}
+            onChange={this.handleNameChange}
             required
           />
           <Form.Field
@@ -202,7 +152,6 @@ class AddRoute extends Component {
             label="Zapoznałam/em się z warunkami korzystania ze strony"
             checked={this.state.chBox}
             onChange={this.handleCheckboxChange}
-            // onClick={(props) => props.checked ? this.handleCheckboxChange : alert('Proszę potwierdzić zapoznanie się z warunkami')}
           />
           <Message
             success
@@ -212,7 +161,7 @@ class AddRoute extends Component {
 
           {submitNow}
         </Form>
-        {this.renderRoutes()}
+        <RouteList />
       </div>
     );
   }
