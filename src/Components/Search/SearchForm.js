@@ -1,19 +1,12 @@
 import React from "react";
 import { Header, Grid, Card, Form } from "semantic-ui-react";
-import SearchSlider from "../Search/SearchSlider";
 import "../Search/SearchForm.css";
-
-const difficulty = [
-  { value: 1, text: "Łatwa" },
-  { value: 2, text: "Średnia" },
-  { value: 3, text: "Trudna" },
-];
 
 function SearchForm({
   textValue,
-  textValidation,
-  onChangeText,
   selectValue,
+  sliderValue,
+  onChangeText,
   onChangeSelect,
   onChangeSlider,
   onSearchSubmit,
@@ -34,21 +27,39 @@ function SearchForm({
         >
           <Form.Input
             icon="search"
-            placeholder="Search..."
+            name="textValue"
+            placeholder="Gdzie chcesz pójść..."
             value={textValue}
             onChange={onChangeText}
             style={{ width: "100%" }}
-            error={textValidation}
           />
-          <Form.Select
-            placeholder="Wybierz poziom trudności trasy"
-            className="formSelect"
-            options={difficulty}
+          <p className="label">Poziom trudności przechadzki</p>
+          <select
+            name="selectValue"
             value={selectValue}
             onChange={onChangeSelect}
-          />
-          <SearchSlider onChangeSlider={onChangeSlider} />
-          <Form.Button type="submit" onClick={onSearchSubmit} secondary>
+            className="dropdown"
+          >
+            <option value={0}>-wybierz-</option>
+            <option value={1}>Łatwy</option>
+            <option value={2}>Średni</option>
+            <option value={3}>Trudny</option>
+          </select>
+          <p className="label">{`Czas trwania przechadzki: ${sliderValue} minut`}</p>
+          <div className="slidecontainer">
+            <input
+              type="range"
+              min={0}
+              max={240}
+              step={5}
+              value={sliderValue}
+              onChange={onChangeSlider}
+              className="slider"
+              name="sliderValue"
+            />
+          </div>
+
+          <Form.Button type="submit" onClick={onSearchSubmit}>
             Szukaj
           </Form.Button>
         </Grid.Column>

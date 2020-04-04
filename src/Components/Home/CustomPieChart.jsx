@@ -1,6 +1,6 @@
 import React from "react";
 import { PieChart, Pie, Tooltip, Cell, Legend } from "recharts";
-import ChartContainer from "../Components/ChartCard.jsx";
+import ChartContainer from "../Home/ChartCard";
 
 const colors = ["#51d597", "#d1d551", "#d5518f", "#5551d5"];
 

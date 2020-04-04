@@ -1,89 +1,45 @@
-import React, { useState } from "react";
-
-import SearchBreadcrumbs from "../Components/Search/SearchBreadcrumbs";
+import React, { useReducer } from "react";
 import SearchForm from "../Components/Search/SearchForm";
 import SearchList from "../pages/SearchList";
-import Details from "../pages/Details";
 
-import { BrowserRouter as Route, Switch } from "react-router-dom";
+const INITIAL_STATE = {
+  textValue: "",
+  sliderValue: 0,
+  selectValue: "0",
+};
+
+function formReducer(state, { field, value }) {
+  return {
+    ...state,
+    [field]: value,
+  };
+}
 
 function Search(props) {
-  // const [searchParam, setSearchParam] = useState([]);
-  const [searchlistReqest, setSearchListRequest] = useState(false);
-  const [detailReqest, setDetailRequest] = useState(false);
-  const [activeBreadcrumb, setActiveBreadcrumb] = useState([
-    true,
-    false,
-    false,
-  ]);
-  const [sliderValue, setSlider] = useState([0, 12.5]);
-  const [selectValue, setSelect] = useState(null);
-  const [textValue, setText] = useState("");
+  const [state, dispatch] = useReducer(formReducer, INITIAL_STATE);
 
-  const changeSlider = (value) => {
-    setSlider(value);
-  };
-
-  const changeText = (e) => {
-    setText(e.target.value);
-  };
-
-  const changeSelect = (e) => {
-    setSelect(e.target.value);
-    console.log(selectValue);
+  const onChange = (e) => {
+    dispatch({ field: e.target.name, value: e.target.value });
   };
 
   const searchRoute = () => {
-    if (textValue !== "") {
-      setSearchListRequest(true);
-      setActiveBreadcrumb([false, true, false]);
-      console.log(sliderValue, sliderValue, textValue);
-      props.history.push("/search/searchlist");
-      return null;
-    } else {
-      console.log("dupa, nie poszukasz sobie");
-    }
+    console.log(textValue, sliderValue, selectValue);
   };
 
-  const clickDetails = () => {
-    setDetailRequest(true);
-    setActiveBreadcrumb([false, false, true]);
-    console.log("klik");
-    props.history.push("/search/searchlist/details");
-  };
+  const { textValue, sliderValue, selectValue } = state;
 
   return (
     <React.Fragment>
-      <SearchBreadcrumbs
-        clickSearchBreadcrumb={() => setActiveBreadcrumb([true, false, false])}
-        clickListBreadcrumb={() => setActiveBreadcrumb([false, true, false])}
-        clickDetailsBreadcrumb={() => setActiveBreadcrumb([false, false, true])}
-        activateSearch={activeBreadcrumb[0]}
-        activateList={activeBreadcrumb[1]}
-        activateDetails={activeBreadcrumb[2]}
-        searchlistReqest={searchlistReqest}
-        detailReqest={detailReqest}
+      <SearchForm
+        textValue={textValue}
+        selectValue={selectValue}
+        sliderValue={sliderValue}
+        onChangeText={onChange}
+        onChangeSelect={onChange}
+        onChangeSlider={onChange}
+        onSearchSubmit={searchRoute}
       />
-
-      <Switch>
-        <Route exact path="/search">
-          <SearchForm
-            textValue={textValue}
-            textValidation={searchRoute}
-            onChangeText={changeText}
-            selectValue={selectValue}
-            onChangeSelect={changeSelect}
-            onChangeSlider={changeSlider}
-            onSearchSubmit={searchRoute}
-          />
-        </Route>
-        <Route exact path="/search/searchlist">
-          <SearchList />
-        </Route>
-        <Route exact path="/search/searchlist/details">
-          <Details onClickDetails={clickDetails} />
-        </Route>
-      </Switch>
+      <SearchList />
     </React.Fragment>
   );
 }
