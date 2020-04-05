@@ -2,9 +2,7 @@ import React from "react";
 import { Header, Grid } from "semantic-ui-react";
 import SearchList from "../Components/Search/SearchList";
 
-function Favourites({ places, onFavBtnClick, favPlaces }) {
-  console.log(favPlaces);
-
+function Favourites({ places, onFavBtnClick, onDelFavBtnClick, favPlaces }) {
   return (
     <React.Fragment>
       <Grid centered padded>
@@ -13,7 +11,9 @@ function Favourites({ places, onFavBtnClick, favPlaces }) {
         </Grid.Column>
         <Grid.Column width={16} verticalAlign="middle">
           <SearchList
+            favPlaces={favPlaces}
             onFavBtnClick={onFavBtnClick}
+            onDelFavBtnClick={onDelFavBtnClick}
             places={places.filter((e) =>
               favPlaces.find((key) => key === e.key)
             )}

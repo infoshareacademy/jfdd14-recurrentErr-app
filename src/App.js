@@ -105,6 +105,14 @@ const App = () => {
       : setFavPlaces([...favPlaces, event.target.id]);
   };
 
+  const delFromFav = (event) => {
+    const favPlacesCopy = [...favPlaces];
+    const delIndex = favPlacesCopy.indexOf(event.target.id);
+    favPlacesCopy.splice(delIndex, 1);
+
+    return setFavPlaces(favPlacesCopy);
+  };
+
   return (
     <BrowserRouter>
       <AppbarReact />
@@ -121,6 +129,7 @@ const App = () => {
               places={places}
               onFavBtnClick={addToFav}
               favPlaces={favPlaces}
+              onDelFavBtnClick={delFromFav}
             />
           </Route>
           <Route exact path="/favouritesdetails">
@@ -131,6 +140,7 @@ const App = () => {
               places={places}
               favPlaces={favPlaces}
               onFavBtnClick={addToFav}
+              onDelFavBtnClick={delFromFav}
             />
           </Route>
           <Route>
