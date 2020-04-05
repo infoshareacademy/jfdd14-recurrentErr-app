@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from "react";
 import Pagination from "../Components/Pagination/Pagination";
 import mapObjectToArray from "../Components/mapObjectToArray";
-import Details from "./Details";
+import SingleCard from "../Components/SingleCard/SingleCard";
 import "./searchList.css";
 
 const API_URL = "https://isa-crossroads.firebaseio.com/places/.json";
@@ -27,7 +27,7 @@ function SearchList() {
 
   const items = places.map((place) => {
     return (
-      <Details
+      <SingleCard
         key={place.name}
         photoBig={place.photoBig}
         averageSpeed={place.averageSpeed}
