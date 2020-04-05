@@ -23,16 +23,19 @@ function SearchList({ places }) {
     );
   });
 
-  const modal = places.map((place) => {
-    return (
-      <Details
-        showModal={showModal}
-        closeModal={closeModal}
-        open={open}
-        item={place}
-      />
-    );
-  });
+  const modal = places
+    .map((place, index) => {
+      return (
+        <Details
+          showModal={showModal}
+          closeModal={closeModal}
+          open={open}
+          item={place}
+          key={index}
+        />
+      );
+    })
+    .find((modal) => modal.index === places.index);
 
   const indexOfLastCard = currentPage * cardsPerPage;
   const indexofFirstCard = indexOfLastCard - cardsPerPage;

@@ -1,4 +1,4 @@
-import React, { Component } from "react";
+import React from "react";
 import { Button, Header, Image, Modal } from "semantic-ui-react";
 
 function Details(props) {
@@ -10,16 +10,16 @@ function Details(props) {
         open={props.open}
         onClose={() => props.closeModal()}
       >
-        <Modal.Header>""</Modal.Header>
+        <Modal.Header>"{props.item.name}"</Modal.Header>
         <Modal.Content image>
-          <Image wrapped size="medium" src="" />
+          <Image wrapped size="medium" src={props.item.photoBig} />
           <Modal.Description>
-            <Header>Default Profile Image</Header>
+            <Header>Lokalizacja: {props.item.city}</Header>
             <p>
-              We've found the following gravatar image associated with your
-              e-mail address.
+              Informacje o spacerze: dystans: {props.item.distance}km, poziom
+              trudności: {props.item.level}
             </p>
-            <p>Is it okay to use this photo?</p>
+            <p>{props.item.description}</p>
           </Modal.Description>
         </Modal.Content>
         <Modal.Actions>
