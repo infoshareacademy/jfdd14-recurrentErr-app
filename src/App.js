@@ -9,25 +9,51 @@ import FavouritesDetails from "./pages/FavouritesDetails";
 import Search from "./pages/Search";
 import Default from "./pages/Default";
 import Home from "./pages/Home";
+import mapObjectToArray from "./Components/mapObjectToArray";
+
+const API_URL = "https://isa-crossroads.firebaseio.com/places/.json";
 
 class App extends Component {
+  constructor(props) {
+    super(props);
+    this.state = { places: [] };
+  }
+
+  componentDidMount() {
+    return fetch(API_URL)
+      .then((response) => response.json())
+      .then((placesObject) => {
+        const placesArray = mapObjectToArray(placesObject);
+        this.setState({ places: placesArray });
+      });
+  }
+
   render() {
+    const { places } = this.state;
+
     return (
       <BrowserRouter>
         <AppbarReact />
         <div className="container">
           <Switch>
-            <Route exact path="/" component={Home} />
-            <Route exact path="/addroute" component={AddRoute} />
-            {/* <Route exact path="/details" component={Details} /> */}
-            <Route exact path="/favourites" component={Favourites} />
-            <Route
-              exact
-              path="/favouritesdetails"
-              component={FavouritesDetails}
-            />
-            <Route exact path="/search" component={Search} />
-            <Route component={Default} />
+            <Route exact path="/">
+              <Home />
+            </Route>
+            <Route exact path="/addroute">
+              <AddRoute />
+            </Route>
+            <Route exact path="/favourites">
+              <Favourites />
+            </Route>
+            <Route exact path="/favouritesdetails">
+              <FavouritesDetails />
+            </Route>
+            <Route exact path="/search">
+              <Search places={places} />
+            </Route>
+            <Route>
+              <Default />
+            </Route>
           </Switch>
         </div>
       </BrowserRouter>

@@ -1,9 +1,6 @@
-import React, { useReducer, useState, useEffect } from "react";
+import React, { useReducer, useState } from "react";
 import SearchForm from "../Components/Search/SearchForm";
 import SearchList from "../Components/Search/SearchList";
-import mapObjectToArray from "../Components/mapObjectToArray";
-
-const API_URL = "https://isa-crossroads.firebaseio.com/places/.json";
 
 const INITIAL_STATE = {
   textValue: "",
@@ -17,24 +14,9 @@ function formReducer(state, { field, value }) {
   };
 }
 
-function Search() {
+function Search({ places }) {
   const [state, dispatch] = useReducer(formReducer, INITIAL_STATE);
-  const [places, setPlaces] = useState([]);
   const [dropdownValue, setDropdownValue] = useState([]);
-
-  const getPlaces = () => {
-    return fetch(API_URL)
-      .then((response) => response.json())
-      .then((placesObject) => {
-        const placesArray = mapObjectToArray(placesObject);
-
-        setPlaces(placesArray);
-      });
-  };
-
-  useEffect(() => {
-    getPlaces();
-  }, []);
 
   const onChange = (e) => {
     dispatch({ field: e.target.name, value: e.target.value });
