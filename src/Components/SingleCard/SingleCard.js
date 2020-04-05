@@ -24,6 +24,23 @@ function SingleCard(props) {
           >
             Dowiedz się więcej...
           </button>
+          {props.favPlaces.includes(props.item.key) ? (
+            <button
+              className="btn card_btn"
+              id={props.item.key}
+              onClick={props.onDelFavBtnClick}
+            >
+              Usuń z ulubionych
+            </button>
+          ) : (
+            <button
+              className="btn card_btn"
+              id={props.item.key}
+              onClick={props.onFavBtnClick}
+            >
+              Dodaj do ulubionych
+            </button>
+          )}
         </div>
       </div>
     </li>

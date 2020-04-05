@@ -4,7 +4,7 @@ import SingleCard from "../SingleCard/SingleCard";
 import Details from "../Details/Details";
 import "../Search/searchList.css";
 
-function SearchList({ places }) {
+function SearchList({ places, onFavBtnClick, onDelFavBtnClick, favPlaces }) {
   const [currentPage, setCurrentPage] = useState(1);
   const [cardsPerPage] = useState(6);
   const [open, setOpen] = useState(false);
@@ -15,6 +15,7 @@ function SearchList({ places }) {
     setOpen(true);
   };
   const closeModal = () => setOpen(false);
+
   const items = places.map((place, index) => {
     return (
       <SingleCard
@@ -23,6 +24,9 @@ function SearchList({ places }) {
         open={open}
         showModal={showModal}
         buttonName={place.key}
+        favPlaces={favPlaces}
+        onFavBtnClick={onFavBtnClick}
+        onDelFavBtnClick={onDelFavBtnClick}
       />
     );
   });
