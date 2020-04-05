@@ -8,44 +8,38 @@ function SearchList({ places }) {
   const [currentPage, setCurrentPage] = useState(1);
   const [cardsPerPage] = useState(6);
   const [open, setOpen] = useState(false);
+  const [modalObject, setModalObject] = useState({});
 
-  const showModal = () => () => setOpen(true);
+  const showModal = (event) => {
+    setModalObject(places.find((e) => e.key === event.target.name));
+    setOpen(true);
+  };
   const closeModal = () => setOpen(false);
-
   const items = places.map((place, index) => {
     return (
       <SingleCard
         key={index}
         item={place}
         open={open}
-        showModal={showModal(place)}
+        showModal={showModal}
+        buttonName={place.key}
       />
     );
   });
 
-  const modal = places
-    .map((place, index) => {
-      return (
-        <Details
-          showModal={showModal}
-          closeModal={closeModal}
-          open={open}
-          item={place}
-          key={index}
-        />
-      );
-    })
-    .find((modal) => modal.index === places.index);
-
   const indexOfLastCard = currentPage * cardsPerPage;
   const indexofFirstCard = indexOfLastCard - cardsPerPage;
   const currentPosts = items.slice(indexofFirstCard, indexOfLastCard);
-
   const paginate = (pageNumber) => setCurrentPage(pageNumber);
 
   return (
     <div className="searchListContainer">
-      {modal}
+      <Details
+        showModal={showModal}
+        closeModal={closeModal}
+        open={open}
+        item={modalObject}
+      />
       <ul className="cards">{currentPosts}</ul>
       <Pagination
         cardsPerPage={cardsPerPage}
@@ -56,5 +50,4 @@ function SearchList({ places }) {
     </div>
   );
 }
-
 export default SearchList;

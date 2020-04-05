@@ -18,8 +18,9 @@ function SingleCard(props) {
           </p>
           <p className="card_text">Stopień trudności: {props.item.level}</p>
           <button
+            name={props.buttonName}
             className="btn card_btn"
-            onClick={() => props.showModal(true)}
+            onClick={props.showModal}
           >
             Dowiedz się więcej...
           </button>
@@ -28,5 +29,4 @@ function SingleCard(props) {
     </li>
   );
 }
-
 export default SingleCard;
