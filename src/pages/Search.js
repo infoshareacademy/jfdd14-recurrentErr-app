@@ -1,11 +1,13 @@
-import React, { useReducer } from "react";
+import React, { useReducer, useState, useEffect } from "react";
 import SearchForm from "../Components/Search/SearchForm";
-import SearchList from "../pages/SearchList";
+import SearchList from "../Components/Search/SearchList";
+import mapObjectToArray from "../Components/mapObjectToArray";
+
+const API_URL = "https://isa-crossroads.firebaseio.com/places/.json";
 
 const INITIAL_STATE = {
   textValue: "",
   sliderValue: 0,
-  selectValue: "0",
 };
 
 function formReducer(state, { field, value }) {
@@ -15,31 +17,57 @@ function formReducer(state, { field, value }) {
   };
 }
 
-function Search(props) {
+function Search() {
   const [state, dispatch] = useReducer(formReducer, INITIAL_STATE);
+  const [places, setPlaces] = useState([]);
+  const [dropdownValue, setDropdownValue] = useState([]);
+
+  const getPlaces = () => {
+    return fetch(API_URL)
+      .then((response) => response.json())
+      .then((placesObject) => {
+        const placesArray = mapObjectToArray(placesObject);
+
+        setPlaces(placesArray);
+      });
+  };
+
+  useEffect(() => {
+    getPlaces();
+  }, []);
 
   const onChange = (e) => {
     dispatch({ field: e.target.name, value: e.target.value });
   };
 
-  const searchRoute = () => {
-    console.log(textValue, sliderValue, selectValue);
+  const onChangeDropdown = (event, data) => {
+    setDropdownValue(data.value);
   };
 
-  const { textValue, sliderValue, selectValue } = state;
+  const { textValue, sliderValue } = state;
+
+  const textQuery = new RegExp(textValue, "i");
 
   return (
     <React.Fragment>
       <SearchForm
         textValue={textValue}
-        selectValue={selectValue}
+        dropdownValue={dropdownValue}
         sliderValue={sliderValue}
         onChangeText={onChange}
-        onChangeSelect={onChange}
+        onChangeDropdown={onChangeDropdown}
         onChangeSlider={onChange}
-        onSearchSubmit={searchRoute}
       />
-      <SearchList />
+      <SearchList
+        places={places
+          .filter((e) => textQuery.test(e.name))
+          .filter((e) =>
+            dropdownValue.length === 0
+              ? true
+              : dropdownValue.find((level) => level === e.level)
+          )
+          .filter((e) => (sliderValue === 0 ? true : e.time < sliderValue))}
+      />
     </React.Fragment>
   );
 }

@@ -4,14 +4,12 @@
   align-items: stretch;
 }
 
-select {
-  width: 100%;
-  padding: 0.75em;
-  background-color: white;
-  border-radius: 0.28571429rem;
-  border: 1px solid rgba(34, 36, 38, 0.15);
-  font-size: 0.9em;
-  color: rgba(0, 0, 0, 0.8);
+.formSelect .item {
+  color: black !important;
+}
+
+.ui.dropdown:not(.button) > .default.text {
+  color: rgb(121, 118, 118);
 }
 
 .label {

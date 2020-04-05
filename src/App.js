@@ -7,7 +7,6 @@ import AddRoute from "./pages/AddRoute";
 import Favourites from "./pages/Favourites";
 import FavouritesDetails from "./pages/FavouritesDetails";
 import Search from "./pages/Search";
-// import SearchList from "./pages/SearchList";
 import Default from "./pages/Default";
 import Home from "./pages/Home";
 
@@ -27,8 +26,7 @@ class App extends Component {
               path="/favouritesdetails"
               component={FavouritesDetails}
             />
-            <Route path="/search" component={Search} />
-            {/* <Route exact path="/searchlist" component={SearchList} /> */}
+            <Route exact path="/search" component={Search} />
             <Route component={Default} />
           </Switch>
         </div>

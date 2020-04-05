@@ -1,15 +1,20 @@
 import React from "react";
-import { Header, Grid, Card, Form } from "semantic-ui-react";
+import { Header, Grid, Card, Form, Dropdown } from "semantic-ui-react";
 import "../Search/SearchForm.css";
+
+const options = [
+  { key: "easy", text: "łatwy", value: "łatwy" },
+  { key: "intermediate", text: "średni", value: "średni" },
+  { key: "hard", text: "trudny", value: "trudny" },
+];
 
 function SearchForm({
   textValue,
-  selectValue,
   sliderValue,
+  dropdownValue,
   onChangeText,
-  onChangeSelect,
+  onChangeDropdown,
   onChangeSlider,
-  onSearchSubmit,
 }) {
   return (
     <React.Fragment>
@@ -21,7 +26,7 @@ function SearchForm({
           as={Card}
           className="cardElements"
           textAlign="center"
-          tablet={14}
+          tablet={15}
           computer={8}
           largeScreen={6}
         >
@@ -34,23 +39,24 @@ function SearchForm({
             style={{ width: "100%" }}
           />
           <p className="label">Poziom trudności przechadzki</p>
-          <select
-            name="selectValue"
-            value={selectValue}
-            onChange={onChangeSelect}
-            className="dropdown"
-          >
-            <option value={0}>-wybierz-</option>
-            <option value={1}>Łatwy</option>
-            <option value={2}>Średni</option>
-            <option value={3}>Trudny</option>
-          </select>
+
+          <Dropdown
+            placeholder="-wybierz-"
+            fluid
+            multiple
+            selection
+            options={options}
+            value={dropdownValue}
+            onChange={onChangeDropdown}
+            className="formSelect"
+          />
+
           <p className="label">{`Czas trwania przechadzki: ${sliderValue} minut`}</p>
           <div className="slidecontainer">
             <input
               type="range"
               min={0}
-              max={240}
+              max={400}
               step={5}
               value={sliderValue}
               onChange={onChangeSlider}
@@ -58,10 +64,6 @@ function SearchForm({
               name="sliderValue"
             />
           </div>
-
-          <Form.Button type="submit" onClick={onSearchSubmit}>
-            Szukaj
-          </Form.Button>
         </Grid.Column>
       </Grid>
     </React.Fragment>
