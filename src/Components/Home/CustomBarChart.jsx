@@ -1,6 +1,6 @@
 import React from "react";
 import { BarChart, Bar, XAxis, YAxis, Tooltip, CartesianGrid } from "recharts";
-import ChartContainer from "../Components/ChartCard.jsx";
+import ChartContainer from "../Home/ChartCard";
 
 function CustomBarChart(props) {
   return (

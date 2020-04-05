@@ -1,29 +1,11 @@
-import React, { useState, useEffect } from "react";
-import Pagination from "../Components/Pagination/Pagination";
-import mapObjectToArray from "../Components/mapObjectToArray";
-import SingleCard from "../Components/SingleCard/SingleCard";
-import "./searchList.css";
+import React, { useState } from "react";
+import Pagination from "../Pagination/Pagination";
+import "../Search/searchList.css";
 
-const API_URL = "https://isa-crossroads.firebaseio.com/places/.json";
-
-function SearchList() {
-  const [places, setPlaces] = useState([]);
+function SearchList({ places }) {
   const [currentPage, setCurrentPage] = useState(1);
+
   const [cardsPerPage] = useState(6);
-
-  const getPlaces = () => {
-    return fetch(API_URL)
-      .then((response) => response.json())
-      .then((placesObject) => {
-        const placesArray = mapObjectToArray(placesObject);
-
-        setPlaces(placesArray);
-      });
-  };
-
-  useEffect(() => {
-    getPlaces();
-  }, []);
 
   const items = places.map((place) => {
     return (
@@ -48,7 +30,6 @@ function SearchList() {
 
   return (
     <div className="searchListContainer">
-      <h1 className="searchH1">Lista wyników wyszukiwania:</h1>
       <ul className="cards">{currentPosts}</ul>
       <Pagination
         cardsPerPage={cardsPerPage}
