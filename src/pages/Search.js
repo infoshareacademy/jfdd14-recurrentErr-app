@@ -42,7 +42,7 @@ function Search({ places }) {
       />
       <SearchList
         places={places
-          .filter((e) => textQuery.test(e.name))
+          .filter((e) => textQuery.test(e.name) || textQuery.test(e.city))
           .filter((e) =>
             dropdownValue.length === 0
               ? true

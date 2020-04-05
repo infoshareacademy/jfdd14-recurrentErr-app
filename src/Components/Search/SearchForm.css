@@ -4,6 +4,13 @@
   align-items: stretch;
 }
 
+.formInput {
+  margin-top: 2.5rem;
+}
+
+.formSelect {
+  width: 90%;
+}
 .formSelect .item {
   color: black !important;
 }
@@ -23,10 +30,10 @@
 }
 
 .slider {
-  margin-bottom: 1.5rem;
+  margin-bottom: 3rem;
   padding-top: 0;
   -webkit-appearance: none;
-  width: 100%;
+  width: 90%;
   height: 5px;
   border-radius: 5px;
   background: rgba(34, 36, 38, 0.15);
