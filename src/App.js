@@ -80,7 +80,7 @@ const API_URL = "https://isa-crossroads.firebaseio.com/places/.json";
 const App = () => {
   const [places, setPlaces] = useState([]);
   const [favPlaces, setFavPlaces] = useState(
-    localStorage.getItem("favPlaces") || []
+    JSON.parse(localStorage.getItem("favPlaces")) || []
   );
 
   useEffect(() => {
@@ -96,7 +96,7 @@ const App = () => {
   }, []);
 
   useEffect(() => {
-    localStorage.setItem("favPlaces", favPlaces);
+    localStorage.setItem("favPlaces", JSON.stringify(favPlaces));
   }, [favPlaces]);
 
   const addToFav = (event) => {
@@ -117,7 +117,11 @@ const App = () => {
             <AddRoute />
           </Route>
           <Route exact path="/favourites">
-            <Favourites places={places} onFavBtnClick={addToFav} />
+            <Favourites
+              places={places}
+              onFavBtnClick={addToFav}
+              favPlaces={favPlaces}
+            />
           </Route>
           <Route exact path="/favouritesdetails">
             <FavouritesDetails />

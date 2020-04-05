@@ -1,11 +1,25 @@
 import React from "react";
-
+import { Header, Grid } from "semantic-ui-react";
 import SearchList from "../Components/Search/SearchList";
 
 function Favourites({ places, onFavBtnClick, favPlaces }) {
+  console.log(favPlaces);
+
   return (
     <React.Fragment>
-      <SearchList onFavBtnClick={onFavBtnClick} places={places} />
+      <Grid centered padded>
+        <Grid.Column width={16} verticalAlign="middle">
+          <Header as="h2">Ulubione trasy przechadzek</Header>
+        </Grid.Column>
+        <Grid.Column width={16} verticalAlign="middle">
+          <SearchList
+            onFavBtnClick={onFavBtnClick}
+            places={places.filter((e) =>
+              favPlaces.find((key) => key === e.key)
+            )}
+          />
+        </Grid.Column>
+      </Grid>
     </React.Fragment>
   );
 }

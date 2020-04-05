@@ -14,7 +14,7 @@ function formReducer(state, { field, value }) {
   };
 }
 
-function Search({ places, onFavBtnClick }) {
+function Search({ places, onFavBtnClick, favPlaces }) {
   const [state, dispatch] = useReducer(formReducer, INITIAL_STATE);
   const [dropdownValue, setDropdownValue] = useState([]);
 
