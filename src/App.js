@@ -1,35 +1,59 @@
 import React, { Component } from "react";
 import "./App.css";
-import AppbarReact from "./Components/AppbarReact";
+import AppbarReact from "./Components/Menu/AppbarReact";
 import { BrowserRouter, Switch, Route } from "react-router-dom";
 import AddRoute from "./pages/AddRoute";
-import Details from "./pages/Details";
+// import Details from "./pages/Details";
 import Favourites from "./pages/Favourites";
 import FavouritesDetails from "./pages/FavouritesDetails";
 import Search from "./pages/Search";
-import SearchList from "./pages/SearchList";
 import Default from "./pages/Default";
 import Home from "./pages/Home";
+import mapObjectToArray from "./Components/mapObjectToArray";
+
+const API_URL = "https://isa-crossroads.firebaseio.com/places/.json";
 
 class App extends Component {
+  constructor(props) {
+    super(props);
+    this.state = { places: [] };
+  }
+
+  componentDidMount() {
+    return fetch(API_URL)
+      .then((response) => response.json())
+      .then((placesObject) => {
+        const placesArray = mapObjectToArray(placesObject);
+        this.setState({ places: placesArray });
+      });
+  }
+
   render() {
+    const { places } = this.state;
+
     return (
       <BrowserRouter>
         <AppbarReact />
         <div className="container">
           <Switch>
-            <Route exact path="/" component={Home} />
-            <Route exact path="/addroute" component={AddRoute} />
-            <Route exact path="/details" component={Details} />
-            <Route exact path="/favourites" component={Favourites} />
-            <Route
-              exact
-              path="/favouritesdetails"
-              component={FavouritesDetails}
-            />
-            <Route exact path="/search" component={Search} />
-            <Route exact path="/searchlist" component={SearchList} />
-            <Route component={Default} />
+            <Route exact path="/">
+              <Home />
+            </Route>
+            <Route exact path="/addroute">
+              <AddRoute />
+            </Route>
+            <Route exact path="/favourites">
+              <Favourites />
+            </Route>
+            <Route exact path="/favouritesdetails">
+              <FavouritesDetails />
+            </Route>
+            <Route exact path="/search">
+              <Search places={places} />
+            </Route>
+            <Route>
+              <Default />
+            </Route>
           </Switch>
         </div>
       </BrowserRouter>

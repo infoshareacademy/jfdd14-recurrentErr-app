@@ -3,7 +3,7 @@ import { Menu, Responsive } from "semantic-ui-react";
 import { Link } from "react-router-dom";
 import SidebarReact from "./SidebarReact";
 import SidebarReactHamburger from "./SidebarReactHamburger";
-import logo from "./logo/logoBW.png";
+import logo from "../logo/logoBW.png";
 import "./sidebar.css";
 
 class AppbarReact extends Component {

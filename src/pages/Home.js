@@ -1,7 +1,7 @@
 import React from "react";
 import { Header, Grid } from "semantic-ui-react";
-import CustomBarChart from "../Components/CustomBarChart.jsx";
-import CustomPieChart from "../Components/CustomPieChart.jsx";
+import CustomBarChart from "../Components/Home/CustomBarChart.jsx";
+import CustomPieChart from "../Components/Home/CustomPieChart.jsx";
 
 const items = {
   pie: {
