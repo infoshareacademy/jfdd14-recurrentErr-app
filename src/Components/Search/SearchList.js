@@ -14,7 +14,23 @@ function SearchList({ places }) {
 
   const items = places.map((place, index) => {
     return (
-      <SingleCard key={index} item={place} open={false} showModal={showModal} />
+      <SingleCard
+        key={index}
+        item={place}
+        open={open}
+        showModal={showModal(place)}
+      />
+    );
+  });
+
+  const modal = places.map((place) => {
+    return (
+      <Details
+        showModal={showModal}
+        closeModal={closeModal}
+        open={open}
+        item={place}
+      />
     );
   });
 
@@ -26,7 +42,7 @@ function SearchList({ places }) {
 
   return (
     <div className="searchListContainer">
-      <Details showModal={showModal} closeModal={closeModal} open={false} />
+      {modal}
       <ul className="cards">{currentPosts}</ul>
       <Pagination
         cardsPerPage={cardsPerPage}

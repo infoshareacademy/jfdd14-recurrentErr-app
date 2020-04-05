@@ -16,10 +16,10 @@ function SingleCard(props) {
           <p className="card_text">
             {props.item.city} || dystans: {props.item.distance}km
           </p>
-          <p className="card_text">Stopień trudności: {props.level}</p>
+          <p className="card_text">Stopień trudności: {props.item.level}</p>
           <button
             className="btn card_btn"
-            onClick={() => props.showModal(props.item)}
+            onClick={() => props.showModal(true)}
           >
             Dowiedz się więcej...
           </button>
