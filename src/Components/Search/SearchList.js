@@ -1,24 +1,20 @@
 import React, { useState } from "react";
 import Pagination from "../Pagination/Pagination";
+import SingleCard from "../SingleCard/SingleCard";
+import Details from "../Details/Details";
 import "../Search/searchList.css";
 
 function SearchList({ places }) {
   const [currentPage, setCurrentPage] = useState(1);
-
   const [cardsPerPage] = useState(6);
+  const [open, setOpen] = useState(false);
 
-  const items = places.map((place) => {
+  const showModal = () => () => setOpen(true);
+  const closeModal = () => setOpen(false);
+
+  const items = places.map((place, index) => {
     return (
-      <SingleCard
-        key={place.name}
-        photoBig={place.photoBig}
-        averageSpeed={place.averageSpeed}
-        city={place.city}
-        distance={place.distance}
-        level={place.level}
-        name={place.name}
-        time={place.time}
-      />
+      <SingleCard key={index} item={place} open={false} showModal={showModal} />
     );
   });
 
@@ -30,6 +26,7 @@ function SearchList({ places }) {
 
   return (
     <div className="searchListContainer">
+      <Details showModal={showModal} closeModal={closeModal} open={false} />
       <ul className="cards">{currentPosts}</ul>
       <Pagination
         cardsPerPage={cardsPerPage}
