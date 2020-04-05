@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from "react";
 import Pagination from "../Components/Pagination/Pagination";
 import mapObjectToArray from "../Components/mapObjectToArray";
+import Details from "./Details";
 import "./searchList.css";
 
 const API_URL = "https://isa-crossroads.firebaseio.com/places/.json";
@@ -26,25 +27,16 @@ function SearchList() {
 
   const items = places.map((place) => {
     return (
-      <li className="cards_item" key={place.name}>
-        <div className="card">
-          <div className="card_image">
-            <img
-              className="searchImg resposive"
-              src={place.photoBig}
-              alt=""
-            ></img>
-          </div>
-          <div className="card_content">
-            <p className="card_title">"{place.name}"</p>
-            <p className="card_text">
-              {place.city} || dystans: {place.distance}km
-            </p>
-            <p className="card_text">Stopień trudności: {place.level}</p>
-            <button className="btn card_btn">Dowiedz się więcej...</button>
-          </div>
-        </div>
-      </li>
+      <Details
+        key={place.name}
+        photoBig={place.photoBig}
+        averageSpeed={place.averageSpeed}
+        city={place.city}
+        distance={place.distance}
+        level={place.level}
+        name={place.name}
+        time={place.time}
+      />
     );
   });
 
