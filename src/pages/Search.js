@@ -14,7 +14,7 @@ function formReducer(state, { field, value }) {
   };
 }
 
-function Search({ places }) {
+function Search({ places, onFavBtnClick }) {
   const [state, dispatch] = useReducer(formReducer, INITIAL_STATE);
   const [dropdownValue, setDropdownValue] = useState([]);
 
@@ -41,6 +41,7 @@ function Search({ places }) {
         onChangeSlider={onChange}
       />
       <SearchList
+        onFavBtnClick={onFavBtnClick}
         places={places
           .filter((e) => textQuery.test(e.name) || textQuery.test(e.city))
           .filter((e) =>

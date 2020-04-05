@@ -1,7 +1,13 @@
 import React from "react";
 
-function Favourites() {
-  return <div></div>;
+import SearchList from "../Components/Search/SearchList";
+
+function Favourites({ places, onFavBtnClick, favPlaces }) {
+  return (
+    <React.Fragment>
+      <SearchList onFavBtnClick={onFavBtnClick} places={places} />
+    </React.Fragment>
+  );
 }
 
 export default Favourites;

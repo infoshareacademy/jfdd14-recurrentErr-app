@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import Pagination from "../Pagination/Pagination";
 import "../Search/searchList.css";
 
-function SearchList({ places }) {
+function SearchList({ places, onFavBtnClick }) {
   const [currentPage, setCurrentPage] = useState(1);
 
   const [cardsPerPage] = useState(6);
@@ -25,6 +25,13 @@ function SearchList({ places }) {
             </p>
             <p className="card_text">Stopień trudności: {place.level}</p>
             <button className="btn card_btn">Dowiedz się więcej...</button>
+            <button
+              className="btn card_btn"
+              id={place.key}
+              onClick={onFavBtnClick}
+            >
+              Dodaj do ulubionych
+            </button>
           </div>
         </div>
       </li>
