@@ -1,4 +1,5 @@
 import React from "react";
+import { Button, Grid } from "semantic-ui-react";
 
 function SingleCard(props) {
   return (
@@ -17,30 +18,36 @@ function SingleCard(props) {
             {props.item.city} || dystans: {props.item.distance}km
           </p>
           <p className="card_text">Stopień trudności: {props.item.level}</p>
-          <button
-            name={props.buttonName}
-            className="btn card_btn"
-            onClick={props.showModal}
-          >
-            Dowiedz się więcej...
-          </button>
-          {props.favPlaces.includes(props.item.key) ? (
-            <button
-              className="btn card_btn"
-              id={props.item.key}
-              onClick={props.onDelFavBtnClick}
-            >
-              Usuń z ulubionych
-            </button>
-          ) : (
-            <button
-              className="btn card_btn"
-              id={props.item.key}
-              onClick={props.onFavBtnClick}
-            >
-              Dodaj do ulubionych
-            </button>
-          )}
+          <Grid>
+            <Grid.Column width={8}>
+              {props.favPlaces.includes(props.item.key) ? (
+                <Button
+                  fluid
+                  id={props.item.key}
+                  onClick={props.onDelFavBtnClick}
+                  color="violet"
+                >
+                  {" "}
+                  Usuń z ulubionych
+                </Button>
+              ) : (
+                <Button
+                  fluid
+                  id={props.item.key}
+                  onClick={props.onFavBtnClick}
+                  color="green"
+                >
+                  {" "}
+                  Dodaj do ulubionych
+                </Button>
+              )}
+            </Grid.Column>
+            <Grid.Column width={8}>
+              <Button fluid name={props.buttonName} onClick={props.showModal}>
+                Więcej informacji
+              </Button>
+            </Grid.Column>
+          </Grid>
         </div>
       </div>
     </li>
