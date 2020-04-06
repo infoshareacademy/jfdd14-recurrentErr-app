@@ -11,6 +11,7 @@ import {
   TextArea,
   Header,
 } from "semantic-ui-react";
+import RouteList from "./routeAdded";
 
 const options = [
   { key: "1", text: "Łatwy", value: "Łatwy" },
@@ -64,9 +65,16 @@ class AddRoute extends Component {
   };
 
   render() {
-    const submitNow = this.state.chBox ? (
-      <Form.Field control={Button}>Dodaj</Form.Field>
-    ) : null;
+    const submitNow =
+      this.state.chBox &&
+      this.state.routeName &&
+      this.state.city &&
+      this.state.distance ? (
+        <Form.Field control={Button}>Dodaj</Form.Field>
+      ) : (
+        <Button disabled>Dodaj</Button>
+      );
+
     return (
       <div>
         <Form style={{ margin: 20 }} onSubmit={this.handleSubmit}>
@@ -159,6 +167,8 @@ class AddRoute extends Component {
 
           {submitNow}
         </Form>
+
+        <RouteList />
       </div>
     );
   }
