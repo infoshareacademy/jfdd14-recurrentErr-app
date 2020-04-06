@@ -12,7 +12,7 @@ function Details(props) {
       >
         <Modal.Header>"{props.item.name}"</Modal.Header>
         <Modal.Content image>
-          <Image wrapped size="medium" src={props.item.photoBig} />
+          <Image size="medium" src={props.item.photoBig} />
           <Modal.Description>
             <Header>Lokalizacja: {props.item.city}</Header>
             <p>
@@ -26,13 +26,25 @@ function Details(props) {
           <Button color="black" onClick={() => props.closeModal()}>
             Zamknij
           </Button>
-          <Button
-            positive
-            icon="checkmark"
-            labelPosition="right"
-            content="Dodaj do ulubionych"
-            onClick={() => props.closeModal()}
-          />
+          {props.favPlaces.includes(props.item.key) ? (
+            <Button
+              negative
+              icon="x"
+              labelPosition="right"
+              content="Usuń z ulubionych"
+              onClick={props.onDelFavBtnClick}
+              id={props.item.key}
+            />
+          ) : (
+            <Button
+              positive
+              icon="checkmark"
+              labelPosition="right"
+              content="Dodaj do ulubionych"
+              onClick={props.onFavBtnClick}
+              id={props.item.key}
+            />
+          )}
         </Modal.Actions>
       </Modal>
     </div>

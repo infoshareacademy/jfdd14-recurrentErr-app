@@ -43,6 +43,9 @@ function SearchList({ places, onFavBtnClick, onDelFavBtnClick, favPlaces }) {
         closeModal={closeModal}
         open={open}
         item={modalObject}
+        favPlaces={favPlaces}
+        onFavBtnClick={onFavBtnClick}
+        onDelFavBtnClick={onDelFavBtnClick}
       />
       <ul className="cards">{currentPosts}</ul>
       <Pagination
