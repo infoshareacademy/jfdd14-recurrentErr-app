@@ -161,7 +161,6 @@ class AddRoute extends Component {
 
           {submitNow}
         </Form>
-        <RouteList />
       </div>
     );
   }
