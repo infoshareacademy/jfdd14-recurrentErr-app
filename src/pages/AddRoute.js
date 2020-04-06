@@ -12,8 +12,6 @@ import {
   Header,
 } from "semantic-ui-react";
 
-import RouteList from "./routeAdded";
-
 const options = [
   { key: "1", text: "Łatwy", value: "Łatwy" },
   { key: "2", text: "Średni", value: "Średni" },
