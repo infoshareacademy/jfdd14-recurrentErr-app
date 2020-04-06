@@ -1,5 +1,5 @@
 import React from "react";
-import { Button, Icon, Grid } from "semantic-ui-react";
+import { Button, Grid } from "semantic-ui-react";
 
 function SingleCard(props) {
   return (
@@ -23,33 +23,28 @@ function SingleCard(props) {
               {props.favPlaces.includes(props.item.key) ? (
                 <Button
                   fluid
-                  icon
                   id={props.item.key}
                   onClick={props.onDelFavBtnClick}
                   color="violet"
                 >
-                  <Icon name="heart" />
+                  {" "}
+                  Usuń z ulubionych
                 </Button>
               ) : (
                 <Button
                   fluid
-                  icon
                   id={props.item.key}
                   onClick={props.onFavBtnClick}
                   color="green"
                 >
-                  <Icon name="heart outline" />
+                  {" "}
+                  Dodaj do ulubionych
                 </Button>
               )}
             </Grid.Column>
             <Grid.Column width={8}>
-              <Button
-                fluid
-                icon
-                name={props.buttonName}
-                onClick={props.showModal}
-              >
-                <Icon name="info circle" />
+              <Button fluid name={props.buttonName} onClick={props.showModal}>
+                Więcej informacji
               </Button>
             </Grid.Column>
           </Grid>
