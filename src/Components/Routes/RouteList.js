@@ -1,6 +1,5 @@
 import React, { Component } from "react";
 import routeData from "./routeData";
-import "../Components/Search/searchList.css";
 
 class RouteList extends Component {
   renderRoutes = () =>
