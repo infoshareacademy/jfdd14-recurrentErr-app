@@ -30,11 +30,10 @@ class AddRoute extends Component {
     level: "",
     chBox: false,
     timestamp: Date.now(),
-    showModal: false,
   };
-  handleChange = (e, { value }) => this.setState({ levelV: value });
 
   handleNameChange = (e, { value, name }) => this.setState({ [name]: value });
+
   handleCheckboxChange = (e, { checked, name }) =>
     this.setState({ [name]: checked });
 
@@ -55,7 +54,6 @@ class AddRoute extends Component {
       description: "",
       timestamp: "",
       chBox: false,
-      showModal: false,
     });
 
   handleSubmit = () => {
@@ -64,9 +62,6 @@ class AddRoute extends Component {
     this.resetState();
   };
 
-  ModalHandle = () => {
-    this.setState({ showModal: true });
-  };
   render() {
     const submitNow =
       this.state.chBox &&
