@@ -1,5 +1,5 @@
 import React, { Component } from "react";
-import routeData from "./routeData";
+import routeData from "../Components/Routes/routeData";
 
 import {
   Button,
@@ -7,11 +7,10 @@ import {
   Form,
   Input,
   Select,
-  Message,
   TextArea,
   Header,
+  Modal,
 } from "semantic-ui-react";
-import RouteList from "./routeAdded";
 
 const options = [
   { key: "1", text: "Łatwy", value: "Łatwy" },
@@ -31,6 +30,7 @@ class AddRoute extends Component {
     level: "",
     chBox: false,
     timestamp: Date.now(),
+    showModal: false,
   };
   handleChange = (e, { value }) => this.setState({ levelV: value });
 
@@ -55,15 +55,18 @@ class AddRoute extends Component {
       description: "",
       timestamp: "",
       chBox: false,
+      showModal: false,
     });
 
   handleSubmit = () => {
     this.addToData();
     this.jsonToLocalStorage();
     this.resetState();
-    alert("Dodano nową trasę!");
   };
 
+  ModalHandle = () => {
+    this.setState({ showModal: true });
+  };
   render() {
     const submitNow =
       this.state.chBox &&
@@ -159,16 +162,13 @@ class AddRoute extends Component {
             checked={this.state.chBox}
             onChange={this.handleCheckboxChange}
           />
-          <Message
-            success
-            header="Nowa trasa dodana"
-            content="Możesz ją obejrzeć w zakładce: dodane trasy"
-          />
-
-          {submitNow}
+          <Modal trigger={submitNow} closeIcon>
+            <Header icon="trophy" content="Gratulacje" />
+            <Modal.Content>
+              <p>Twoja trasa została dodana!</p>
+            </Modal.Content>
+          </Modal>
         </Form>
-
-        <RouteList />
       </div>
     );
   }
