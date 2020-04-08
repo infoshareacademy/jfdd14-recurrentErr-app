@@ -1,5 +1,6 @@
 import React, { Component } from "react";
-import routeData from "./routeData";
+import routeData from "../Components/Routes/routeData";
+import "../Components/Routes/route.css";
 
 import {
   Button,
@@ -7,9 +8,9 @@ import {
   Form,
   Input,
   Select,
-  Message,
   TextArea,
   Header,
+  Modal,
 } from "semantic-ui-react";
 
 const options = [
@@ -31,9 +32,9 @@ class AddRoute extends Component {
     chBox: false,
     timestamp: Date.now(),
   };
-  handleChange = (e, { value }) => this.setState({ levelV: value });
 
   handleNameChange = (e, { value, name }) => this.setState({ [name]: value });
+
   handleCheckboxChange = (e, { checked, name }) =>
     this.setState({ [name]: checked });
 
@@ -60,15 +61,21 @@ class AddRoute extends Component {
     this.addToData();
     this.jsonToLocalStorage();
     this.resetState();
-    alert("Dodano nową trasę!");
   };
 
   render() {
-    const submitNow = this.state.chBox ? (
-      <Form.Field control={Button}>Dodaj</Form.Field>
-    ) : null;
+    const submitNow =
+      this.state.chBox &&
+      this.state.routeName &&
+      this.state.city &&
+      this.state.distance ? (
+        <Form.Field control={Button}>Dodaj</Form.Field>
+      ) : (
+        <Button disabled>Dodaj</Button>
+      );
+
     return (
-      <div>
+      <div className="route">
         <Form style={{ margin: 20 }} onSubmit={this.handleSubmit}>
           <Header as="h2">
             Dodaj nową trasę!
@@ -151,13 +158,12 @@ class AddRoute extends Component {
             checked={this.state.chBox}
             onChange={this.handleCheckboxChange}
           />
-          <Message
-            success
-            header="Nowa trasa dodana"
-            content="Możesz ją obejrzeć w zakładce: dodane trasy"
-          />
-
-          {submitNow}
+          <Modal trigger={submitNow} closeIcon>
+            <Header icon="trophy" content="Gratulacje" />
+            <Modal.Content>
+              <p>Twoja trasa została dodana!</p>
+            </Modal.Content>
+          </Modal>
         </Form>
       </div>
     );
