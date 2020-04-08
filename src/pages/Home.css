@@ -1,0 +1,19 @@
+.gridLeftColumn {
+  padding-left: 0 !important;
+}
+
+.gridRightColumn {
+  padding-right: 0 !important;
+}
+
+@media (min-width: 768px) and (max-width: 993px) {
+  .gridLeftColumn {
+    padding-left: 0 !important;
+    padding-right: 0 !important;
+  }
+
+  .gridRightColumn {
+    padding-left: 0 !important;
+    padding-right: 0 !important;
+  }
+}
