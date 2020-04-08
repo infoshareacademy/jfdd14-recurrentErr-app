@@ -1,5 +1,6 @@
 import React, { Component } from "react";
 import routeData from "../Components/Routes/routeData";
+import "../Components/Routes/route.css";
 
 import {
   Button,
@@ -74,7 +75,7 @@ class AddRoute extends Component {
       );
 
     return (
-      <div>
+      <div className="route">
         <Form style={{ margin: 20 }} onSubmit={this.handleSubmit}>
           <Header as="h2">
             Dodaj nową trasę!
