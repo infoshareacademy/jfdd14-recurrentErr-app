@@ -35,6 +35,11 @@ class SidebarReact extends Component {
           <Icon name="plus" />
           <div className="sidebarText">Dodaj trasę</div>
         </Menu.Item>
+
+        <Menu.Item as={Link} to="/info">
+          <Icon name="info circle" />
+          <div className="sidebarText">Informacje</div>
+        </Menu.Item>
       </Sidebar>
     );
   }

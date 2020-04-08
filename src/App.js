@@ -71,6 +71,7 @@ import AddRoute from "./pages/AddRoute";
 import Favourites from "./pages/Favourites";
 import FavouritesDetails from "./pages/FavouritesDetails";
 import Search from "./pages/Search";
+import Info from "./pages/Info";
 import Default from "./pages/Default";
 import Home from "./pages/Home";
 import mapObjectToArray from "./Components/mapObjectToArray";
@@ -121,8 +122,13 @@ const App = () => {
           <Route exact path="/">
             <Home />
           </Route>
-          <Route exact path="/addroute">
-            <AddRoute />
+          <Route exact path="/search">
+            <Search
+              places={places}
+              favPlaces={favPlaces}
+              onFavBtnClick={addToFav}
+              onDelFavBtnClick={delFromFav}
+            />
           </Route>
           <Route exact path="/favourites">
             <Favourites
@@ -135,13 +141,11 @@ const App = () => {
           <Route exact path="/favouritesdetails">
             <FavouritesDetails />
           </Route>
-          <Route exact path="/search">
-            <Search
-              places={places}
-              favPlaces={favPlaces}
-              onFavBtnClick={addToFav}
-              onDelFavBtnClick={delFromFav}
-            />
+          <Route exact path="/addroute">
+            <AddRoute />
+          </Route>
+          <Route exact path="/info">
+            <Info />
           </Route>
           <Route>
             <Default />
