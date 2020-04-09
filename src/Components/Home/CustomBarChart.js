@@ -1,13 +1,13 @@
 import React from "react";
 import { BarChart, Bar, XAxis, YAxis, Tooltip, CartesianGrid } from "recharts";
-import ChartContainer from "../Home/ChartCard";
+import ChartContainer from "./ChartCard";
 
-function CustomBarChart(props) {
+function CustomBarChart({ barHeader, barMeta, barData }) {
   return (
-    <ChartContainer header={props.barHeader} meta={props.barMeta}>
+    <ChartContainer header={barHeader} meta={barMeta}>
       <BarChart
         layout="vertical"
-        data={props.barData}
+        data={barData}
         margin={{
           top: 5,
           right: 30,
@@ -24,7 +24,7 @@ function CustomBarChart(props) {
           tickLine={false}
         />
         <Tooltip />
-        <Bar dataKey="czas" barSize={20} fill="#5551d5" />
+        <Bar dataKey="value" barSize={20} fill="#5551d5" />
       </BarChart>
     </ChartContainer>
   );

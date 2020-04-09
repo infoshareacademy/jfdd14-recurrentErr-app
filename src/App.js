@@ -72,7 +72,7 @@ import Favourites from "./pages/Favourites";
 import FavouritesDetails from "./pages/FavouritesDetails";
 import Search from "./pages/Search";
 import Default from "./pages/Default";
-import Home from "./pages/Home";
+import Home from "./pages/Home/Home";
 import mapObjectToArray from "./Components/mapObjectToArray";
 
 const API_URL = "https://isa-crossroads.firebaseio.com/places/.json";
@@ -119,7 +119,7 @@ const App = () => {
       <div className="container">
         <Switch>
           <Route exact path="/">
-            <Home />
+            <Home places={places} />
           </Route>
           <Route exact path="/addroute">
             <AddRoute />

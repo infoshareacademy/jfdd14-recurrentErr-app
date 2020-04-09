@@ -1,12 +1,10 @@
 import React from "react";
 import { PieChart, Pie, Tooltip, Cell, Legend } from "recharts";
-import ChartContainer from "../Home/ChartCard";
+import ChartContainer from "./ChartCard";
 
-const colors = ["#51d597", "#d1d551", "#d5518f", "#5551d5"];
+const colors = ["#51d597", "#d5518f", "#5551d5"];
 
-function CustomPieChart(props) {
-  const { pieHeader, pieMeta, pieData } = props;
-
+function CustomPieChart({ pieHeader, pieMeta, pieData }) {
   return (
     <ChartContainer header={pieHeader} meta={pieMeta}>
       <PieChart>
