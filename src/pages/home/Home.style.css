@@ -3,3 +3,7 @@
     padding-bottom: 1.5rem;
   }
 }
+
+.home__statistic {
+  text-transform: lowercase !important;
+}

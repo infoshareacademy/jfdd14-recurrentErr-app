@@ -1,10 +1,17 @@
 import React from "react";
-import { BarChart, Bar, XAxis, YAxis, Tooltip, CartesianGrid } from "recharts";
-import ChartContainer from "./ChartCard";
+import {
+  BarChart,
+  Bar,
+  XAxis,
+  YAxis,
+  Tooltip,
+  CartesianGrid,
+  ResponsiveContainer,
+} from "recharts";
 
-function CustomBarChart({ barHeader, barMeta, barData }) {
+function CustomBarChart({ barData }) {
   return (
-    <ChartContainer header={barHeader} meta={barMeta}>
+    <ResponsiveContainer>
       <BarChart
         layout="vertical"
         data={barData}
@@ -26,7 +33,7 @@ function CustomBarChart({ barHeader, barMeta, barData }) {
         <Tooltip />
         <Bar dataKey="value" barSize={20} fill="#5551d5" />
       </BarChart>
-    </ChartContainer>
+    </ResponsiveContainer>
   );
 }
 

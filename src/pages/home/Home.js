@@ -1,9 +1,14 @@
 import React from "react";
 import { Header, Grid, Statistic } from "semantic-ui-react";
-import CustomBarChart from "../../Components/Home/CustomBarChart";
-import CustomPieChart from "../../Components/Home/CustomPieChart";
-// import CustomRadarChart from "../../Components/Home/CustomRadarChart";
-import "./Home.css";
+import {
+  toPieData,
+  toBarData,
+  toMaxDistance,
+} from "../../modules/home/statisticFunctions.module";
+import ChartCard from "../../Components/home/ChartCard.component";
+import CustomBarChart from "../../Components/home/CustomBarChart.component";
+import CustomPieChart from "../../Components/home/CustomPieChart.component";
+import "./Home.style.css";
 
 const items = {
   pie: {
@@ -16,32 +21,20 @@ const items = {
   },
 };
 
+const levels = ["łatwy", "średni", "trudny"];
+
+const distances = [
+  [0, 5],
+  [5, 10],
+  [10, 20],
+  [20, 30],
+];
+
 function Home({ places }) {
-  const chartData = {
-    pie: [
-      { name: "ławe", value: places.filter((e) => e.level === "łatwy").length },
-      {
-        name: "średnie",
-        value: places.filter((e) => e.level === "średni").length,
-      },
-      {
-        name: "trudne",
-        value: places.filter((e) => e.level === "trudny").length,
-      },
-    ],
-    bar: [
-      { name: "0-5 km", value: places.filter((e) => e.distance <= 5).length },
-      {
-        name: "5-10 km",
-        value: places.filter((e) => e.distance <= 10 && e.distance > 5).length,
-      },
-      {
-        name: "10-20 km",
-        value: places.filter((e) => e.distance <= 20 && e.distance > 10).length,
-      },
-      { name: ">20 km", value: places.filter((e) => e.distance > 20).length },
-    ],
-  };
+  const pieData = toPieData(levels, places);
+  const barData = toBarData(distances, places);
+  const maxDistance = toMaxDistance(places);
+  const numOfPaths = places.length;
 
   return (
     <React.Fragment>
@@ -57,17 +50,14 @@ function Home({ places }) {
         <Grid.Row>
           <Grid.Column tablet={12} computer={7} largeScreen={6} stretched>
             <Statistic className="home__column--padding">
-              <Statistic.Value>{places.length}</Statistic.Value>
+              <Statistic.Value>{numOfPaths}</Statistic.Value>
               <Statistic.Label>Tras w bazie danych</Statistic.Label>
             </Statistic>
           </Grid.Column>
           <Grid.Column tablet={12} computer={7} largeScreen={6} stretched>
             <Statistic>
-              <Statistic.Value>
-                {places.reduce((max, e) => {
-                  return max > e.distance ? max : e.distance;
-                }, 0)}{" "}
-                km
+              <Statistic.Value className="home__statistic">
+                {maxDistance + " km"}
               </Statistic.Value>
               <Statistic.Label>Najdłuższa trasa</Statistic.Label>
             </Statistic>
@@ -81,18 +71,14 @@ function Home({ places }) {
             stretched
             className="home__column--padding"
           >
-            <CustomPieChart
-              pieHeader={items.pie.header}
-              pieMeta={items.pie.meta}
-              pieData={chartData.pie}
-            />
+            <ChartCard header={items.pie.header} meta={items.pie.meta}>
+              <CustomPieChart pieData={pieData} />
+            </ChartCard>
           </Grid.Column>
           <Grid.Column tablet={12} computer={7} largeScreen={6} stretched>
-            <CustomBarChart
-              barHeader={items.bar.header}
-              barMeta={items.bar.meta}
-              barData={chartData.bar}
-            />
+            <ChartCard header={items.bar.header} meta={items.bar.meta}>
+              <CustomBarChart barData={barData} />
+            </ChartCard>
           </Grid.Column>
         </Grid.Row>
       </Grid>
