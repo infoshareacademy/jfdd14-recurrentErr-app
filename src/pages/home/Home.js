@@ -1,5 +1,5 @@
 import React from "react";
-import { Header, Grid, Statistic } from "semantic-ui-react";
+import { Grid, Statistic } from "semantic-ui-react";
 import {
   toPieData,
   toBarData,
@@ -39,32 +39,63 @@ function Home({ places }) {
   return (
     <React.Fragment>
       <Grid centered columns={2} padded>
-        <Grid.Column width={16} verticalAlign="middle">
-          <Header as="h2">
-            Dzień dobry Wędrowcze!
-            <Header.Subheader>
-              Masz tutaj parę statystyk dla odświeżenia pamięci
-            </Header.Subheader>
-          </Header>
+        <Grid.Column
+          mobile={14}
+          tablet={12}
+          computer={14}
+          largeScreen={12}
+          verticalAlign="middle"
+        >
+          <ChartCard textAlignContent="left" header="Witamy!">
+            Lorem ipsum, dolor sit amet consectetur adipisicing elit. Illo
+            debitis, vel repudiandae fugiat ipsam molestiae. Sapiente eum
+            exercitationem autem aliquam maxime molestiae sit iste eveniet
+            corporis commodi error, pariatur laudantium? Delectus natus et vel
+            ab error at quis, fugiat doloremque ratione unde corrupti nam quos
+            iusto illum id odio harum. Porro aliquid exercitationem nobis
+            officia sint ducimus, amet incidunt iure! Vitae quo quisquam,
+            architecto veritatis accusantium corporis neque! Numquam corporis
+            ducimus voluptatum illum ratione, obcaecati, culpa quibusdam quae
+            aut alias animi mollitia quis tempora accusantium reprehenderit.
+            Maxime facere sed quod.
+          </ChartCard>
         </Grid.Column>
         <Grid.Row>
-          <Grid.Column tablet={12} computer={7} largeScreen={6} stretched>
-            <Statistic className="home__column--padding">
-              <Statistic.Value>{numOfPaths}</Statistic.Value>
-              <Statistic.Label>Tras w bazie danych</Statistic.Label>
-            </Statistic>
+          <Grid.Column
+            mobile={14}
+            tablet={12}
+            computer={7}
+            largeScreen={6}
+            stretched
+            className="home__column--padding"
+          >
+            <ChartCard textAlignContent="center">
+              <Statistic>
+                <Statistic.Value>{numOfPaths}</Statistic.Value>
+                <Statistic.Label>Tras w bazie danych</Statistic.Label>
+              </Statistic>
+            </ChartCard>
           </Grid.Column>
-          <Grid.Column tablet={12} computer={7} largeScreen={6} stretched>
-            <Statistic>
-              <Statistic.Value className="home__statistic">
-                {maxDistance + " km"}
-              </Statistic.Value>
-              <Statistic.Label>Najdłuższa trasa</Statistic.Label>
-            </Statistic>
+          <Grid.Column
+            mobile={14}
+            tablet={12}
+            computer={7}
+            largeScreen={6}
+            stretched
+          >
+            <ChartCard textAlignContent="center">
+              <Statistic>
+                <Statistic.Value className="home__statistic">
+                  {maxDistance + " km"}
+                </Statistic.Value>
+                <Statistic.Label>Najdłuższa trasa</Statistic.Label>
+              </Statistic>
+            </ChartCard>
           </Grid.Column>
         </Grid.Row>
         <Grid.Row>
           <Grid.Column
+            mobile={14}
             tablet={12}
             computer={7}
             largeScreen={6}
@@ -75,7 +106,13 @@ function Home({ places }) {
               <CustomPieChart pieData={pieData} />
             </ChartCard>
           </Grid.Column>
-          <Grid.Column tablet={12} computer={7} largeScreen={6} stretched>
+          <Grid.Column
+            mobile={14}
+            tablet={12}
+            computer={7}
+            largeScreen={6}
+            stretched
+          >
             <ChartCard header={items.bar.header} meta={items.bar.meta}>
               <CustomBarChart barData={barData} />
             </ChartCard>
