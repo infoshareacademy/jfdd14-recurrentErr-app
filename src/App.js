@@ -71,7 +71,6 @@ import AddRoute from "./pages/AddRoute";
 import Favourites from "./pages/Favourites";
 import FavouritesDetails from "./pages/FavouritesDetails";
 import Search from "./pages/Search";
-import Info from "./pages/Info";
 import Default from "./pages/Default";
 import Home from "./pages/Home";
 import mapObjectToArray from "./Components/mapObjectToArray";
@@ -143,9 +142,6 @@ const App = () => {
           </Route>
           <Route exact path="/addroute">
             <AddRoute />
-          </Route>
-          <Route exact path="/info">
-            <Info />
           </Route>
           <Route>
             <Default />
