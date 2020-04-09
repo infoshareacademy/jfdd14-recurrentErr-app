@@ -28,6 +28,10 @@
   padding: 1rem;
 }
 
+div.description {
+  text-align: justify;
+}
+
 @media (min-width: 40rem) {
   .cards_item {
     width: 50%;
