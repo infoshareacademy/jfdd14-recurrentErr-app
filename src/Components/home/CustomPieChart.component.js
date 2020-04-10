@@ -8,11 +8,16 @@ import {
   ResponsiveContainer,
 } from "recharts";
 
+const pieChardStyle = {
+  width: "100%", 
+  height: "40vh"
+}
+
 const colors = ["#51d597", "#d5518f", "#5551d5"];
 
 function CustomPieChart({ pieData }) {
   return (
-    <div style={{ width: "100%", height: "40vh" }}>
+    <div style={pieChardStyle}>
       <ResponsiveContainer>
         <PieChart>
           <Pie dataKey="value" data={pieData} fill="#8884d8" label>
