@@ -8,6 +8,8 @@ import {
 import ChartCard from "../../Components/home/ChartCard.component";
 import CustomBarChart from "../../Components/home/CustomBarChart.component";
 import CustomPieChart from "../../Components/home/CustomPieChart.component";
+import Info from "../../Components/Info/Info";
+import InfoImage from "../../Components/InfoImage/InfoImage";
 import "./Home.style.css";
 
 const items = {
@@ -46,18 +48,15 @@ function Home({ places }) {
           largeScreen={12}
           verticalAlign="middle"
         >
-          <ChartCard textAlignContent="left" header="Witamy!">
-            Lorem ipsum, dolor sit amet consectetur adipisicing elit. Illo
-            debitis, vel repudiandae fugiat ipsam molestiae. Sapiente eum
-            exercitationem autem aliquam maxime molestiae sit iste eveniet
-            corporis commodi error, pariatur laudantium? Delectus natus et vel
-            ab error at quis, fugiat doloremque ratione unde corrupti nam quos
-            iusto illum id odio harum. Porro aliquid exercitationem nobis
-            officia sint ducimus, amet incidunt iure! Vitae quo quisquam,
-            architecto veritatis accusantium corporis neque! Numquam corporis
-            ducimus voluptatum illum ratione, obcaecati, culpa quibusdam quae
-            aut alias animi mollitia quis tempora accusantium reprehenderit.
-            Maxime facere sed quod.
+          <ChartCard>
+            <Grid stackable columns={2} className="home__info">
+              <Grid.Column>
+                <Info />
+              </Grid.Column>
+              <Grid.Column className="home__info__column">
+                <InfoImage />
+              </Grid.Column>
+            </Grid>
           </ChartCard>
         </Grid.Column>
         <Grid.Row>
