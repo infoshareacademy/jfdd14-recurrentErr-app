@@ -7,8 +7,8 @@ class RouteList extends Component {
       <div className="cards_item" key={route.timestamp}>
         <div className="card">
           <div className="card_content">
-            <p className="card_title"> {route.routeName}</p>
-            <img alt={route.routeName} src={route.photo} />
+            <p className="card_title"> {route.name}</p>
+            <img alt={route.name} src={route.photo} />
 
             <p className="card_text">
               Miasto: {route.city} || Dystans: {route.distance}km

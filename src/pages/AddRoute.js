@@ -19,10 +19,11 @@ const options = [
   { key: "3", text: "Trudny", value: "Trudny" },
 ];
 
+const API_URL = "https://isa-crossroads.firebaseio.com/places/.json";
+
 class AddRoute extends Component {
   state = {
-    routeName: "",
-    averageSpeed: "",
+    name: "",
     city: "",
     distance: "",
     photo: "",
@@ -41,6 +42,15 @@ class AddRoute extends Component {
   addToData = () => routeData.push(this.state);
   jsonToLocalStorage = () =>
     localStorage.setItem("routeData", JSON.stringify(routeData));
+
+  addRouteToDatabase = () => {
+    const newRouteObj = this.state;
+
+    return fetch(API_URL, {
+      method: "POST",
+      body: JSON.stringify(newRouteObj),
+    });
+  };
 
   resetState = () =>
     this.setState({
@@ -61,12 +71,13 @@ class AddRoute extends Component {
     this.addToData();
     this.jsonToLocalStorage();
     this.resetState();
+    this.addRouteToDatabase();
   };
 
   render() {
     const submitNow =
       this.state.chBox &&
-      this.state.routeName &&
+      this.state.name &&
       this.state.city &&
       this.state.distance ? (
         <Form.Field control={Button}>Dodaj</Form.Field>
@@ -87,10 +98,10 @@ class AddRoute extends Component {
           <Form.Group widths="equal">
             <Form.Field
               control={Input}
-              name="routeName"
+              name="name"
               label="Nazwa trasy"
               placeholder="Wpisz nazwę trasy"
-              value={this.state.routeName}
+              value={this.state.name}
               onChange={this.handleNameChange}
               required
             />
