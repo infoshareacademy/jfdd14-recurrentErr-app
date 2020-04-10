@@ -14,12 +14,17 @@ function Info() {
       </Header>
       <Header as="h4">
         crossRoads to aplikacja, dzięki której w łatwy sposób{" "}
-        <Link to="/search">odnajdziesz</Link> trasę dostosowaną do Twoich
-        preferencji.
-        Możesz także <Link to="/addroute">dodać</Link> nową trasę, którą będzie
-        się cieszyć reszta społeczności crossRoads.
+        <Link to="/search" className="info__link">
+          odnajdziesz
+        </Link>{" "}
+        trasę dostosowaną do Twoich preferencji. Możesz także{" "}
+        <Link to="/addroute" className="info__link">
+          dodać
+        </Link>{" "}
+        nową trasę, którą będzie się cieszyć reszta społeczności crossRoads.
       </Header>
-      <Button size="large" secondary className="btnStyle">
+      <br></br>
+      <Button secondary className="info__container__button">
         Zaloguj się
       </Button>
     </div>

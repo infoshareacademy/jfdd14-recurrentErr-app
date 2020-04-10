@@ -2,10 +2,25 @@
   display: flex;
   flex-direction: column;
   justify-content: center;
+  text-align: left;
+  height: 100%;
 }
 
-.btnStyle {
-  width: 35%;
+.info__link {
+  color: #6e00d9;
+}
+
+@media (max-width: 767px) {
+  .info__container__button {
+    width: 60% !important;
+    align-self: center;
+  }
+}
+
+@media (min-width: 768px) {
+  .info__container__button {
+    width: 20%;
+  }
 }
 
 @media (max-width: 992px) {
@@ -13,20 +28,21 @@
     text-align: center;
   }
 
-  .btnStyle {
+  .info__container__button {
     width: 40%;
     align-self: center;
   }
 }
 
-@media (min-width: 993px) and (max-width: 1158px) {
-  .btnStyle {
+@media (min-width: 993px) {
+  .info__container__button {
     width: 40%;
+    align-self: flex-start;
   }
 }
 
 @media (min-width: 1600px) {
-  .btnStyle {
+  .info__container__button {
     width: 25%;
   }
 }
