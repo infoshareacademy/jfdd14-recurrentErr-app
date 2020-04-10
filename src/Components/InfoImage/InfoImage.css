@@ -1,12 +1,19 @@
-.imgStyle {
+.info__image {
   max-width: 100%;
   height: auto;
   display: block;
   margin: 0 auto;
 }
 
+@media (min-width: 993px) {
+  .info__image {
+    margin: 0;
+  }
+}
+
 @media (min-width: 1600px) {
-  .imgStyle {
-    max-width: 80%;
+  .info__image {
+    max-width: 70%;
+    margin: 0 auto;
   }
 }
