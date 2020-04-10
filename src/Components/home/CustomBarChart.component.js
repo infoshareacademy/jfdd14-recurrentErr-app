@@ -9,9 +9,14 @@ import {
   ResponsiveContainer,
 } from "recharts";
 
+const barChardStyle = {
+  width: "100%",
+  height: "40vh"
+}
+
 function CustomBarChart({ barData }) {
   return (
-    <div style={{ width: "100%", height: "40vh" }}>
+    <div style={barChardStyle}>
       <ResponsiveContainer>
         <BarChart
           layout="vertical"
