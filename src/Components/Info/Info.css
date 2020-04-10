@@ -1,0 +1,32 @@
+.info__container {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.btnStyle {
+  width: 35%;
+}
+
+@media (max-width: 992px) {
+  .info__container {
+    text-align: center;
+  }
+
+  .btnStyle {
+    width: 40%;
+    align-self: center;
+  }
+}
+
+@media (min-width: 993px) and (max-width: 1158px) {
+  .btnStyle {
+    width: 40%;
+  }
+}
+
+@media (min-width: 1600px) {
+  .btnStyle {
+    width: 25%;
+  }
+}
