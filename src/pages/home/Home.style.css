@@ -1,0 +1,17 @@
+@media only screen and (max-width: 992px) {
+  .home__column--padding {
+    padding-bottom: 1.5rem;
+  }
+
+  .home__column--padding:first-child {
+    padding-bottom: 1.5rem;
+  }
+}
+
+.home__statistic {
+  text-transform: lowercase !important;
+}
+
+.home__statistic + div {
+  margin-bottom: 0 !important;
+}
