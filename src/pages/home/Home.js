@@ -86,7 +86,7 @@ function Home({ places }) {
             <ChartCard textAlignContent="center">
               <Statistic>
                 <Statistic.Value className="home__statistic">
-                  {maxDistance + " km"}
+                  {maxDistance} km
                 </Statistic.Value>
                 <Statistic.Label>Najdłuższa trasa</Statistic.Label>
               </Statistic>
