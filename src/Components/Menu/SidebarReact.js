@@ -2,6 +2,14 @@ import React, { Component } from "react";
 import { Icon, Menu, Sidebar } from "semantic-ui-react";
 import { Link } from "react-router-dom";
 import "./sidebar.css";
+import {
+  FacebookShareCount,
+  FacebookShareButton,
+  FacebookIcon,
+} from "react-share";
+
+const shareUrl = "http://github.com";
+const title = "GitHub";
 
 class SidebarReact extends Component {
   render() {
@@ -34,6 +42,18 @@ class SidebarReact extends Component {
         <Menu.Item as={Link} to="/addroute">
           <Icon name="plus" />
           <div className="sidebarText">Dodaj trasę</div>
+        </Menu.Item>
+
+        <Menu.Item>
+          <FacebookShareButton url={shareUrl} quote={title}>
+            <FacebookIcon size={32} round />
+          </FacebookShareButton>
+
+          <div>
+            <FacebookShareCount url={shareUrl}>
+              {(count) => count}
+            </FacebookShareCount>
+          </div>
         </Menu.Item>
       </Sidebar>
     );
