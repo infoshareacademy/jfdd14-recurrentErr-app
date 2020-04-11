@@ -10,10 +10,6 @@
   margin-top: 7.5vh !important;
 }
 
-div.item:hover {
-  background-color: #1e70bf !important;
-}
-
 .ui.stackable.menu {
   z-index: 300;
   position: fixed !important;

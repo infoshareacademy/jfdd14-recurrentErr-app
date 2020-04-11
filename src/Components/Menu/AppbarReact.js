@@ -41,9 +41,7 @@ class AppbarReact extends Component {
             active
             position="right"
           >
-            <Button inverted color="grey">
-              Logowanie
-            </Button>
+            <Button color="black">Logowanie</Button>
           </Responsive>
           <Responsive
             as={Menu.Item}
