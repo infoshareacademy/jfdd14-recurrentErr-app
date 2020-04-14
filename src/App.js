@@ -56,8 +56,13 @@ const App = () => {
           <Route exact path="/">
             <Home places={places} />
           </Route>
-          <Route exact path="/addroute">
-            <AddRoute />
+          <Route exact path="/search">
+            <Search
+              places={places}
+              favPlaces={favPlaces}
+              onFavBtnClick={addToFav}
+              onDelFavBtnClick={delFromFav}
+            />
           </Route>
           <Route exact path="/favourites">
             <Favourites
@@ -70,13 +75,8 @@ const App = () => {
           <Route exact path="/favouritesdetails">
             <FavouritesDetails />
           </Route>
-          <Route exact path="/search">
-            <Search
-              places={places}
-              favPlaces={favPlaces}
-              onFavBtnClick={addToFav}
-              onDelFavBtnClick={delFromFav}
-            />
+          <Route exact path="/addroute">
+            <AddRoute />
           </Route>
           <Route>
             <Default />
