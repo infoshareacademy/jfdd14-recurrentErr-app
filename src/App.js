@@ -8,6 +8,7 @@ import FavouritesDetails from "./pages/FavouritesDetails";
 import Search from "./pages/Search";
 import Default from "./pages/Default";
 import Home from "./pages/home/Home";
+import LoginForm from "./Components/LoginForm/LoginForm"
 import mapObjectToArray from "./Components/mapObjectToArray";
 
 const API_URL = "https://isa-crossroads.firebaseio.com/places/.json";
@@ -76,6 +77,11 @@ const App = () => {
               favPlaces={favPlaces}
               onFavBtnClick={addToFav}
               onDelFavBtnClick={delFromFav}
+            />
+          </Route>
+          <Route exact path="/login">
+            <LoginForm
+
             />
           </Route>
           <Route>
