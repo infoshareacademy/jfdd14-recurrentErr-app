@@ -2,13 +2,12 @@ import React, { Component } from "react";
 import { Menu, Responsive } from "semantic-ui-react";
 import { Link } from "react-router-dom";
 import SidebarReact from "./SidebarReact";
-import SidebarReactHamburger from "./SidebarReactHamburger";
 import logo from "../logo/logoBW.png";
 import "./sidebar.css";
 
 class AppbarReact extends Component {
   state = {
-    sidebarVisible: false,
+    sidebarVisible: true,
   };
 
   changeMenuVisibility = () => {
@@ -51,15 +50,12 @@ class AppbarReact extends Component {
           ></Responsive>
         </Menu>
 
+        <Responsive as={SidebarReact} visibility={false} minWidth={768} />
         <Responsive
           as={SidebarReact}
           visibility={sidebarVisible}
-          minWidth={768}
-        />
-        <Responsive
-          as={SidebarReactHamburger}
-          visibility={sidebarVisible}
           maxWidth={767}
+          changeMenuVisibility={this.changeMenuVisibility}
         />
       </React.Fragment>
     );
