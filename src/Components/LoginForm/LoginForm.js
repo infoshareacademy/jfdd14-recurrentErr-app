@@ -3,7 +3,7 @@ import { Button, Form, Grid, Card, Header } from "semantic-ui-react";
 import "../Search/SearchForm.css";
 import "./LoginForm.css";
 
-const LoginForm = () => {
+const LoginForm = ({onLogInClick}) => {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
 
@@ -37,8 +37,7 @@ const LoginForm = () => {
           />
           <Button
             className="form__btn"
-            onClick={() => console.log(email, password)}
-            type="submit"
+            onClick={() => onLogInClick(email, password)}
           >
             Zaloguj się
           </Button>
