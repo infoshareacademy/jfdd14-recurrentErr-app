@@ -8,7 +8,7 @@ import FavouritesDetails from "./pages/FavouritesDetails";
 import Search from "./pages/Search";
 import Default from "./pages/Default";
 import Home from "./pages/home/Home";
-import LoginForm from "./Components/LoginForm/LoginForm"
+import Auth from "./Components/Auth/Auth"
 import mapObjectToArray from "./Components/mapObjectToArray";
 
 const API_URL = "https://isa-crossroads.firebaseio.com/places/.json";
@@ -80,7 +80,7 @@ const App = () => {
             />
           </Route>
           <Route exact path="/login">
-            <LoginForm
+            <Auth
 
             />
           </Route>
