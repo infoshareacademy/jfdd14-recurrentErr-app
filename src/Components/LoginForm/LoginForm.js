@@ -4,8 +4,12 @@ import "../Search/SearchForm.css";
 import "./LoginForm.css";
 
 const LoginForm = ({onLogInClick}) => {
+  
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
+
+  const handleChangeEmail = (e) => (setEmail(e.target.value))
+  const handleChangePassword = (e) => (setPassword(e.target.value))
 
   return (
     <Grid centered padded>
@@ -24,16 +28,15 @@ const LoginForm = ({onLogInClick}) => {
           <Form.Input
             className="formInput"
             value={email}
-            onChange={(e) => setEmail(e.target.value)}
+            onChange={handleChangeEmail}
             placeholder="Podaj adres email"
           />
           <Form.Input
             className="formInput"
             value={password}
-            onChange={(e) => {
-              setPassword(e.target.value);
-            }}
+            onChange={handleChangePassword}
             placeholder="Wprowadź hasło"
+            type="password"
           />
           <Button
             className="form__btn"
