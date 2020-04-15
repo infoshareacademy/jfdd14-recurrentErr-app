@@ -3,13 +3,12 @@ import { Button, Form, Grid, Card, Header } from "semantic-ui-react";
 import "../Search/SearchForm.css";
 import "./LoginForm.css";
 
-const LoginForm = ({onLogInClick}) => {
-  
+const LoginForm = ({ onLogInClick }) => {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
 
-  const handleChangeEmail = (e) => (setEmail(e.target.value))
-  const handleChangePassword = (e) => (setPassword(e.target.value))
+  const handleChangeEmail = (e) => setEmail(e.target.value);
+  const handleChangePassword = (e) => setPassword(e.target.value);
 
   return (
     <Grid centered padded>
