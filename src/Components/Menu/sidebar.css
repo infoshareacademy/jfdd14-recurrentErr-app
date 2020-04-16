@@ -30,6 +30,10 @@
   .ui.menu .item {
     padding-top: 1rem !important;
   }
+
+  .sidebarShare {
+    padding: 1rem 0 !important;
+  }
 }
 
 @media only screen and (max-width: 767px) {
@@ -66,4 +70,11 @@
 
 .ui.stackable.menu {
   height: 8vh;
+}
+
+.sidebarShare {
+  margin: auto !important;
+
+  font-size: 1.2rem !important;
+  flex-direction: row !important;
 }

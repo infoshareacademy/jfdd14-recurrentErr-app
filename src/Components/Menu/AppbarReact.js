@@ -2,14 +2,22 @@ import React, { Component } from "react";
 import { Menu, Responsive, Button } from "semantic-ui-react";
 import { Link } from "react-router-dom";
 import SidebarReact from "./SidebarReact";
-import SidebarReactHamburger from "./SidebarReactHamburger";
+import ShareModal from "../shareModal/ShareModal.component";
 import logo from "../logo/logoBW.png";
 import "./sidebar.css";
 
 class AppbarReact extends Component {
   state = {
     sidebarVisible: false,
+    openModal: false,
   };
+
+  handleModal = () => {
+    this.changeMenuVisibility();
+    this.setState({ openModal: true });
+  };
+
+  closeModal = () => this.setState({ openModal: false });
 
   changeMenuVisibility = () => {
     this.setState({
@@ -17,10 +25,12 @@ class AppbarReact extends Component {
     });
   };
   render() {
-    const { sidebarVisible } = this.state;
+    const { sidebarVisible, openModal } = this.state;
 
     return (
       <React.Fragment>
+        <ShareModal openModal={openModal} closeModal={this.closeModal} />
+
         <Menu stackable>
           <Responsive
             as={Menu.Item}
@@ -53,13 +63,16 @@ class AppbarReact extends Component {
 
         <Responsive
           as={SidebarReact}
-          visibility={sidebarVisible}
+          visibility={sidebarVisible || true}
           minWidth={768}
+          handleModal={this.handleModal}
         />
         <Responsive
-          as={SidebarReactHamburger}
+          as={SidebarReact}
           visibility={sidebarVisible}
           maxWidth={767}
+          changeMenuVisibility={this.changeMenuVisibility}
+          handleModal={this.handleModal}
         />
       </React.Fragment>
     );

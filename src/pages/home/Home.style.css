@@ -1,0 +1,31 @@
+@media only screen and (max-width: 992px) {
+  .home__column--padding {
+    padding-bottom: 1.5rem;
+  }
+
+  .home__column--padding:first-child {
+    padding-bottom: 1.5rem;
+  }
+
+  .ui.stackable.grid > .column {
+    width: 100% !important;
+  }
+
+  .home__info__column {
+    order: -1;
+  }
+}
+
+.home__statistic {
+  text-transform: lowercase !important;
+}
+
+.home__statistic + div {
+  margin-bottom: 0 !important;
+}
+
+.home__info__column {
+  display: flex !important;
+  flex-direction: column;
+  justify-content: center;
+}
