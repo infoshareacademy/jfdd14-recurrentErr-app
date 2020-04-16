@@ -2,11 +2,33 @@
 
 > CrossRoads is app for planning sightseeing trips in Tricity and the surrounding area. It plans trips based on how much time You have, what the level of difficulty is and where You want to take the trip. You can see it [here](http://app.recurrenterr.jfdd14.is-academy.pl/).
 
+[![Crossroads demo]()](http://app.recurrenterr.jfdd14.is-academy.pl/)
+
+
+Table of contents
+============
+
+- [Homepage](#homepage)
+- [Features](#features)
+- [Acknowledgements](#acknowledgements)
+- [Creators](#creators)
+- [How to start](#how-to-start)
+- [Branch naming](#branch-naming)
 
 Homepage
 ============
 
-Homepage of app can be found [here](http://recurrenterr.jfdd14.is-academy.pl/). This page was our first step in making app. We also made topdown scrolling [game](http://recurrenterr.jfdd14.is-academy.pl/game.html) accompanying our website.
+Homepage of app can be found [here](http://recurrenterr.jfdd14.is-academy.pl/). This page was our first step in making app. Source code [here](http://recurrenterr.jfdd14.is-academy.pl/).
+
+[![Crossroads homepage]()](http://recurrenterr.jfdd14.is-academy.pl/)
+
+Game
+============
+
+We also made topdown scrolling [game](http://recurrenterr.jfdd14.is-academy.pl/game.html) accompanying our website.
+
+[![Crossroads game]()](http://recurrenterr.jfdd14.is-academy.pl/game.html)
+
 
 Features
 ============
