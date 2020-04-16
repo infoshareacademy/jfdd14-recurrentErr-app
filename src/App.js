@@ -19,22 +19,7 @@ const FAVS_URL =
 
 const App = () => {
   const [places, setPlaces] = useState([]);
-  const [favPlaces, setFavPlaces] = useState(
-    useEffect(() => {
-      async function fetchData() {
-        return fetch(
-          `https://isa-crossroads.firebaseio.com/users/${userId}/favourites` +
-            ".json"
-        )
-          .then((response) => response.json())
-          .then((placesObject) => {
-            const placesArray = mapObjectToArray(placesObject);
-            setFavPlaces(placesArray);
-          });
-      }
-      fetchData();
-    }, []) || []
-  );
+  const [favPlaces, setFavPlaces] = useState([]);
 
   useEffect(() => {
     async function fetchData() {
@@ -46,6 +31,17 @@ const App = () => {
         });
     }
     fetchData();
+  }, []);
+
+  useEffect(() => {
+    fetch(
+      `https://isa-crossroads.firebaseio.com/users/${userId}/favourites` +
+        ".json"
+    )
+      .then((response) => response.json())
+      .then((placesObject) => {
+        return placesObject ? setFavPlaces(placesObject) : [];
+      });
   }, []);
 
   useEffect(() => {
