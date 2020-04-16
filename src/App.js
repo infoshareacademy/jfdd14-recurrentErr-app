@@ -21,7 +21,18 @@ const App = () => {
   const [places, setPlaces] = useState([]);
   const [favPlaces, setFavPlaces] = useState([]);
 
-  useEffect(() => {
+  const getFavs = () => {
+    return fetch(
+      `https://isa-crossroads.firebaseio.com/users/${userId}/favourites` +
+        ".json"
+    )
+      .then((response) => response.json())
+      .then((placesObject) => {
+        return placesObject ? setFavPlaces(placesObject) : [];
+      });
+  };
+
+  const getPlaces = () => {
     async function fetchData() {
       return fetch(API_URL)
         .then((response) => response.json())
@@ -31,17 +42,28 @@ const App = () => {
         });
     }
     fetchData();
+  };
+
+  useEffect(() => {
+    getPlaces();
+
+    const id = setInterval(() => {
+      getPlaces();
+    }, 2000);
+    return () => {
+      clearInterval(id);
+    };
   }, []);
 
   useEffect(() => {
-    fetch(
-      `https://isa-crossroads.firebaseio.com/users/${userId}/favourites` +
-        ".json"
-    )
-      .then((response) => response.json())
-      .then((placesObject) => {
-        return placesObject ? setFavPlaces(placesObject) : [];
-      });
+    getFavs();
+
+    const id = setInterval(() => {
+      getFavs();
+    }, 2000);
+    return () => {
+      clearInterval(id);
+    };
   }, []);
 
   useEffect(() => {
