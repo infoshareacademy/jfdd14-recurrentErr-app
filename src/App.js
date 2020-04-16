@@ -11,6 +11,7 @@ import Home from "./pages/home/Home";
 import mapObjectToArray from "./Components/mapObjectToArray";
 
 const API_URL = "https://isa-crossroads.firebaseio.com/places/.json";
+const REFRESH_INTERVAL = 2000;
 
 const userId = "HIzaxWzJ6vaL69fSJxEPnP4LQWD3";
 
@@ -49,7 +50,7 @@ const App = () => {
 
     const id = setInterval(() => {
       getPlaces();
-    }, 2000);
+    }, REFRESH_INTERVAL);
     return () => {
       clearInterval(id);
     };
@@ -60,7 +61,7 @@ const App = () => {
 
     const id = setInterval(() => {
       getFavs();
-    }, 2000);
+    }, REFRESH_INTERVAL);
     return () => {
       clearInterval(id);
     };
