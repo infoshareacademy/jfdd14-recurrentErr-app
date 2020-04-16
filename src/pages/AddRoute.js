@@ -26,7 +26,7 @@ class AddRoute extends Component {
     name: "",
     city: "",
     distance: "",
-    photo: "",
+    photoBig: "",
     time: "",
     description: "",
     level: "",
@@ -57,8 +57,7 @@ class AddRoute extends Component {
       averageSpeed: "",
       distance: "",
       name: "",
-      routeName: "",
-      photo: "",
+      photoBig: "",
       time: "",
       city: "",
       level: "",
@@ -136,7 +135,7 @@ class AddRoute extends Component {
               onChange={this.handleNameChange}
             />
             <Form.Field
-              name="photo"
+              name="photoBig"
               control={Input}
               label="Zdjęcie"
               placeholder="Podaj link URL"
