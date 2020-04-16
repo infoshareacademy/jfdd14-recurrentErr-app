@@ -2,7 +2,7 @@
 
 > CrossRoads is app for planning sightseeing trips in Tricity and the surrounding area. It plans trips based on how much time You have, what the level of difficulty is and where You want to take the trip. You can see it [here](http://app.recurrenterr.jfdd14.is-academy.pl/).
 
-[![Crossroads demo]()](http://app.recurrenterr.jfdd14.is-academy.pl/)
+[![Crossroads demo](https://firebasestorage.googleapis.com/v0/b/isa-crossroads.appspot.com/o/app-screenshot.png?alt=media&token=7f4b1727-cce3-4931-b132-5657266f3b7a)](http://app.recurrenterr.jfdd14.is-academy.pl/)
 
 
 Table of contents
@@ -20,14 +20,14 @@ Homepage
 
 Homepage of app can be found [here](http://recurrenterr.jfdd14.is-academy.pl/). This page was our first step in making app. Source code [here](http://recurrenterr.jfdd14.is-academy.pl/).
 
-[![Crossroads homepage]()](http://recurrenterr.jfdd14.is-academy.pl/)
+[![Crossroads homepage](https://firebasestorage.googleapis.com/v0/b/isa-crossroads.appspot.com/o/app-screenshot.png?alt=media&token=7f4b1727-cce3-4931-b132-5657266f3b7a)](http://recurrenterr.jfdd14.is-academy.pl/)
 
 Game
 ============
 
 We also made topdown scrolling [game](http://recurrenterr.jfdd14.is-academy.pl/game.html) accompanying our website.
 
-[![Crossroads game]()](http://recurrenterr.jfdd14.is-academy.pl/game.html)
+[![Crossroads game](https://firebasestorage.googleapis.com/v0/b/isa-crossroads.appspot.com/o/game-screenshot.png?alt=media&token=1fa52003-90e2-4db0-8ebb-14c557bcc271)](http://recurrenterr.jfdd14.is-academy.pl/game.html)
 
 
 Features
