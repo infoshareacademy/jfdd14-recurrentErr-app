@@ -32,9 +32,8 @@ const Auth = (props) => {
 
   return !isLoggedIn ? (
     <LoginForm onLogInClick={onLogInClick} />
-  ) : (
-    props.children
-  );
+  ) : 
+    "Zalogowano pomyślnie"
 };
 
 export default Auth;
