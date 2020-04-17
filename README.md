@@ -1,68 +1,132 @@
 # crossRoads
+### Made by [Recurrenter](#creators)
 
-> jfdd14-recurrentErr-app
-> Aplikacja tworzona przez zespół **recurrentErr**
+> CrossRoads is an app for planning trekkes in Tricity and the surrounding area. It plans hikes based on given time, hike's difficulty and it's location. You can check it out [here](http://app.recurrenterr.jfdd14.is-academy.pl/).
 
-## 1. Zasady nazywania branchy
+[![Crossroads demo](https://firebasestorage.googleapis.com/v0/b/isa-crossroads.appspot.com/o/app-screenshot.png?alt=media&token=e73e124c-9525-43e0-ac1d-4101ab634b82)](http://app.recurrenterr.jfdd14.is-academy.pl/)
 
-### 1.1. **Dla branchy feature**
+_______________________
 
-Aby nie robić zamieszania w nazewnictwie branchy przyjmuje się aby nazywać je w następujący sposób:
+Table of contents
+============
+
+- [Features](#features)
+- [Technologies](#technologies)
+- [Homepage](#homepage)
+- [Game](#game)
+- [How to start](#how-to-start)
+- [Branch naming](#branch-naming)
+- [Creators](#creators)
+- [Acknowledgements](#acknowledgements)
+
+Features
+============
+
+- registration/login
+- search trips by name, difficulty level and time
+- add trips to favourites
+- add your own trip by form
+- check statistics about app database in dashboard
+- share link to app with friends
+
+Technologies
+============
+
+- [React](https://github.com/facebook/react) (with hooks)
+- [Firebase](https://firebase.google.com/) - data management and store
+- [Semantic-Ui-React](https://github.com/Semantic-Org/Semantic-UI-React) - style
+
+Libraries which we used in project: [here](https://github.com/infoshareacademy/jfdd14-recurrentErr-app/network/dependencies).
+
+Homepage
+============
+
+Homepage of app can be found [here](http://recurrenterr.jfdd14.is-academy.pl/). This page was our first step in making app. Source code [here](http://recurrenterr.jfdd14.is-academy.pl/).
+
+[![Crossroads homepage](https://firebasestorage.googleapis.com/v0/b/isa-crossroads.appspot.com/o/homepage-screenshot.png?alt=media&token=c6e5c646-5ce8-4225-8062-af45d697d82b)](http://recurrenterr.jfdd14.is-academy.pl/)
+
+Game
+============
+
+We also made topdown scrolling [game](http://recurrenterr.jfdd14.is-academy.pl/game.html) accompanying our website.
+
+[![Crossroads game](https://firebasestorage.googleapis.com/v0/b/isa-crossroads.appspot.com/o/game-screenshot.png?alt=media&token=e573f316-7d54-4122-898e-536f9266fc1b)](http://recurrenterr.jfdd14.is-academy.pl/game.html)
+
+
+How to start
+============
+
+1. Clone the repo
+
+ SSH
 ```
-feature/(numer zadania z Jiry)-(krótka-nazwa-opisująca-zadanie)
+git@github.com:infoshareacademy/jfdd14-recurrentErr-app.git
 ```
-Przykładowo:
+HTTPS
 ```
-feature/35-premiera
+https://github.com/infoshareacademy/jfdd14-recurrentErr-app.git
 ```
 
-### 1.2. **Dla branchy hotfix**
-Czasem zdarza się że trzeba naprawić coś, co wykracza poza zadania z backlogu, wtedy przyjmuje się nazewnictwo:
+2. Install all project packages:
+
+`npm install`
+
+3. Start project:
+
+`npm start`
+
+4. Open http://localhost:3000 to view it in the browser.
+
+
+Branch naming
+============
+
+* **Feature branch**
+
 ```
-hotfix/(dzień i miesiąc pisane razem i cyframi)-(krótka-nazwa)
+feature/(number of task from Jira)-(name-of-task)
 ```
-Przykładowo:
+For example:
+```
+feature/50-readme
+```
+
+* **Hotfix branch**
+Branch for project maintenance purposes:
+```
+hotfix/(day and month)-(name-of-task)
+```
+For example:
 ```
 hotfix/1702-style-cleanup
 ```
 
-Nie polecam jednak wykorzystywać tej branchy do wprowadzania nowych funkcjonalności i pomysłów. Zadań do zrobienia i tak będzie wystarczająco dużo. Traktujmy to rozwiązanie jako koło ratunkowe, gdy jakiś elment wymaga naprawy. Przy robieniu zadań trzymajmy się DoD i obyśmy jak najmniej wykorzystywali to rozwiązanie. ;)
+Creators
+============
+### Recurrenterr team:
 
-## 2. Zasady nazywania klas, id i zmiennych
+|                  | Github                                         | LinkedIn
+------------------ | ---------------------------------------------- | -------------
+Paweł Politowski   | [pawel-politowski](https://github.com/pawel-politowski) | [in/pawel-politowski](https://www.linkedin.com/in/pawel-politowski/)
+Paulina Ziomkowska | [paula-dm](https://github.com/paula-dm) | [in/paulina-ziomkowska](https://www.linkedin.com/in/paulina-ziomkowska/)
+Karolina Szlenk    | [karolina-szlenk](https://github.com/karolina-szlenk) | [in/karolina-szlenk](https://www.linkedin.com/in/karolina-szlenk/)
+Piotr Kielak       | [PTR-KLK](https://github.com/PTR-KLK) | [in/piotr-kielak](https://www.linkedin.com/in/piotr-kielak/)
 
-### 2.1. **Klasy**
-Korzystajmy z lekko zmodyfikowanego BEM:
-```
-class = "nameOfBlockElement__insideBlock--modificator"
-```
-**Nazwa bloku** - nazwa elementu stanowiącego funkcjonalnie jedną całość, jeżeli wieloczłonowa - pisana camelCasem.
 
-**Element znajdujący się w bloku** - elementy będące zarówno bezpośrednimi jak i pośrednimi potomkami elemntu blokowego, jeżeli wieloczłonowa - pisana camelCasem.
+Acknowledgements
+============
 
-**Modyfikator** - Specyficzny wariant danego elementu (opcjonalny).
+- [React](https://github.com/facebook/react)
+- [React-Router](https://github.com/ReactTraining/react-router)
+- [Create-React-App](https://github.com/facebook/create-react-app)
+- [Firebase](https://firebase.google.com/)
+- [Semantic-Ui-React](https://github.com/Semantic-Org/Semantic-UI-React)
+- [Recharts](https://github.com/recharts/recharts)
+- [React-Share](https://github.com/nygardk/react-share)
+- [Husky](https://github.com/typicode/husky)
+- [Lint-Staged](https://github.com/okonet/lint-staged)
+- [Prettier](https://github.com/prettier/prettier)
 
-### 2.2. **id**
+_______________________
 
-Podobnie jak nazwy bloków w klasach, jeżeli nazwa musi być wieloczłonowa - zapisujemy ją camelCasem.
-
-```
-id="idName"
-```
-
-### 2.3. **zmienne i funkcje**
-
-- Zaczynać od małej litery, wieloczłonowe nazwy pisać camelCasem.
-- **Nazywać zmienne/funkcje tak aby mówiły co zawierają/wykonują:**
-
-```
-const nameArr = ['Ada','Marek','Ida']
-```
-```
-function concatNames(arr){
-    let namesStr = '';
-    for(let i=0;i<arr.length;i++){
-        namesStr += arr[i] + ' ';
-    }
-    return namesStr;
-}
-```
+2020 Recurrenterr
