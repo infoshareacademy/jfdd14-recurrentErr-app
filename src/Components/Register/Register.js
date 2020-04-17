@@ -7,6 +7,7 @@ const REFRESH_INTERVAL = 100;
 
 const Register = (props) => {
   const [isRegister, setRegister] = useState(isTokenInStorage())
+  const [warningMessage, setWarningMessage] = useState(false);
 
   useEffect(() => {
     const id = setInterval(
@@ -23,9 +24,10 @@ const Register = (props) => {
     return signUp(email, password)
       .then(() => {
         setRegister(true);
+        
       })
       .catch((err) => {
-        alert("Błąd rejestracji!");
+        setWarningMessage(true);
         console.log(err);
         setRegister(false);
       });
@@ -34,7 +36,7 @@ const Register = (props) => {
   return (
     <div>
       {!isRegister ? (
-      <RegisterForm onSignUpClick={onSignUpClick} />) : null}
+      <RegisterForm onSignUpClick={onSignUpClick} warningMessage={warningMessage} setWarningMessage={setWarningMessage} />) : null}
     </div>
   );
 };

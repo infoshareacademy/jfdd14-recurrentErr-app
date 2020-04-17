@@ -1,28 +1,49 @@
 import React, { useState } from "react";
-import { Button, Form, Grid, Card, Header } from "semantic-ui-react";
+import {
+  Button,
+  Form,
+  Grid,
+  Card,
+  Header,
+  Message,
+  Icon,
+} from "semantic-ui-react";
 import { Link } from "react-router-dom";
 import "../Search/SearchForm.css";
 import "../LoginForm/LoginForm.css";
 
-const RegisterForm = ({ onSignUpClick }) => {
+const RegisterForm = ({ onSignUpClick, warningMessage, setWarningMessage }) => {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [passwordConfirmed, setPasswordConfirmed] = useState("");
+  const [messagePasswordDiff, setMessagePasswordDiff] = useState(false);
 
-  const handleChangeEmail = (e) => setEmail(e.target.value);
-  const handleChangePassword = (e) => setPassword(e.target.value);
-
-  const handleChangePasswordConfirmed = (e) =>
-    setPasswordConfirmed(e.target.value);
-
-  const comparePasswords = () => {
-    const popUpInfo = password !== passwordConfirmed ? alert("Hasła są inne!") : null;
-    return popUpInfo;
+  const handleChangeEmail = (e) => {
+    setEmail(e.target.value);
+    setWarningMessage(false);
+  };
+  const handleChangePassword = (e) => {
+    setPassword(e.target.value);
+    setWarningMessage(false);
+    setMessagePasswordDiff(false);
   };
 
-  //   const handleOnClick = (email, password) => {
-  //     onSignUpClick(email, password);
-  //   };
+  const handleChangePasswordConfirmed = (e) => {
+    setPasswordConfirmed(e.target.value);
+    setWarningMessage(false);
+    setMessagePasswordDiff(false);
+  };
+
+  const handleClick = () => {
+    onSignUpClick(email, password);
+    comparePasswords();
+  };
+
+  const comparePasswords = () => {
+    const popUpInfo =
+      password !== passwordConfirmed ? setMessagePasswordDiff(true) : null;
+    return popUpInfo;
+  };
 
   return (
     <Grid centered padded>
@@ -58,13 +79,35 @@ const RegisterForm = ({ onSignUpClick }) => {
             placeholder="Potwierdź hasło"
             type="password"
           />
+          {messagePasswordDiff && (
+            <Message negative>
+              <Grid stackable columns={2}>
+                <Header as="h5" className="form__message__header">
+                  <Icon name="warning circle" size="large" />
+                  Niezgodne hasła
+                </Header>
+              </Grid>
+            </Message>
+          )}
+          {warningMessage && (
+            <Message negative>
+              <Grid stackable columns={2}>
+                <Header as="h5" className="form__message__header">
+                  <Icon name="warning circle" size="large" />
+                  Istnieje już użytkownik o takim adresie email!
+                </Header>
+              </Grid>
+            </Message>
+          )}
           <Header as="h5" textAlign="left" style={{ opacity: ".5" }}>
             Rejestrując się, potwierdzasz przeczytanie i akceptację warunków
             usługi i polityki prywatności.
           </Header>
           <Button
             className="form__btn"
-            onClick={() => onSignUpClick(email, password)}
+            onClick={() => {
+              handleClick();
+            }}
           >
             Zarejestruj się
           </Button>

@@ -1,9 +1,8 @@
 import React, { useState } from "react";
-import { Button, Form, Grid, Card, Header } from "semantic-ui-react";
+import { Button, Form, Grid, Card, Header, Message, Icon } from "semantic-ui-react";
 import { Link } from "react-router-dom";
 import "../Search/SearchForm.css";
 import "../LoginForm/LoginForm.css";
-import { Message, Icon } from "semantic-ui-react";
 
 const LoginForm = ({ onLogInClick, warningMessage, setWarningMessage }) => {
   const [email, setEmail] = useState("");

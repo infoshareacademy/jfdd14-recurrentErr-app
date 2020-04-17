@@ -56,7 +56,8 @@ const App = () => {
       <div className="container">
         <Switch>
           <Route exact path="/">
-            <Home places={places} />
+            <Home places={places}
+             />
           </Route>
           <Route exact path="/search">
             <Search
@@ -81,7 +82,7 @@ const App = () => {
             <AddRoute />
           </Route>
           <Route exact path="/login">
-            <Auth/>
+            <Auth />
           </Route>
           <Route exact path="/register">
             <Register />
