@@ -27,7 +27,6 @@ export const signIn = (email, password) => {
       localStorage.setItem("localId", localId);
       localStorage.setItem("idToken", idToken);
       localStorage.setItem("email", email);
-
       return data;
     });
 };

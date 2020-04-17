@@ -8,3 +8,7 @@
   background-color: #607d8b !important;
   color: #fff !important;
 }
+
+.form__message__header{
+  align-self: center;
+}

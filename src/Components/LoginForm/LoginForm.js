@@ -3,13 +3,20 @@ import { Button, Form, Grid, Card, Header } from "semantic-ui-react";
 import { Link } from "react-router-dom";
 import "../Search/SearchForm.css";
 import "../LoginForm/LoginForm.css";
+import { Message, Icon } from "semantic-ui-react";
 
-const LoginForm = ({ onLogInClick }) => {
+const LoginForm = ({ onLogInClick, warningMessage, setWarningMessage }) => {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
 
-  const handleChangeEmail = (e) => setEmail(e.target.value);
-  const handleChangePassword = (e) => setPassword(e.target.value);
+  const handleChangeEmail = (e) => {
+    setEmail(e.target.value);
+    setWarningMessage(false);
+  };
+  const handleChangePassword = (e) => {
+    setPassword(e.target.value);
+    setWarningMessage(false);
+  };
 
   return (
     <Grid centered padded>
@@ -38,6 +45,16 @@ const LoginForm = ({ onLogInClick }) => {
             placeholder="Wprowadź hasło"
             type="password"
           />
+          {warningMessage && (
+            <Message negative>
+              <Grid stackable columns={2}>
+                <Header as="h5" className="form__message__header">
+                  <Icon name="warning circle" size="large" />
+                  Niepoprawny email lub hasło!
+                </Header>
+              </Grid>
+            </Message>
+          )}
           <Button
             className="form__btn"
             onClick={() => onLogInClick(email, password)}
@@ -45,10 +62,7 @@ const LoginForm = ({ onLogInClick }) => {
             Zaloguj się
           </Button>
           <Header as="h4">
-            Nie masz konta? -{" "}
-            <Link to="/register">
-              Zarejestruj się
-            </Link>
+            Nie masz konta? - <Link to="/register">Zarejestruj się</Link>
           </Header>
         </Form>
       </Grid.Column>
