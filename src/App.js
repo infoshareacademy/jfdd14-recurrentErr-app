@@ -8,7 +8,9 @@ import FavouritesDetails from "./pages/FavouritesDetails";
 import Search from "./pages/Search";
 import Default from "./pages/Default";
 import Home from "./pages/home/Home";
-import Auth from "./Components/Auth/Auth"
+import Auth from "./Components/Auth/Auth";
+import Register from "./Components/Register/Register"
+import InfoImage from "./Components/InfoImage/InfoImage"
 import mapObjectToArray from "./Components/mapObjectToArray";
 
 const API_URL = "https://isa-crossroads.firebaseio.com/places/.json";
@@ -80,9 +82,12 @@ const App = () => {
             <AddRoute />
           </Route>
           <Route exact path="/login">
-            <Auth
-
-            />
+            <Auth>
+              <InfoImage />
+            </Auth>
+          </Route>
+          <Route exact path="/register">
+            <Register/>
           </Route>
           <Route>
             <Default />

@@ -30,10 +30,15 @@ const Auth = (props) => {
       });
   };
 
-  return !isLoggedIn ? (
-    <LoginForm onLogInClick={onLogInClick} />
-  ) : 
-    "Zalogowano pomyślnie"
+  return (
+    <div>
+      {!isLoggedIn ? (
+        <LoginForm onLogInClick={onLogInClick} />
+      ) : (
+        props.children
+      )}
+    </div>
+  );
 };
 
 export default Auth;

@@ -4,17 +4,30 @@ import { Link } from "react-router-dom";
 import "../Search/SearchForm.css";
 import "../LoginForm/LoginForm.css";
 
-const LoginForm = ({ onLogInClick }) => {
+const RegisterForm = ({ onSignUpClick }) => {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
+  const [passwordConfirmed, setPasswordConfirmed] = useState("");
 
   const handleChangeEmail = (e) => setEmail(e.target.value);
   const handleChangePassword = (e) => setPassword(e.target.value);
 
+  const handleChangePasswordConfirmed = (e) =>
+    setPasswordConfirmed(e.target.value);
+
+  const comparePasswords = () => {
+    const popUpInfo = password !== passwordConfirmed ? alert("Hasła są inne!") : null;
+    return popUpInfo;
+  };
+
+  //   const handleOnClick = (email, password) => {
+  //     onSignUpClick(email, password);
+  //   };
+
   return (
     <Grid centered padded>
       <Grid.Column textAlign="center" width={16}>
-        <Header as="h2">Zaloguj do crossRoads</Header>
+        <Header as="h2">Zarejestruj się</Header>
       </Grid.Column>
       <Grid.Column
         as={Card}
@@ -38,17 +51,25 @@ const LoginForm = ({ onLogInClick }) => {
             placeholder="Wprowadź hasło"
             type="password"
           />
+          <Form.Input
+            className="formInput"
+            value={passwordConfirmed}
+            onChange={handleChangePasswordConfirmed}
+            placeholder="Potwierdź hasło"
+            type="password"
+          />
+          <Header as="h5" textAlign="left" style={{ opacity: ".5" }}>
+            Rejestrując się, potwierdzasz przeczytanie i akceptację warunków
+            usługi i polityki prywatności.
+          </Header>
           <Button
             className="form__btn"
-            onClick={() => onLogInClick(email, password)}
+            onClick={() => onSignUpClick(email, password)}
           >
-            Zaloguj się
+            Zarejestruj się
           </Button>
           <Header as="h4">
-            Nie masz konta? -{" "}
-            <Link to="/register">
-              Zarejestruj się
-            </Link>
+            Posiadasz już konto? - <Link to="/login">Zaloguj się</Link>
           </Header>
         </Form>
       </Grid.Column>
@@ -56,4 +77,4 @@ const LoginForm = ({ onLogInClick }) => {
   );
 };
 
-export default LoginForm;
+export default RegisterForm;
