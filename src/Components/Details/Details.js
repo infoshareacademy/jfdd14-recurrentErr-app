@@ -24,12 +24,12 @@ function Details(props) {
           </Modal.Description>
         </Modal.Content>
         <Modal.Actions>
-          <Button color="black" onClick={() => props.closeModal()}>
+          <Button color="#ec407a" onClick={() => props.closeModal()}>
             Zamknij
           </Button>
           {props.favPlaces.includes(props.item.key) ? (
             <Button
-              negative
+              color="red"
               icon="x"
               labelPosition="right"
               content="Usuń z ulubionych"
@@ -38,7 +38,7 @@ function Details(props) {
             />
           ) : (
             <Button
-              positive
+              color="black"
               icon="checkmark"
               labelPosition="right"
               content="Dodaj do ulubionych"

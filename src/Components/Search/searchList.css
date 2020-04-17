@@ -55,11 +55,7 @@ div.description {
 
 .card_content {
   padding: 1rem;
-  background: linear-gradient(
-    to bottom left,
-    rgb(59, 63, 92) 40%,
-    rgb(55, 44, 119) 100%
-  );
+  background: #607d8b;
 }
 
 .card_title {

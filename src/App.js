@@ -13,7 +13,7 @@ import mapObjectToArray from "./Components/mapObjectToArray";
 const API_URL = "https://isa-crossroads.firebaseio.com/places/.json";
 const REFRESH_INTERVAL = 2000;
 
-const userId = "HIzaxWzJ6vaL69fSJxEPnP4LQWD3";
+const userId = "ec2Pj1GR6nSzdEskUzj0piFYkEs2";
 
 const FAVS_URL =
   "https://isa-crossroads.firebaseio.com/users/userId/favourites/.json"; //muszę ustawić zmieniający się user Id // token // uid
