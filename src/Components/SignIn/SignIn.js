@@ -9,17 +9,7 @@ export const signIn = (email, password) => {
     returnSecureToken: true,
   };
 
-  return fetch(SIGN_IN_URL, {
-    method: "POST",
-    body: JSON.stringify(body),
-  })
-    .then((response) => {
-      if (response.ok) {
-        return response;
-      }
-
-      return Promise.reject(response);
-    })
+  return fetchData(SIGN_IN_URL, body)
     .then((response) => response.json())
     .then((data) => {
       const { localId, idToken } = data;
@@ -29,6 +19,19 @@ export const signIn = (email, password) => {
       localStorage.setItem("email", email);
       return data;
     });
+};
+
+export const fetchData = (URL, body) => {
+  return fetch(URL, {
+    method: "POST",
+    body: JSON.stringify(body),
+  }).then((response) => {
+    if (response.ok) {
+      return response;
+    }
+
+    return Promise.reject(response);
+  });
 };
 
 export const isTokenInStorage = () => {
