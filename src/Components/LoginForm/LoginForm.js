@@ -1,6 +1,7 @@
 import React, { useState } from "react";
-import { Button, Form, Grid, Card, Header, Message, Icon } from "semantic-ui-react";
+import { Button, Form, Grid, Card, Header } from "semantic-ui-react";
 import { Link } from "react-router-dom";
+import ErrorMessage from "../ErrorMessage/ErrorMessage";
 import "../Search/SearchForm.css";
 import "../LoginForm/LoginForm.css";
 
@@ -45,14 +46,7 @@ const LoginForm = ({ onLogInClick, warningMessage, setWarningMessage }) => {
             type="password"
           />
           {warningMessage && (
-            <Message negative>
-              <Grid stackable columns={2}>
-                <Header as="h5" className="form__message__header">
-                  <Icon name="warning circle" size="large" />
-                  Niepoprawny email lub hasło!
-                </Header>
-              </Grid>
-            </Message>
+            <ErrorMessage>Niepoprawny email lub hasło!</ErrorMessage>
           )}
           <Button
             className="form__btn"

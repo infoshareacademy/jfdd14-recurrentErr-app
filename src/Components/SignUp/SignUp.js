@@ -15,6 +15,7 @@ export const signUp = (email, password) => {
   })
     .then((response) => {
       if (response.ok) {
+        console.log(response)
         return response;
       }
 
@@ -22,7 +23,7 @@ export const signUp = (email, password) => {
     })
     .then((response) => response.json())
     .then((data) => {
-      const { localId, idToken } = data;
+      const { localId, idToken, email } = data;
 
       localStorage.setItem("localId", localId);
       localStorage.setItem("idToken", idToken);

@@ -41,9 +41,7 @@ const Auth = (props) => {
           warningMessage={warningMessage}
           setWarningMessage={setWarningMessage}
         />
-      ) : (
-        props.children
-      )}
+      ) : null}
       {redirect && <Redirect to="/"></Redirect>}
     </div>
   );

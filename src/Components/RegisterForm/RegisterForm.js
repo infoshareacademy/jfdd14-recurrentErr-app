@@ -5,10 +5,9 @@ import {
   Grid,
   Card,
   Header,
-  Message,
-  Icon,
 } from "semantic-ui-react";
 import { Link } from "react-router-dom";
+import ErrorMessage from "../ErrorMessage/ErrorMessage";
 import "../Search/SearchForm.css";
 import "../LoginForm/LoginForm.css";
 
@@ -16,33 +15,36 @@ const RegisterForm = ({ onSignUpClick, warningMessage, setWarningMessage }) => {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [passwordConfirmed, setPasswordConfirmed] = useState("");
-  const [messagePasswordDiff, setMessagePasswordDiff] = useState(false);
+  const [passwordDiffMessage, setPasswordDiffMessage] = useState(false);
+  // const [emailValidationMessage, setEmailValidationMessage] = useState(false);
 
   const handleChangeEmail = (e) => {
     setEmail(e.target.value);
     setWarningMessage(false);
+    // setEmailValidationMessage(false)
   };
-  const handleChangePassword = (e) => {
+
+  const handleChangePassword = (e, email) => {
+    // let text = validateEmail(email);
     setPassword(e.target.value);
-    setWarningMessage(false);
-    setMessagePasswordDiff(false);
+    setPasswordDiffMessage(false);
+    // return text ? null : setEmailValidationMessage(true)
   };
 
   const handleChangePasswordConfirmed = (e) => {
     setPasswordConfirmed(e.target.value);
-    setWarningMessage(false);
-    setMessagePasswordDiff(false);
+    setPasswordDiffMessage(false);
   };
 
-  const handleClick = () => {
-    onSignUpClick(email, password);
-    comparePasswords();
-  };
+  // const validateEmail = (email) => {
+  //   let reg = /^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
+  //   return reg.test(String(email).toLowerCase());
+  // };
 
   const comparePasswords = () => {
-    const popUpInfo =
-      password !== passwordConfirmed ? setMessagePasswordDiff(true) : null;
-    return popUpInfo;
+    return password !== passwordConfirmed
+      ? setPasswordDiffMessage(true)
+      : onSignUpClick(email, password);
   };
 
   return (
@@ -79,26 +81,17 @@ const RegisterForm = ({ onSignUpClick, warningMessage, setWarningMessage }) => {
             placeholder="Potwierdź hasło"
             type="password"
           />
-          {messagePasswordDiff && (
-            <Message negative>
-              <Grid stackable columns={2}>
-                <Header as="h5" className="form__message__header">
-                  <Icon name="warning circle" size="large" />
-                  Niezgodne hasła
-                </Header>
-              </Grid>
-            </Message>
+          {passwordDiffMessage && (
+            <ErrorMessage>Wpisane hasła nie są zgodne</ErrorMessage>
           )}
           {warningMessage && (
-            <Message negative>
-              <Grid stackable columns={2}>
-                <Header as="h5" className="form__message__header">
-                  <Icon name="warning circle" size="large" />
-                  Istnieje już użytkownik o takim adresie email!
-                </Header>
-              </Grid>
-            </Message>
+            <ErrorMessage>
+              Użytkownik o podanym adresie email już istnieje!
+            </ErrorMessage>
           )}
+          {/* {emailValidationMessage && (
+            <ErrorMessage>Niepoprawny adres email!</ErrorMessage>
+          )} */}
           <Header as="h5" textAlign="left" style={{ opacity: ".5" }}>
             Rejestrując się, potwierdzasz przeczytanie i akceptację warunków
             usługi i polityki prywatności.
@@ -106,7 +99,7 @@ const RegisterForm = ({ onSignUpClick, warningMessage, setWarningMessage }) => {
           <Button
             className="form__btn"
             onClick={() => {
-              handleClick();
+              comparePasswords();
             }}
           >
             Zarejestruj się
