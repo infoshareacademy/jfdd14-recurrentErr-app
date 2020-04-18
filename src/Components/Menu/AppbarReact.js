@@ -1,8 +1,9 @@
 import React, { Component } from "react";
-import { Menu, Responsive } from "semantic-ui-react";
+import { Menu, Responsive, Button } from "semantic-ui-react";
 import { Link } from "react-router-dom";
 import SidebarReact from "./SidebarReact";
 import ShareModal from "../shareModal/ShareModal.component";
+import { logOut } from "../SignIn/SignIn";
 import logo from "../logo/logoBW.png";
 import "./sidebar.css";
 
@@ -24,6 +25,11 @@ class AppbarReact extends Component {
       sidebarVisible: !this.state.sidebarVisible,
     });
   };
+
+  handleClick = () => {
+    return this.props.loggedIn ? logOut() : null;
+  };
+
   render() {
     const { sidebarVisible, openModal } = this.state;
 
@@ -50,8 +56,13 @@ class AppbarReact extends Component {
             name="Zaloguj"
             active
             position="right"
+            onClick={this.handleClick}
           >
-            {!this.props.loggedIn ? "Zaloguj" : "Wyloguj"}
+            <Link to="/login">
+              <Button color="black">
+                {this.props.loggedIn ? "Wyloguj" : "Zaloguj"}
+              </Button>
+            </Link>
           </Responsive>
           <Responsive
             as={Menu.Item}
