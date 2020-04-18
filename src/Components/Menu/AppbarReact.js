@@ -58,11 +58,11 @@ class AppbarReact extends Component {
             position="right"
             onClick={this.handleClick}
           >
-            <Link to="/login">
+          <Link to="/login">
               <Button color="black">
                 {this.props.loggedIn ? "Wyloguj" : "Zaloguj"}
               </Button>
-            </Link>
+          </Link>
           </Responsive>
           <Responsive
             as={Menu.Item}

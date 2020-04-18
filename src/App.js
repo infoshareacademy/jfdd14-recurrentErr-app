@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from "react";
-import "./App.css";
-import AppbarReact from "./Components/Menu/AppbarReact";
 import { BrowserRouter, Switch, Route } from "react-router-dom";
+import { Redirect } from "react-router-dom";
+import AppbarReact from "./Components/Menu/AppbarReact";
 import AddRoute from "./pages/AddRoute";
 import Favourites from "./pages/Favourites";
 import FavouritesDetails from "./pages/FavouritesDetails";
@@ -13,6 +13,7 @@ import Register from "./Components/Register/Register";
 import mapObjectToArray from "./Components/mapObjectToArray";
 import { isTokenInStorage } from "./Components/SignIn/SignIn";
 import { LoginContext } from "./context/LoginContext";
+import "./App.css";
 
 const API_URL = "https://isa-crossroads.firebaseio.com/places/.json";
 
@@ -67,12 +68,14 @@ const App = () => {
             <Home places={places} loggedIn={isLoggedIn} />
           </Route>
           <Route exact path="/search">
-            <Search
-              places={places}
-              favPlaces={favPlaces}
-              onFavBtnClick={addToFav}
-              onDelFavBtnClick={delFromFav}
-            />
+            <LoginContext.Provider value={contextLogin}>
+              <Search
+                places={places}
+                favPlaces={favPlaces}
+                onFavBtnClick={addToFav}
+                onDelFavBtnClick={delFromFav}
+              />
+            </LoginContext.Provider>
           </Route>
           <Route exact path="/favourites">
             <Favourites
@@ -86,7 +89,7 @@ const App = () => {
             <FavouritesDetails />
           </Route>
           <Route exact path="/addroute">
-            <AddRoute />
+            {isLoggedIn ? <AddRoute /> : <Redirect to="/login"></Redirect>}
           </Route>
           <Route exact path="/login">
             <LoginContext.Provider value={contextLogin}>
@@ -94,7 +97,9 @@ const App = () => {
             </LoginContext.Provider>
           </Route>
           <Route exact path="/register">
-            <Register />
+            <LoginContext.Provider value={contextLogin}>
+              <Register />
+            </LoginContext.Provider>
           </Route>
           <Route>
             <Default />
