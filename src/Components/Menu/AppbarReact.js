@@ -51,7 +51,7 @@ class AppbarReact extends Component {
             active
             position="right"
           >
-            Logowanie
+            {!this.props.loggedIn ? "Zaloguj" : "Wyloguj"}
           </Responsive>
           <Responsive
             as={Menu.Item}

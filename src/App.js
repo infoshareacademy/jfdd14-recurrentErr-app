@@ -11,14 +11,22 @@ import Home from "./pages/home/Home";
 import Auth from "./Components/Auth/Auth";
 import Register from "./Components/Register/Register";
 import mapObjectToArray from "./Components/mapObjectToArray";
+import { isTokenInStorage } from "./Components/SignIn/SignIn";
+import { LoginContext } from "./context/LoginContext";
 
 const API_URL = "https://isa-crossroads.firebaseio.com/places/.json";
 
 const App = () => {
+  const [isLoggedIn, setLoggedIn] = useState(isTokenInStorage());
   const [places, setPlaces] = useState([]);
   const [favPlaces, setFavPlaces] = useState(
     JSON.parse(localStorage.getItem("favPlaces")) || []
   );
+
+  const contextLogin = {
+    isLoggedIn,
+    setLoggedIn,
+  };
 
   useEffect(() => {
     async function fetchData() {
@@ -52,12 +60,11 @@ const App = () => {
 
   return (
     <BrowserRouter>
-      <AppbarReact />
+      <AppbarReact loggedIn={isLoggedIn} />
       <div className="container">
         <Switch>
           <Route exact path="/">
-            <Home places={places}
-             />
+            <Home places={places} loggedIn={isLoggedIn} />
           </Route>
           <Route exact path="/search">
             <Search
@@ -82,7 +89,9 @@ const App = () => {
             <AddRoute />
           </Route>
           <Route exact path="/login">
-            <Auth />
+            <LoginContext.Provider value={contextLogin}>
+              <Auth />
+            </LoginContext.Provider>
           </Route>
           <Route exact path="/register">
             <Register />

@@ -1,18 +1,20 @@
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect, useContext } from "react";
+import { Redirect } from "react-router-dom";
 import LoginForm from "../LoginForm/LoginForm";
 import { signIn, isTokenInStorage } from "../SignIn/SignIn";
-import { Redirect } from "react-router-dom";
+import { LoginContext } from "../../context/LoginContext";
 
 const REFRESH_INTERVAL = 100;
 
 const Auth = (props) => {
-  const [isLoggedIn, setLoggedIn] = useState(isTokenInStorage());
+  const contextLogin = useContext(LoginContext);
+
   const [warningMessage, setWarningMessage] = useState(false);
   const [redirect, setRedirect] = useState(false);
 
   useEffect(() => {
     const id = setInterval(
-      () => setLoggedIn(isTokenInStorage()),
+      () => contextLogin.setLoggedIn(isTokenInStorage()),
       REFRESH_INTERVAL
     );
 
@@ -24,24 +26,24 @@ const Auth = (props) => {
   const onLogInClick = (email, password) => {
     return signIn(email, password)
       .then(() => {
-        setLoggedIn(true);
+        contextLogin.setLoggedIn(true);
         setRedirect(true);
       })
       .catch((err) => {
         setWarningMessage(true);
-        setLoggedIn(false);
+        contextLogin.setLoggedIn(false);
       });
   };
 
   return (
     <div>
-      {!isLoggedIn ? (
+      {!contextLogin.isLoggedIn && (
         <LoginForm
           onLogInClick={onLogInClick}
           warningMessage={warningMessage}
           setWarningMessage={setWarningMessage}
         />
-      ) : null}
+      )}
       {redirect && <Redirect to="/"></Redirect>}
     </div>
   );
