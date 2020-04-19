@@ -48,22 +48,27 @@ class AppbarReact extends Component {
           <Menu.Item as={Link} to="/" name="crossRoads" active>
             <img src={logo} alt="logo" /> crossRoads
           </Menu.Item>
-          <Responsive
-            as={Menu.Item}
-            maxWidth={767}
-            icon="user circle"
-            active
-          ></Responsive>
           <Menu.Item
             as={Link}
             to="/login"
             active
             position="right"
             onClick={this.handleClick}
+            style={{ justifyContent: "flex-end" }}
           >
-            <Button color="black">
-              {this.props.loggedIn ? "Wyloguj" : "Zaloguj"}
-            </Button>
+            <Responsive
+              circular
+              as={Button}
+              color="black"
+              icon="user circle"
+              {...Responsive.onlyMobile}
+            />
+            <Responsive
+              as={Button}
+              color="black"
+              content={this.props.loggedIn ? "Wyloguj" : "Zaloguj"}
+              minWidth={Responsive.onlyTablet.minWidth}
+            />
           </Menu.Item>
         </Menu>
 
