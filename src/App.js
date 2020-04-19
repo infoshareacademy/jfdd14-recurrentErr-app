@@ -63,55 +63,49 @@ const App = () => {
     <BrowserRouter>
       <LoginContext.Provider value={contextLogin}>
         <AppbarReact loggedIn={isLoggedIn} />
-      </LoginContext.Provider>
-      <div className="container">
-        <Switch>
-          <Route exact path="/">
-            <Home places={places} loggedIn={isLoggedIn} />
-          </Route>
-          <Route exact path="/search">
-            <LoginContext.Provider value={contextLogin}>
+        <div className="container">
+          <Switch>
+            <Route exact path="/">
+              <Home places={places} loggedIn={isLoggedIn} />
+            </Route>
+            <Route exact path="/search">
               <Search
                 places={places}
                 favPlaces={favPlaces}
                 onFavBtnClick={addToFav}
                 onDelFavBtnClick={delFromFav}
               />
-            </LoginContext.Provider>
-          </Route>
-          <Route exact path="/favourites">
-            {isLoggedIn ? (
-              <Favourites
-                places={places}
-                onFavBtnClick={addToFav}
-                favPlaces={favPlaces}
-                onDelFavBtnClick={delFromFav}
-              />
-            ) : (
-              <Redirect to="/login"></Redirect>
-            )}
-          </Route>
-          <Route exact path="/favouritesdetails">
-            <FavouritesDetails />
-          </Route>
-          <Route exact path="/addroute">
-            {isLoggedIn ? <AddRoute /> : <Redirect to="/login"></Redirect>}
-          </Route>
-          <Route exact path="/login">
-            <LoginContext.Provider value={contextLogin}>
+            </Route>
+            <Route exact path="/favourites">
+              {isLoggedIn ? (
+                <Favourites
+                  places={places}
+                  onFavBtnClick={addToFav}
+                  favPlaces={favPlaces}
+                  onDelFavBtnClick={delFromFav}
+                />
+              ) : (
+                <Redirect to="/login"></Redirect>
+              )}
+            </Route>
+            <Route exact path="/favouritesdetails">
+              <FavouritesDetails />
+            </Route>
+            <Route exact path="/addroute">
+              {isLoggedIn ? <AddRoute /> : <Redirect to="/login"></Redirect>}
+            </Route>
+            <Route exact path="/login">
               <Auth />
-            </LoginContext.Provider>
-          </Route>
-          <Route exact path="/register">
-            <LoginContext.Provider value={contextLogin}>
+            </Route>
+            <Route exact path="/register">
               <Register />
-            </LoginContext.Provider>
-          </Route>
-          <Route>
-            <Default />
-          </Route>
-        </Switch>
-      </div>
+            </Route>
+            <Route>
+              <Default />
+            </Route>
+          </Switch>
+        </div>
+      </LoginContext.Provider>
     </BrowserRouter>
   );
 };

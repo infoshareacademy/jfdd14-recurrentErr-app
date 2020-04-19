@@ -47,12 +47,7 @@ function SingleCard(props) {
                 )}
               </Grid.Column>
             ) : (
-              <Grid.Column width={8}>
-                <Button fluid as={Link} to="/login" color="green">
-                  {" "}
-                  Dodaj do ulubionych
-                </Button>
-              </Grid.Column>
+              null
             )}
             <Grid.Column width={8}>
               <Button fluid name={props.buttonName} onClick={props.showModal}>
