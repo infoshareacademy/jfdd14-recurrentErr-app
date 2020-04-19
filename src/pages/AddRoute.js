@@ -19,13 +19,14 @@ const options = [
   { key: "3", text: "Trudny", value: "Trudny" },
 ];
 
+const API_URL = "https://isa-crossroads.firebaseio.com/places/.json";
+
 class AddRoute extends Component {
   state = {
-    routeName: "",
-    averageSpeed: "",
+    name: "",
     city: "",
     distance: "",
-    photo: "",
+    photoBig: "",
     time: "",
     description: "",
     level: "",
@@ -42,13 +43,21 @@ class AddRoute extends Component {
   jsonToLocalStorage = () =>
     localStorage.setItem("routeData", JSON.stringify(routeData));
 
+  addRouteToDatabase = () => {
+    const newRouteObj = this.state;
+
+    return fetch(API_URL, {
+      method: "POST",
+      body: JSON.stringify(newRouteObj),
+    });
+  };
+
   resetState = () =>
     this.setState({
       averageSpeed: "",
       distance: "",
       name: "",
-      routeName: "",
-      photo: "",
+      photoBig: "",
       time: "",
       city: "",
       level: "",
@@ -61,12 +70,13 @@ class AddRoute extends Component {
     this.addToData();
     this.jsonToLocalStorage();
     this.resetState();
+    this.addRouteToDatabase();
   };
 
   render() {
     const submitNow =
       this.state.chBox &&
-      this.state.routeName &&
+      this.state.name &&
       this.state.city &&
       this.state.distance ? (
         <Form.Field control={Button}>Dodaj</Form.Field>
@@ -87,10 +97,10 @@ class AddRoute extends Component {
           <Form.Group widths="equal">
             <Form.Field
               control={Input}
-              name="routeName"
+              name="name"
               label="Nazwa trasy"
               placeholder="Wpisz nazwę trasy"
-              value={this.state.routeName}
+              value={this.state.name}
               onChange={this.handleNameChange}
               required
             />
@@ -125,11 +135,11 @@ class AddRoute extends Component {
               onChange={this.handleNameChange}
             />
             <Form.Field
-              name="photo"
+              name="photoBig"
               control={Input}
               label="Zdjęcie"
               placeholder="Podaj link URL"
-              value={this.state.photo}
+              value={this.state.photoBig}
               onChange={this.handleNameChange}
             />
             <Form.Field
