@@ -28,7 +28,7 @@ function SingleCard(props) {
                     fluid
                     id={props.item.key}
                     onClick={props.onDelFavBtnClick}
-                    color="violet"
+                    color="red"
                   >
                     {" "}
                     Usuń z ulubionych
@@ -38,7 +38,7 @@ function SingleCard(props) {
                     fluid
                     id={props.item.key}
                     onClick={props.onFavBtnClick}
-                    color="green"
+                    color="black"
                   >
                     {" "}
                     Dodaj do ulubionych

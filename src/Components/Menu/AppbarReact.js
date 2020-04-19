@@ -46,7 +46,8 @@ class AppbarReact extends Component {
             onClick={this.changeMenuVisibility}
           ></Responsive>
           <Menu.Item as={Link} to="/" name="crossRoads" active>
-            <img src={logo} alt="logo" /> crossRoads
+            <img src={logo} alt="logo" />
+            crossRoads
           </Menu.Item>
           <Menu.Item
             as={Link}
@@ -70,7 +71,6 @@ class AppbarReact extends Component {
             />
           </Menu.Item>
         </Menu>
-
         <Responsive
           as={SidebarReact}
           visibility={sidebarVisible || true}

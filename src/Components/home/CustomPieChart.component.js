@@ -9,9 +9,9 @@ import {
 } from "recharts";
 
 const pieChardStyle = {
-  width: "100%", 
-  height: "40vh"
-}
+  width: "100%",
+  height: "40vh",
+};
 
 const colors = ["#51d597", "#d5518f", "#5551d5"];
 

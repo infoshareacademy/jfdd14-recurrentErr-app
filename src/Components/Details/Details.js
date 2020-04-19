@@ -32,7 +32,7 @@ function Details(props) {
           {contextLogin.isLoggedIn ? (
             props.favPlaces.includes(props.item.key) ? (
               <Button
-                negative
+                color="red"
                 icon="x"
                 labelPosition="right"
                 content="Usuń z ulubionych"
@@ -41,7 +41,7 @@ function Details(props) {
               />
             ) : (
               <Button
-                positive
+                color="black"
                 icon="checkmark"
                 labelPosition="right"
                 content="Dodaj do ulubionych"
