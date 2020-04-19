@@ -1,5 +1,5 @@
 import React, { Component } from "react";
-import { Menu, Responsive } from "semantic-ui-react";
+import { Menu, Responsive, Button } from "semantic-ui-react";
 import { Link } from "react-router-dom";
 import SidebarReact from "./SidebarReact";
 import ShareModal from "../shareModal/ShareModal.component";
@@ -40,18 +40,18 @@ class AppbarReact extends Component {
             onClick={this.changeMenuVisibility}
           ></Responsive>
           <Menu.Item as={Link} to="/" name="crossRoads" active>
-            <img src={logo} alt="logo" /> crossRoads
+            <img src={logo} alt="logo" />
+            crossRoads
           </Menu.Item>
 
           <Responsive
             as={Menu.Item}
             minWidth={768}
-            to="/"
             name="Zaloguj"
             active
             position="right"
           >
-            Logowanie
+            <Button color="black">Logowanie</Button>
           </Responsive>
           <Responsive
             as={Menu.Item}

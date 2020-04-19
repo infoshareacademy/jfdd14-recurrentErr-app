@@ -11,14 +11,29 @@ import Home from "./pages/home/Home";
 import mapObjectToArray from "./Components/mapObjectToArray";
 
 const API_URL = "https://isa-crossroads.firebaseio.com/places/.json";
+const REFRESH_INTERVAL = 2000;
+
+const userId = "ec2Pj1GR6nSzdEskUzj0piFYkEs2";
+
+const FAVS_URL =
+  "https://isa-crossroads.firebaseio.com/users/userId/favourites/.json"; //muszę ustawić zmieniający się user Id // token // uid
 
 const App = () => {
   const [places, setPlaces] = useState([]);
-  const [favPlaces, setFavPlaces] = useState(
-    JSON.parse(localStorage.getItem("favPlaces")) || []
-  );
+  const [favPlaces, setFavPlaces] = useState([]);
 
-  useEffect(() => {
+  const getFavs = () => {
+    return fetch(
+      `https://isa-crossroads.firebaseio.com/users/${userId}/favourites` +
+        ".json"
+    )
+      .then((response) => response.json())
+      .then((placesObject) => {
+        return placesObject ? setFavPlaces(placesObject) : [];
+      });
+  };
+
+  const getPlaces = () => {
     async function fetchData() {
       return fetch(API_URL)
         .then((response) => response.json())
@@ -28,11 +43,32 @@ const App = () => {
         });
     }
     fetchData();
+  };
+
+  useEffect(() => {
+    getPlaces();
+    getFavs();
+
+    const id = setInterval(() => {
+      getPlaces();
+      getFavs();
+    }, REFRESH_INTERVAL);
+    return () => {
+      clearInterval(id);
+    };
   }, []);
 
   useEffect(() => {
-    localStorage.setItem("favPlaces", JSON.stringify(favPlaces));
-  }, [favPlaces]);
+    fetch(
+      `https://isa-crossroads.firebaseio.com/users/${userId}/favourites` +
+        ".json",
+      {
+        method: "PUT",
+        body: JSON.stringify(favPlaces),
+      },
+      [favPlaces]
+    );
+  });
 
   const addToFav = (event) => {
     return favPlaces.includes(event.target.id)

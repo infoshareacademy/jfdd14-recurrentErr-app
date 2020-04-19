@@ -11,8 +11,8 @@ import {
 
 const barChardStyle = {
   width: "100%",
-  height: "40vh"
-}
+  height: "40vh",
+};
 
 function CustomBarChart({ barData }) {
   return (
