@@ -18,12 +18,9 @@ import "./App.css";
 const API_URL = "https://isa-crossroads.firebaseio.com/places/.json";
 const REFRESH_INTERVAL = 2000;
 
-const userId = "ec2Pj1GR6nSzdEskUzj0piFYkEs2";
+const userId = localStorage.getItem("localId");
 
-const FAVS_URL =
-  "https://isa-crossroads.firebaseio.com/users/userId/favourites/.json"; //muszę ustawić zmieniający się user Id // token // uid
-
-const App = () => { 
+const App = () => {
   const [isLoggedIn, setLoggedIn] = useState(isTokenInStorage());
   const [places, setPlaces] = useState([]);
   const [favPlaces, setFavPlaces] = useState([]);
@@ -144,7 +141,6 @@ const App = () => {
       </LoginContext.Provider>
     </BrowserRouter>
   );
-  
-}
+};
 
 export default App;
