@@ -8,11 +8,7 @@
   margin: 6px 1px;
   display: inline-block;
   width: 50px;
-  background: linear-gradient(
-    to bottom left,
-    rgb(59, 63, 92) 40%,
-    rgb(55, 44, 119) 100%
-  );
+  background: #607d8b;
   height: 50px;
   line-height: 50px;
   color: #fff;
@@ -29,5 +25,5 @@
 }
 
 .num--active {
-  color: #e74c3c !important;
+  color: #ec407a !important;
 }

@@ -1,7 +1,7 @@
 # crossRoads
-### Made by [Recurrenter](#creators)
+### Made by [Recurrenter](#developers)
 
-> CrossRoads is an app for planning trekkes in Tricity and the surrounding area. It plans hikes based on given time, hike's difficulty and it's location. You can check it out [here](http://app.recurrenterr.jfdd14.is-academy.pl/).
+> CrossRoads is an app created for planning trekkes in Tricity and the surrounding area. It plans hikes based on given time, hike's difficulty and their location. You can check it out [here](http://app.recurrenterr.jfdd14.is-academy.pl/).
 
 [![Crossroads demo](https://firebasestorage.googleapis.com/v0/b/isa-crossroads.appspot.com/o/app-screenshot.png?alt=media&token=e73e124c-9525-43e0-ac1d-4101ab634b82)](http://app.recurrenterr.jfdd14.is-academy.pl/)
 
@@ -16,17 +16,17 @@ Table of contents
 - [Game](#game)
 - [How to start](#how-to-start)
 - [Branch naming](#branch-naming)
-- [Creators](#creators)
+- [Developers](#developers)
 - [Acknowledgements](#acknowledgements)
 
 Features
 ============
 
 - registration/login
-- search trips by name, difficulty level and time
-- add trips to favourites
-- add your own trip by form
-- check statistics about app database in dashboard
+- search hikes by name, difficulty level and time
+- add hikes to favourites
+- add your own trekkes 
+- check our statistics in dashboard
 - share link to app with friends
 
 Technologies
@@ -36,19 +36,19 @@ Technologies
 - [Firebase](https://firebase.google.com/) - data management and store
 - [Semantic-Ui-React](https://github.com/Semantic-Org/Semantic-UI-React) - style
 
-Libraries which we used in project: [here](https://github.com/infoshareacademy/jfdd14-recurrentErr-app/network/dependencies).
+Libraries used in the project: [here](https://github.com/infoshareacademy/jfdd14-recurrentErr-app/network/dependencies).
 
 Homepage
 ============
 
-Homepage of app can be found [here](http://recurrenterr.jfdd14.is-academy.pl/). This page was our first step in making app. Source code [here](http://recurrenterr.jfdd14.is-academy.pl/).
+Homepage of the app can be found [here](http://recurrenterr.jfdd14.is-academy.pl/). This page was our first step in making the app. Source code [here](http://recurrenterr.jfdd14.is-academy.pl/).
 
 [![Crossroads homepage](https://firebasestorage.googleapis.com/v0/b/isa-crossroads.appspot.com/o/homepage-screenshot.png?alt=media&token=c6e5c646-5ce8-4225-8062-af45d697d82b)](http://recurrenterr.jfdd14.is-academy.pl/)
 
 Game
 ============
 
-We also made topdown scrolling [game](http://recurrenterr.jfdd14.is-academy.pl/game.html) accompanying our website.
+We also made a top-down scrolling [game](http://recurrenterr.jfdd14.is-academy.pl/game.html) accompanying our website.
 
 [![Crossroads game](https://firebasestorage.googleapis.com/v0/b/isa-crossroads.appspot.com/o/game-screenshot.png?alt=media&token=e573f316-7d54-4122-898e-536f9266fc1b)](http://recurrenterr.jfdd14.is-academy.pl/game.html)
 
@@ -101,7 +101,7 @@ For example:
 hotfix/1702-style-cleanup
 ```
 
-Creators
+Developers
 ============
 ### Recurrenterr team:
 

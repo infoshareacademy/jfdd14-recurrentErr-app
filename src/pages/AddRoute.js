@@ -139,7 +139,7 @@ class AddRoute extends Component {
               control={Input}
               label="Zdjęcie"
               placeholder="Podaj link URL"
-              value={this.state.photo}
+              value={this.state.photoBig}
               onChange={this.handleNameChange}
             />
             <Form.Field
