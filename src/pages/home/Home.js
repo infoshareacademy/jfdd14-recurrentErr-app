@@ -32,7 +32,7 @@ const distances = [
   [20, 30],
 ];
 
-function Home({ places }) {
+function Home({ places, loggedIn }) {
   const pieData = toPieData(levels, places);
   const barData = toBarData(distances, places);
   const maxDistance = toMaxDistance(places);
@@ -41,24 +41,26 @@ function Home({ places }) {
   return (
     <React.Fragment>
       <Grid centered columns={2} padded>
-        <Grid.Column
-          mobile={14}
-          tablet={12}
-          computer={14}
-          largeScreen={12}
-          verticalAlign="middle"
-        >
-          <ChartCard>
-            <Grid stackable columns={2} className="home__info">
-              <Grid.Column>
-                <Info />
-              </Grid.Column>
-              <Grid.Column className="home__info__column">
-                <InfoImage />
-              </Grid.Column>
-            </Grid>
-          </ChartCard>
-        </Grid.Column>
+        {!loggedIn ? (
+          <Grid.Column
+            mobile={14}
+            tablet={12}
+            computer={14}
+            largeScreen={12}
+            verticalAlign="middle"
+          >
+            <ChartCard>
+              <Grid stackable columns={2} className="home__info">
+                <Grid.Column>
+                  <Info />
+                </Grid.Column>
+                <Grid.Column className="home__info__column">
+                  <InfoImage />
+                </Grid.Column>
+              </Grid>
+            </ChartCard>
+          </Grid.Column>
+        ) : null}
         <Grid.Row>
           <Grid.Column
             mobile={14}

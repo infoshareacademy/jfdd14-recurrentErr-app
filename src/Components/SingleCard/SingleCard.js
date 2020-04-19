@@ -1,7 +1,9 @@
-import React from "react";
+import React, { useContext } from "react";
 import { Button, Grid } from "semantic-ui-react";
+import { LoginContext } from "../../context/LoginContext";
 
 function SingleCard(props) {
+  const contextLogin = useContext(LoginContext);
   return (
     <li className="cards_item">
       <div className="card">
@@ -19,29 +21,33 @@ function SingleCard(props) {
           </p>
           <p className="card_text">Stopień trudności: {props.item.level}</p>
           <Grid>
-            <Grid.Column width={8}>
-              {props.favPlaces.includes(props.item.key) ? (
-                <Button
-                  fluid
-                  id={props.item.key}
-                  onClick={props.onDelFavBtnClick}
-                  color="red"
-                >
-                  {" "}
-                  Usuń z ulubionych
-                </Button>
-              ) : (
-                <Button
-                  fluid
-                  id={props.item.key}
-                  onClick={props.onFavBtnClick}
-                  color="black"
-                >
-                  {" "}
-                  Dodaj do ulubionych
-                </Button>
-              )}
-            </Grid.Column>
+            {contextLogin.isLoggedIn ? (
+              <Grid.Column width={8}>
+                {props.favPlaces.includes(props.item.key) ? (
+                  <Button
+                    fluid
+                    id={props.item.key}
+                    onClick={props.onDelFavBtnClick}
+                    color="red"
+                  >
+                    {" "}
+                    Usuń z ulubionych
+                  </Button>
+                ) : (
+                  <Button
+                    fluid
+                    id={props.item.key}
+                    onClick={props.onFavBtnClick}
+                    color="black"
+                  >
+                    {" "}
+                    Dodaj do ulubionych
+                  </Button>
+                )}
+              </Grid.Column>
+            ) : (
+              null
+            )}
             <Grid.Column width={8}>
               <Button fluid name={props.buttonName} onClick={props.showModal}>
                 Więcej informacji
