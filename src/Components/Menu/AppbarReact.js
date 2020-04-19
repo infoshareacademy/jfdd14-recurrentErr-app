@@ -57,10 +57,9 @@ class AppbarReact extends Component {
             style={{ justifyContent: "flex-end" }}
           >
             <Responsive
-              circular
               as={Button}
               color="black"
-              icon="user circle"
+              content={this.props.loggedIn ? "Wyloguj" : "Zaloguj"}
               {...Responsive.onlyMobile}
             />
             <Responsive
