@@ -21,7 +21,7 @@ const Auth = (props) => {
     return () => {
       clearInterval(id);
     };
-  }, []);
+  }, [contextLogin]);
 
   const onLogInClick = (email, password) => {
     return signIn(email, password)

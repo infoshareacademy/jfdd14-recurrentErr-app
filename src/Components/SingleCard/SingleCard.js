@@ -54,7 +54,6 @@ function SingleCard(props) {
                 </Button>
               </Grid.Column>
             )}
-
             <Grid.Column width={8}>
               <Button fluid name={props.buttonName} onClick={props.showModal}>
                 Więcej informacji

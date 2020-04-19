@@ -61,7 +61,9 @@ const App = () => {
 
   return (
     <BrowserRouter>
-      <AppbarReact loggedIn={isLoggedIn} />
+      <LoginContext.Provider value={contextLogin}>
+        <AppbarReact loggedIn={isLoggedIn} />
+      </LoginContext.Provider>
       <div className="container">
         <Switch>
           <Route exact path="/">
@@ -78,12 +80,16 @@ const App = () => {
             </LoginContext.Provider>
           </Route>
           <Route exact path="/favourites">
-            <Favourites
-              places={places}
-              onFavBtnClick={addToFav}
-              favPlaces={favPlaces}
-              onDelFavBtnClick={delFromFav}
-            />
+            {isLoggedIn ? (
+              <Favourites
+                places={places}
+                onFavBtnClick={addToFav}
+                favPlaces={favPlaces}
+                onDelFavBtnClick={delFromFav}
+              />
+            ) : (
+              <Redirect to="/login"></Redirect>
+            )}
           </Route>
           <Route exact path="/favouritesdetails">
             <FavouritesDetails />
