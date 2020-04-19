@@ -47,19 +47,10 @@ const App = () => {
 
   useEffect(() => {
     getPlaces();
-
-    const id = setInterval(() => {
-      getPlaces();
-    }, REFRESH_INTERVAL);
-    return () => {
-      clearInterval(id);
-    };
-  }, []);
-
-  useEffect(() => {
     getFavs();
 
     const id = setInterval(() => {
+      getPlaces();
       getFavs();
     }, REFRESH_INTERVAL);
     return () => {
