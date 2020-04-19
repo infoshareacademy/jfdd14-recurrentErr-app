@@ -1,34 +1,30 @@
 import React, { useState } from "react";
-import {
-  Button,
-  Form,
-  Grid,
-  Card,
-  Header,
-} from "semantic-ui-react";
+import validator from "validator";
+import { Button, Form, Grid, Card, Header } from "semantic-ui-react";
 import { Link } from "react-router-dom";
 import ErrorMessage from "../ErrorMessage/ErrorMessage";
 import "../Search/SearchForm.css";
 import "../LoginForm/LoginForm.css";
+import "./RegisterForm.css"
 
 const RegisterForm = ({ onSignUpClick, warningMessage, setWarningMessage }) => {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [passwordConfirmed, setPasswordConfirmed] = useState("");
   const [passwordDiffMessage, setPasswordDiffMessage] = useState(false);
-  // const [emailValidationMessage, setEmailValidationMessage] = useState(false);
+  const [emailValidationMessage, setEmailValidationMessage] = useState(false);
 
-  const handleChangeEmail = (e) => {
+  const handleChangeEmail = (e, email) => {
     setEmail(e.target.value);
     setWarningMessage(false);
-    // setEmailValidationMessage(false)
+    setEmailValidationMessage(false);
+    let text = validateEmail(email);
+    return text ? null : setEmailValidationMessage(true);
   };
 
-  const handleChangePassword = (e, email) => {
-    // let text = validateEmail(email);
+  const handleChangePassword = (e) => {
     setPassword(e.target.value);
     setPasswordDiffMessage(false);
-    // return text ? null : setEmailValidationMessage(true)
   };
 
   const handleChangePasswordConfirmed = (e) => {
@@ -36,10 +32,9 @@ const RegisterForm = ({ onSignUpClick, warningMessage, setWarningMessage }) => {
     setPasswordDiffMessage(false);
   };
 
-  // const validateEmail = (email) => {
-  //   let reg = /^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
-  //   return reg.test(String(email).toLowerCase());
-  // };
+  const validateEmail = (email) => {
+    return validator.isEmail(email.value);
+  };
 
   const comparePasswords = () => {
     return password !== passwordConfirmed
@@ -82,17 +77,17 @@ const RegisterForm = ({ onSignUpClick, warningMessage, setWarningMessage }) => {
             type="password"
           />
           {passwordDiffMessage && (
-            <ErrorMessage>Wpisane hasła nie są zgodne</ErrorMessage>
+            <ErrorMessage>Wpisane hasła nie są zgodne!</ErrorMessage>
           )}
-          {warningMessage && (
+          {warningMessage && !emailValidationMessage && (
             <ErrorMessage>
               Użytkownik o podanym adresie email już istnieje!
             </ErrorMessage>
           )}
-          {/* {emailValidationMessage && (
+          {emailValidationMessage ? (
             <ErrorMessage>Niepoprawny adres email!</ErrorMessage>
-          )} */}
-          <Header as="h5" textAlign="left" style={{ opacity: ".5" }}>
+          ) : null}
+          <Header as="h5" textAlign="left" className="register__conditions">
             Rejestrując się, potwierdzasz przeczytanie i akceptację warunków
             usługi i polityki prywatności.
           </Header>
