@@ -20,8 +20,6 @@ function Details(props) {
             <Header>Lokalizacja: {props.item.city}</Header>
 
             <ul>
-       
-              <h4>Informacje o spacerze:</h4>
               <li> Dystans: {props.item.distance} km </li>
               <li> Poziom trudności: {props.item.level}</li>
               <li> Czas trwania: {props.item.time} min </li>
