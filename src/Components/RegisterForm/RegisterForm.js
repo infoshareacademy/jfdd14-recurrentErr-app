@@ -45,7 +45,7 @@ const RegisterForm = ({ onSignUpClick, warningMessage, setWarningMessage }) => {
       : setEmailValidationLengthMessage(false);
   };
 
-  const comparePasswords = (password) => {
+  const comparePasswords = () => {
     return password !== passwordConfirmed
       ? setPasswordDiffMessage(true)
       : onSignUpClick(email, password);
