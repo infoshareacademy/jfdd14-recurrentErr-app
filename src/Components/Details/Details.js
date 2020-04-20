@@ -1,8 +1,10 @@
-import React from "react";
+import React, { useContext } from "react";
 import { Button, Header, Image, Modal } from "semantic-ui-react";
+import { LoginContext } from "../../context/LoginContext";
 import "./details.css";
 
 function Details(props) {
+  const contextLogin = useContext(LoginContext);
   const dimmer = true;
   return (
     <div>
@@ -24,26 +26,30 @@ function Details(props) {
           </Modal.Description>
         </Modal.Content>
         <Modal.Actions>
-          <Button onClick={() => props.closeModal()}>Zamknij</Button>
-          {props.favPlaces.includes(props.item.key) ? (
-            <Button
-              color="red"
-              icon="x"
-              labelPosition="right"
-              content="Usuń z ulubionych"
-              onClick={props.onDelFavBtnClick}
-              id={props.item.key}
-            />
-          ) : (
-            <Button
-              color="black"
-              icon="checkmark"
-              labelPosition="right"
-              content="Dodaj do ulubionych"
-              onClick={props.onFavBtnClick}
-              id={props.item.key}
-            />
-          )}
+          <Button color="black" onClick={() => props.closeModal()}>
+            Zamknij
+          </Button>
+          {contextLogin.isLoggedIn ? (
+            props.favPlaces.includes(props.item.key) ? (
+              <Button
+                color="red"
+                icon="x"
+                labelPosition="right"
+                content="Usuń z ulubionych"
+                onClick={props.onDelFavBtnClick}
+                id={props.item.key}
+              />
+            ) : (
+              <Button
+                color="black"
+                icon="checkmark"
+                labelPosition="right"
+                content="Dodaj do ulubionych"
+                onClick={props.onFavBtnClick}
+                id={props.item.key}
+              />
+            )
+          ) : null}
         </Modal.Actions>
       </Modal>
     </div>

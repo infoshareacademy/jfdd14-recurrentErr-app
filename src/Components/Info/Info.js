@@ -24,9 +24,11 @@ function Info() {
         nową trasę, którą będzie się cieszyć reszta społeczności crossRoads.
       </Header>
       <br></br>
-      <Button secondary className="info__container__button">
-        Zaloguj się
-      </Button>
+      <Link to="/login">
+        <Button secondary className="info__container__button">
+          Zaloguj się
+        </Button>
+      </Link>
     </div>
   );
 }

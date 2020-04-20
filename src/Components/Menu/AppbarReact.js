@@ -3,6 +3,7 @@ import { Menu, Responsive, Button } from "semantic-ui-react";
 import { Link } from "react-router-dom";
 import SidebarReact from "./SidebarReact";
 import ShareModal from "../shareModal/ShareModal.component";
+import { logOut } from "../SignIn/SignIn";
 import logo from "../logo/logoBW.png";
 import "./sidebar.css";
 
@@ -24,6 +25,11 @@ class AppbarReact extends Component {
       sidebarVisible: !this.state.sidebarVisible,
     });
   };
+
+  handleClick = () => {
+    return this.props.loggedIn ? logOut() : null;
+  };
+
   render() {
     const { sidebarVisible, openModal } = this.state;
 
@@ -43,24 +49,28 @@ class AppbarReact extends Component {
             <img src={logo} alt="logo" />
             crossRoads
           </Menu.Item>
-
-          <Responsive
-            as={Menu.Item}
-            minWidth={768}
-            name="Zaloguj"
+          <Menu.Item
+            as={Link}
+            to="/login"
             active
             position="right"
+            onClick={this.handleClick}
+            style={{ justifyContent: "flex-end" }}
           >
-            <Button color="black">Logowanie</Button>
-          </Responsive>
-          <Responsive
-            as={Menu.Item}
-            maxWidth={767}
-            icon="user circle"
-            active
-          ></Responsive>
+            <Responsive
+              as={Button}
+              color="black"
+              content={this.props.loggedIn ? "Wyloguj" : "Zaloguj"}
+              {...Responsive.onlyMobile}
+            />
+            <Responsive
+              as={Button}
+              color="black"
+              content={this.props.loggedIn ? "Wyloguj" : "Zaloguj"}
+              minWidth={Responsive.onlyTablet.minWidth}
+            />
+          </Menu.Item>
         </Menu>
-
         <Responsive
           as={SidebarReact}
           visibility={sidebarVisible || true}

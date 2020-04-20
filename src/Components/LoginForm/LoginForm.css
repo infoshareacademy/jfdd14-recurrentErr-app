@@ -1,0 +1,14 @@
+.form__container {
+  padding: 1.5rem;
+}
+
+.form__btn {
+  width: 100%;
+  margin-top: 2.5rem;
+  background-color: #607d8b !important;
+  color: #fff !important;
+}
+
+.form__message__header{
+  align-self: center;
+}
