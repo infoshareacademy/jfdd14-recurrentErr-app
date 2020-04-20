@@ -5,7 +5,7 @@ import { Link } from "react-router-dom";
 import ErrorMessage from "../ErrorMessage/ErrorMessage";
 import "../Search/SearchForm.css";
 import "../LoginForm/LoginForm.css";
-import "./RegisterForm.css"
+import "./RegisterForm.css";
 
 const RegisterForm = ({ onSignUpClick, warningMessage, setWarningMessage }) => {
   const [email, setEmail] = useState("");
@@ -13,6 +13,7 @@ const RegisterForm = ({ onSignUpClick, warningMessage, setWarningMessage }) => {
   const [passwordConfirmed, setPasswordConfirmed] = useState("");
   const [passwordDiffMessage, setPasswordDiffMessage] = useState(false);
   const [emailValidationMessage, setEmailValidationMessage] = useState(false);
+  const [emailValidationLengthMessage, setEmailValidationLengthMessage] = useState(false);
 
   const handleChangeEmail = (e, email) => {
     setEmail(e.target.value);
@@ -22,9 +23,10 @@ const RegisterForm = ({ onSignUpClick, warningMessage, setWarningMessage }) => {
     return text ? null : setEmailValidationMessage(true);
   };
 
-  const handleChangePassword = (e) => {
+  const handleChangePassword = (e, password) => {
     setPassword(e.target.value);
     setPasswordDiffMessage(false);
+    validatePasswordLength(password);
   };
 
   const handleChangePasswordConfirmed = (e) => {
@@ -36,7 +38,14 @@ const RegisterForm = ({ onSignUpClick, warningMessage, setWarningMessage }) => {
     return validator.isEmail(email.value);
   };
 
-  const comparePasswords = () => {
+  const validatePasswordLength = (password) => {
+    const passwordValue = password.value;
+    return passwordValue.length < 6
+      ? setEmailValidationLengthMessage(true)
+      : setEmailValidationLengthMessage(false);
+  };
+
+  const comparePasswords = (password) => {
     return password !== passwordConfirmed
       ? setPasswordDiffMessage(true)
       : onSignUpClick(email, password);
@@ -86,6 +95,9 @@ const RegisterForm = ({ onSignUpClick, warningMessage, setWarningMessage }) => {
           )}
           {emailValidationMessage ? (
             <ErrorMessage>Niepoprawny adres email!</ErrorMessage>
+          ) : null}
+          {emailValidationLengthMessage ? (
+            <ErrorMessage>Hasło powinno mieć co najmniej 6 znaków!</ErrorMessage>
           ) : null}
           <Header as="h5" textAlign="left" className="register__conditions">
             Rejestrując się, potwierdzasz przeczytanie i akceptację warunków
