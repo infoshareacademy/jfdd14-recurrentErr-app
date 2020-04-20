@@ -1,5 +1,5 @@
 import React, { useContext } from "react";
-import { Button, Grid } from "semantic-ui-react";
+import { Button, Grid, Icon } from "semantic-ui-react";
 import { LoginContext } from "../../context/LoginContext";
 
 function SingleCard(props) {
@@ -25,32 +25,41 @@ function SingleCard(props) {
               <Grid.Column width={8}>
                 {props.favPlaces.includes(props.item.key) ? (
                   <Button
+                    icon
+                    labelPosition="left"
                     fluid
                     id={props.item.key}
                     onClick={props.onDelFavBtnClick}
-                    color="red"
+                    color="brown"
                   >
-                    {" "}
-                    Usuń z ulubionych
+                    <Icon name="heart" />
+                    Usuń
                   </Button>
                 ) : (
                   <Button
+                    icon
+                    labelPosition="left"
                     fluid
                     id={props.item.key}
                     onClick={props.onFavBtnClick}
                     color="black"
                   >
-                    {" "}
-                    Dodaj do ulubionych
+                    <Icon name="heart outline" />
+                    Dodaj
                   </Button>
                 )}
               </Grid.Column>
-            ) : (
-              null
-            )}
+            ) : null}
             <Grid.Column width={8}>
-              <Button fluid name={props.buttonName} onClick={props.showModal}>
-                Więcej informacji
+              <Button
+                icon
+                labelPosition="left"
+                fluid
+                name={props.buttonName}
+                onClick={props.showModal}
+              >
+                <Icon name="info circle" />
+                Info
               </Button>
             </Grid.Column>
           </Grid>
