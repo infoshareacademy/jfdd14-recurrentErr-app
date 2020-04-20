@@ -18,10 +18,14 @@ function Details(props) {
           <Image size="medium" src={props.item.photoBig} />
           <Modal.Description>
             <Header>Lokalizacja: {props.item.city}</Header>
-            <p>
-              Informacje o spacerze: dystans: {props.item.distance}km, poziom
-              trudności: {props.item.level}
-            </p>
+
+            <ul>
+              {" "}
+              <h4>Informacje o spacerze:</h4>
+              <li> Dystans: {props.item.distance} km </li>
+              <li> Poziom trudności: {props.item.level}</li>
+              <li> Czas trwania: {props.item.time} min </li>
+            </ul>
             <p>{props.item.description}</p>
           </Modal.Description>
         </Modal.Content>
