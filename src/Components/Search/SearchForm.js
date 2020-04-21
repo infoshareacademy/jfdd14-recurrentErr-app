@@ -1,5 +1,5 @@
 import React from "react";
-import { Header, Grid, Card, Form, Dropdown } from "semantic-ui-react";
+import { Header, Grid, Form, Dropdown } from "semantic-ui-react";
 import "../Search/SearchForm.css";
 
 const options = [
@@ -22,7 +22,6 @@ function SearchForm({
         <Header as="h2">Wyszukaj trasę</Header>
       </Grid.Column>
       <Grid.Column
-        as={Card}
         className="cardElements"
         textAlign="center"
         tablet={15}

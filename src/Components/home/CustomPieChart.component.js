@@ -13,7 +13,7 @@ const pieChardStyle = {
   height: "40vh",
 };
 
-const colors = ["#51d597", "#d5518f", "#5551d5"];
+const colors = ["#a5673f", "#3fa567", "#673fa5"];
 
 function CustomPieChart({ pieData }) {
   return (

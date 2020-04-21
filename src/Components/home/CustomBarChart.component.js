@@ -37,7 +37,7 @@ function CustomBarChart({ barData }) {
             tickLine={false}
           />
           <Tooltip />
-          <Bar dataKey="value" barSize={20} fill="#5551d5" />
+          <Bar dataKey="value" barSize={20} fill="#673fa5" />
         </BarChart>
       </ResponsiveContainer>
     </div>

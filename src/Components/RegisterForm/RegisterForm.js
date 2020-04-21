@@ -13,7 +13,10 @@ const RegisterForm = ({ onSignUpClick, warningMessage, setWarningMessage }) => {
   const [passwordConfirmed, setPasswordConfirmed] = useState("");
   const [passwordDiffMessage, setPasswordDiffMessage] = useState(false);
   const [emailValidationMessage, setEmailValidationMessage] = useState(false);
-  const [emailValidationLengthMessage, setEmailValidationLengthMessage] = useState(false);
+  const [
+    emailValidationLengthMessage,
+    setEmailValidationLengthMessage,
+  ] = useState(false);
 
   const handleChangeEmail = (e, email) => {
     setEmail(e.target.value);
@@ -97,7 +100,9 @@ const RegisterForm = ({ onSignUpClick, warningMessage, setWarningMessage }) => {
             <ErrorMessage>Niepoprawny adres email!</ErrorMessage>
           ) : null}
           {emailValidationLengthMessage ? (
-            <ErrorMessage>Hasło powinno mieć co najmniej 6 znaków!</ErrorMessage>
+            <ErrorMessage>
+              Hasło powinno mieć co najmniej 6 znaków!
+            </ErrorMessage>
           ) : null}
           <Header as="h5" textAlign="left" className="register__conditions">
             Rejestrując się, potwierdzasz przeczytanie i akceptację warunków
