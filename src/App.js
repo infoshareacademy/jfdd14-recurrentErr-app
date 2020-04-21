@@ -16,7 +16,7 @@ import { LoginContext } from "./context/LoginContext";
 import "./App.css";
 
 const API_URL = "https://isa-crossroads.firebaseio.com/places/.json";
-const REFRESH_INTERVAL = 2000;
+const REFRESH_INTERVAL = 5000;
 
 const userId = localStorage.getItem("localId");
 
@@ -42,40 +42,42 @@ const App = () => {
   };
 
   const getPlaces = () => {
-    async function fetchData() {
-      return fetch(API_URL)
-        .then((response) => response.json())
-        .then((placesObject) => {
-          const placesArray = mapObjectToArray(placesObject);
-          setPlaces(placesArray);
-        });
-    }
-    fetchData();
+    return fetch(API_URL)
+      .then((response) => response.json())
+      .then((placesObject) => {
+        const placesArray = mapObjectToArray(placesObject);
+        setPlaces(placesArray);
+      });
   };
 
   useEffect(() => {
     getPlaces();
-    getFavs();
+    if (isLoggedIn) {
+      getFavs();
+    }
 
     const id = setInterval(() => {
-      getPlaces();
-      getFavs();
+      if (isLoggedIn) {
+        getPlaces();
+        getFavs();
+      }
     }, REFRESH_INTERVAL);
     return () => {
       clearInterval(id);
     };
-  }, []);
+  }, [isLoggedIn]);
 
   useEffect(() => {
-    fetch(
-      `https://isa-crossroads.firebaseio.com/users/${userId}/favourites` +
-        ".json",
-      {
-        method: "PUT",
-        body: JSON.stringify(favPlaces),
-      },
-      [favPlaces]
-    );
+    if (isLoggedIn) {
+      fetch(
+        `https://isa-crossroads.firebaseio.com/users/${userId}/favourites` +
+          ".json",
+        {
+          method: "PUT",
+          body: JSON.stringify(favPlaces),
+        }
+      );
+    }
   });
 
   const addToFav = (event) => {
