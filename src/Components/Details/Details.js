@@ -28,13 +28,11 @@ function Details(props) {
           </Modal.Description>
         </Modal.Content>
         <Modal.Actions>
-          <Button color="black" onClick={() => props.closeModal()}>
-            Zamknij
-          </Button>
+          <Button onClick={() => props.closeModal()}>Zamknij</Button>
           {contextLogin.isLoggedIn ? (
             props.favPlaces.includes(props.item.key) ? (
               <Button
-                color="red"
+                color="brown"
                 icon="x"
                 labelPosition="right"
                 content="Usuń z ulubionych"
