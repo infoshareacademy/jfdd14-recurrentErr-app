@@ -17,7 +17,8 @@ function SingleCard(props) {
         <div className="card_content">
           <p className="card_title">"{props.item.name}"</p>
           <p className="card_text">
-            {props.item.city} || dystans: {props.item.distance}km
+            {props.item.city} || Dystans: {props.item.distance} km || Czas
+            trwania: {props.item.time} min
           </p>
           <p className="card_text">Stopień trudności: {props.item.level}</p>
           <Grid>
@@ -45,9 +46,7 @@ function SingleCard(props) {
                   </Button>
                 )}
               </Grid.Column>
-            ) : (
-              null
-            )}
+            ) : null}
             <Grid.Column width={8}>
               <Button fluid name={props.buttonName} onClick={props.showModal}>
                 Więcej informacji
